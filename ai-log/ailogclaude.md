@@ -2,12 +2,11 @@
 
 **Data:** 2026-08-28
 **Projeto:** Jovens Talentos AI Builder 2026 — Seazone · Itapema-SC
-**Escopo da sessão:** revisão de consistência analítica e acabamento visual dos
-entregáveis em HTML. Nenhum número da análise foi recalculado por decisão da IA —
-as premissas e os resultados vêm do trabalho anterior; o que mudou foi **como**
-eles aparecem e **onde** o notebook contradizia o relatório.
 
-**Commits gerados:**
+Log da conversa, na ordem em que aconteceu. Cada bloco traz o que foi pedido e o
+que a IA fez em resposta.
+
+**Commits gerados na sessão:**
 
 | Hash | Assunto |
 |---|---|
@@ -15,95 +14,75 @@ eles aparecem e **onde** o notebook contradizia o relatório.
 | `0c6bb22` | tipografia dos HTMLs: Playfair Display + Bebas Neue + Inter/Lato |
 | `18c484f` | legibilidade das tabelas: cabeçalho nítido, números pt-BR, fim do MathJax |
 | `b94dc76` | matriz do deep-dive (seção 8): paleta suave e cabeçalho de uma linha |
+| `1d2d735` | ai-log: registro da sessão |
 
 ---
 
-## 1. Leitura inicial do repositório
+## Turno 1 — "leia essa folder"
 
-Pedido: ler a pasta e entender o projeto.
+**Pedido:** ler a pasta do projeto.
 
-A IA mapeou a estrutura (`data/`, `analise/`, `scripts/`, `docs/`, `reports/`) e
-leu `README.md`, `reports/recomendacao_executiva.md` e `docs/metodologia.md`.
+**O que a IA fez:** mapeou a estrutura (`data/`, `analise/`, `scripts/`, `docs/`,
+`reports/`) e leu o `README.md`, a recomendação executiva e a metodologia.
 
-Resumo do que foi entendido, para registro:
+Devolveu um resumo do projeto: a recomendação de comprar compactos de 1–2 quartos
+na faixa costeira, na ordem Meia Praia 1q → Morretes 2q → Centro 2q; a tese interna
+"studios/1qto no Centro" refutada pelos dados; e `is_professional` como único sinal
+robusto de receita.
 
-- Tese entregue: comprar compactos (1–2 quartos) na faixa costeira, na ordem
-  Meia Praia 1q → Morretes 2q → Centro 2q.
-- Tese interna refutada: "studios/1qto no Centro" — studio quase não existe
-  (116 de 1 quarto contra 2 studios no Centro) e o Centro não lidera retorno.
-- Único sinal robusto de receita: `is_professional` (+25% a +54% no R$/noite).
-
-Pendências apontadas na leitura: link do vídeo ainda em branco no `README.md`
-e a pasta `ai-log/` vazia, apesar de citada como entregável.
-**Este arquivo resolve a segunda.**
+Apontou duas pendências que viu de passagem: o link do vídeo em branco no README e
+a pasta `ai-log/` vazia, apesar de citada como entregável.
 
 ---
 
-## 2. Inconsistência entre o notebook e o relatório
+## Turno 2 — mapa sobreposto + inconsistência entre notebook e relatório
 
-### O problema (levantado pelo autor, não pela IA)
+**Pedido (dois itens, com print anexado):**
 
-O notebook, nas seções 4 e 5, calculava o Cap Rate com **ocupação simétrica**
-(a mesma para todos os bairros) e afirmava textualmente que *"o ranking é estável
-à ocupação"*, com **Morretes 2q** como vencedor absoluto. O relatório executivo
-recomenda **Meia Praia 1q**, porque aplica **ocupação diferencial por perfil de
-bairro**. Quem lesse os dois documentos em sequência veria uma contradição.
+1. Corrigir a sobreposição dos rótulos no print estático do mapa, que estavam
+   colidindo entre si e com a legenda.
+2. Resolver uma inconsistência importante: o notebook, nas seções 4 e 5, usava
+   ocupação simétrica e mostrava Morretes 2q como vencedor absoluto, afirmando que
+   *"o ranking é estável à ocupação"*; o relatório executivo recomenda Meia Praia
+   1q, porque usa ocupação diferencial por bairro. Quem lê os dois vê contradição.
 
-A raiz é conceitual e vale registrar: o ranking por `k = R$/noite × 365 ÷ preço`
-é de fato invariante à ocupação **enquanto a ocupação for a mesma para todos**.
-A frase "o ranking é estável à ocupação" era verdadeira dentro daquela premissa e
-enganosa fora dela. Ocupação diferente por bairro deixa de ser um fator de escala
-comum e passa a reordenar as células.
+O pedido veio com a especificação completa: título sugerido para a nova seção
+("5b. Ocupação diferencial por perfil de bairro (visão realista)"), o texto em
+markdown, as colunas da tabela, a ordenação, o parágrafo de fechamento e a
+correção exata a aplicar no texto da seção 5.
 
-### O que foi feito
+**O que a IA fez:**
 
-Nova **seção 5b — "Ocupação diferencial por perfil de bairro (visão realista)"**,
-inserida entre a 5 e a 6, sem renumerar as seguintes. Contém:
+- Inseriu a **seção 5b** entre a 5 e a 6, sem renumerar as seguintes, com o
+  markdown especificado, a tabela de Cap Rate diferencial ordenada pela faixa alta
+  e um parágrafo final apontando para o relatório.
+- Acrescentou à célula duas linhas impressas que tornam a inversão explícita:
+  `Lider sob ocupacao simetrica: morretes 2q` /
+  `Lider sob ocupacao diferencial: meia praia 1qto`.
+- Reescreveu o trecho da seção 5, que passou a dizer que a ocupação simétrica é
+  premissa fraca e a apontar para a 5b.
+- **Mapa estático:** trocou o offset fixo dos rótulos por um declutter com
+  detecção de colisão em pixels — marcadores e legenda entram como regiões
+  ocupadas e cada rótulo pega o primeiro de 12 posições candidatas que não colide.
+- Reexecutou o notebook, regenerou o HTML de apresentação e commitou.
 
-- o texto explicando por que a premissa simétrica é fraca (Meia Praia é beira-mar
-  consolidado; Morretes fica a ~500m da praia e tem 1.010 anúncios de venda no
-  VivaReal, sinal de oversupply);
-- as faixas assumidas — Meia Praia 60–65%, Centro 55–60%, Morretes 45–55% —
-  com a ressalva explícita de que **não vêm dos dados, e sim de leitura de mercado**;
-- uma tabela ordenada pelo Cap diferencial da faixa alta;
-- duas linhas impressas que tornam a inversão explícita:
+**Conferência:** os números da 5b bateram com o relatório (Meia Praia 1q
+12,4–13,4%, Morretes 2q 10,3–12,6%) e os 8 rótulos do mapa ficaram legíveis.
 
-  ```
-  Lider sob ocupacao simetrica  : morretes 2q
-  Lider sob ocupacao diferencial: meia praia 1qto
-  ```
-
-O texto da seção 5 foi corrigido para não afirmar mais estabilidade sem
-qualificação, e agora aponta para a 5b.
-
-Os números da 5b batem exatamente com o relatório: Meia Praia 1q 12,4–13,4%,
-Morretes 2q 10,3–12,6%, Centro 2q 10,7–11,6%, Centro 1q 10,6–11,5%.
-
-### Sobreposição de rótulos no mapa estático
-
-No mesmo pedido, o autor mostrou um print em que os rótulos do mapa estático se
-sobrepunham entre si e à legenda. A causa era um offset **fixo** `(8, 6)` para
-todos os rótulos: células do mesmo bairro compartilham praticamente o mesmo
-centroide, então os textos empilhavam.
-
-Solução: declutter com detecção de colisão em pixels. Marcadores e a caixa da
-legenda entram como regiões ocupadas; cada rótulo, na ordem decrescente de Cap
-Rate (o vencedor escolhe primeiro), recebe o primeiro de 12 offsets candidatos
-que não colide. Rótulos afastados ganham linha-guia até o ponto e todos têm
-fundo branco semitransparente.
+**Observações que a IA devolveu:** a coluna "Premissa" da nova tabela saiu
+constante, porque todas as células sobreviventes têm perfil atribuído; e o commit
+levou junto alterações que já estavam pendentes na árvore antes da sessão.
 
 ---
 
-## 3. Tipografia dos HTMLs
+## Turno 3 — troca de fontes
 
-Pedido: Playfair Display nos títulos, Bebas Neue nos destaques de impacto,
-Inter/Lato no corpo.
+**Pedido:** mudar as fontes dos HTMLs — Playfair Display nos títulos, Bebas Neue
+nos destaques de impacto, Inter/Lato no corpo.
 
-**Decisão de implementação:** a troca foi feita nos **geradores**
-(`scripts/apresentacao.py`, `scripts/map_cell.py`, `scripts/template_sem_codigo.tpl`)
-e não nos HTMLs de saída, para sobreviver ao próximo
-`py scripts/apresentacao.py`. Editar o HTML gerado teria funcionado uma vez e
-sumido na regeneração seguinte.
+**O que a IA fez:** aplicou a troca nos **geradores** (`scripts/apresentacao.py`,
+`scripts/map_cell.py` e o template), e não nos HTMLs de saída, para a mudança
+sobreviver à próxima regeneração.
 
 | Papel | Fonte | Onde |
 |---|---|---|
@@ -111,158 +90,101 @@ sumido na regeneração seguinte.
 | Destaque | Bebas Neue | cabeçalho de tabela, Cap Rate nos popups do mapa, escala da legenda, classe `.impacto` |
 | Corpo | Inter → Lato | `p`, `li`, `td`, blockquote |
 
-Código e saída de terminal seguem monoespaçados de propósito.
+Código e saída de terminal seguiram monoespaçados. A legenda do mapa foi
+reconstruída como card, com título em Playfair e escala em Bebas.
 
-### Dois detalhes que exigiram cuidado
-
-- **Bebas Neue só tem o peso 400.** O `th` estava em `font-weight: 700`, o que
-  produziria bold sintético (borrado). Foi para 400, compensado com caixa alta,
-  tracking e corpo maior.
-- **`--jp-content-font-family` do nbconvert vencia a regra do `body`.** Na
-  primeira rodada os títulos e cabeçalhos já estavam certos, mas `p`, `li` e `td`
-  continuavam em `system-ui`. Foi preciso sobrescrever a própria variável do
-  Jupyter. Detectado por verificação no browser, não a olho.
-
-Fallbacks para leitura offline: Georgia (título), Arial Narrow (impacto),
-Segoe UI (corpo).
+Numa primeira rodada os títulos e cabeçalhos já estavam certos, mas os parágrafos
+continuavam na fonte antiga; a IA detectou isso conferindo no browser e corrigiu
+antes de fechar o turno.
 
 ---
 
-## 4. Legibilidade das tabelas
+## Turno 4 — cabeçalhos embaçados e coluna ilegível
 
-Pedido: cabeçalhos embaçados e a coluna "Receita anual bruta" ilegível, em outra fonte.
+**Pedido (com print):** os títulos das tabelas ficaram um pouco embaçados; e os
+valores da coluna "Receita anual bruta" estão em outra fonte, não dá para ler.
 
-### 4.1 Cabeçalhos embaçados
+**O que a IA fez:**
 
-Bebas Neue a 15px, em branco sobre fundo escuro, fica fino e "lava" no
-antialiasing. Como a fonte não tem peso acima de 400, engrossar com bold não era
-opção. Corrigido pelo corpo e pela renderização: 17px, tracking de 0,055 para
-0,045em, `subpixel-antialiased`, `optimizeLegibility` e `font-synthesis: none`.
-
-### 4.2 A coluna em serif itálico — não era fonte, era MathJax
-
-Diagnóstico que mudou completamente a solução. A string era
-`R$ 108.405 a R$ 117.439`, com **dois cifrões**. O MathJax embutido pelo nbconvert
-lê `$...$` como delimitador de LaTeX inline, capturou `108.405 a R` e tipografou o
-trecho como matemática — daí o `R108,405aR` em serif itálico que aparecia no print.
-
-Solução: helper `brl_faixa()` que usa **um único cifrão** —
-`R$ 108.405 a 117.439`. Verificado depois que
-`document.querySelectorAll('mjx-container').length === 0` na página inteira.
-
-Registro da lição: em relatório em português gerado por nbconvert, qualquer célula
-com dois `R$` é candidata a virar equação sem aviso.
-
-### 4.3 Números em padrão brasileiro (ajuste adjacente ao pedido)
-
-Os valores saíam no padrão inglês — `R$ 877,500` e `12.4%` — que num documento em
-português se lê como *877 reais e 50 centavos*. Foram criados os helpers
-`num_br` / `brl` / `pct_br` na célula de helpers e aplicados em todas as tabelas.
-
-### 4.4 Bug encontrado durante a verificação (fora do pedido)
-
-A regra `table.no-index th:first-child { display: none }` estava escondendo a
-**primeira coluna de dados de todas as tabelas** do HTML de apresentação: o `#`
-do ranking em cinco delas e a coluna `Recomendação` — com os fundos verde, oliva,
-dourado e cinza do 1º/2º/3º/Fora — no cartão do investimento.
-
-A regra existia para esconder o índice do pandas, mas todos os `display()` já usam
-`Styler.hide(axis='index')`, que remove o índice no próprio HTML. Auditadas as 11
-tabelas: nenhuma sai com `<th>` vazio à esquerda, então a regra só tinha coluna
-real para consumir. Removida.
-
-Foi notado porque a tabela do print começava em "BAIRRO / TIPO" — a coluna de
-prioridade, que é o ponto do cartão, nunca havia aparecido no HTML.
+- **Cabeçalhos:** aumentou o corpo de 15px para 17px, reduziu o tracking e ajustou
+  a renderização (`subpixel-antialiased`, `optimizeLegibility`,
+  `font-synthesis: none`). Bebas Neue não tem peso acima de 400, então não dava
+  para engrossar com negrito.
+- **Coluna da receita:** o texto não estava em outra fonte por escolha de estilo —
+  os dois cifrões de `R$ 108.405 a R$ 117.439` faziam o MathJax do nbconvert
+  tratar o meio da frase como fórmula. Passou a usar um cifrão só:
+  `R$ 108.405 a 117.439`.
+- **Números em padrão brasileiro** (ajuste adjacente, comunicado): os valores
+  saíam como `R$ 877,500` e `12.4%`. Novos helpers passaram tudo para milhar com
+  ponto e decimal com vírgula.
+- **Achado fora do pedido:** uma regra de CSS escondia a primeira coluna de dados
+  de todas as tabelas — o `#` do ranking e a coluna `Recomendação` colorida do
+  cartão do investimento. A IA sinalizou e corrigiu, explicando que a coluna de
+  prioridade nunca havia aparecido no HTML.
 
 ---
 
-## 5. Matriz do deep-dive (seção 8)
+## Turno 5 — matriz do deep-dive (seção 8)
 
-Pedido em seis itens: cores menos saturadas, cabeçalho de uma linha, caixa normal,
-fundo neutro para sinal fraco, mais respiro vertical, números maiores e semibold.
+**Pedido:** seis ajustes na tabela da seção 8 — cores menos saturadas (mint e
+salmão), cabeçalho de uma linha só (sem os rótulos `CELULA` e `CARAC`), caixa
+normal no lugar de caixa alta, fundo neutro para valores entre −5% e +5%, mais
+respiro vertical, e números maiores em semibold. Depois, regenerar o HTML e avisar.
+
+**O que a IA fez:** aplicou os seis itens.
 
 | Item | Antes | Depois |
 |---|---|---|
-| Cores | verde `#138a4f` / vermelho `#c0452e`, texto branco | mint `#d6efe0` / salmão `#fadfd7`, texto escuro |
-| Cabeçalho | 3 faixas (`CELULA` e `CARAC` quase vazias) | 1 faixa, só os bairros |
+| Cores | verde e vermelho saturados, texto branco | mint `#d6efe0` / salmão `#fadfd7`, texto escuro |
+| Cabeçalho | 3 faixas | 1 faixa, só os bairros |
 | Caixa | `IS_PROFESSIONAL`, `CENTRO 1QTO` | `is_professional`, `Meia Praia 1qto` |
 | Sinal fraco | pastel colorido | cinza neutro `#f2f1ed` |
 | Respiro | linhas coladas | padding 15px + 3px de vão |
 | Números | herdados do corpo | Inter 15px semibold, tabulares |
 
-**Origem da caixa alta:** não vinha do notebook. Era a regra global de `th`
-(Bebas Neue + `text-transform: uppercase`) introduzida no item 3 desta mesma
-sessão. Boa nas tabelas de ranking, atropelava a matriz, onde os rótulos são nomes
-de campo. Resolvido com a classe `.deep-dive`, que devolve a fonte de corpo em
-caixa normal apenas ali. Os rótulos de coluna usam `.capitalize()` por palavra e
-não `.title()`, que transformaria `1qto` em `1Qto`.
+A caixa alta vinha da regra global de cabeçalho criada no turno 3; a IA isolou a
+matriz numa classe própria para não afetar as tabelas de ranking.
 
-### Dois ajustes que surgiram da verificação
+**Dois ajustes que surgiram na verificação e foram comunicados:** o valor exibido
+como `-5%` estava pintado de salmão porque o número real é −5,4%, e o teste passou
+a comparar o valor arredondado; e o cinza escolhido para o ruído ficou abaixo do
+mínimo de contraste, então foi escurecido.
 
-- **`-5%` estava pintado de salmão.** O valor real é −5,4%: exibia `-5%`, dentro
-  da faixa de ruído, mas era colorido como sinal forte. O teste passou a comparar
-  o valor **arredondado**, o mesmo que o leitor vê. É justamente o
-  `is_professional` no Centro 1qto — a célula fraca da linha mais importante da
-  matriz.
-- **Contraste do cinza.** O primeiro tom escolhido dava 3,04:1, abaixo do mínimo
-  WCAG AA. Escurecido para `#6f6a5e` (4,77:1), continuando recuado em relação às
-  células com sinal.
-
-Contrastes finais: mint 6,61 · salmão 6,05 · cabeçalho 6,41 · rótulos de linha
-14,19 · ruído 4,77. Todos em AA.
-
-Os estilos estruturais foram duplicados no `Styler.set_table_styles` para a tabela
-sair correta também no notebook e no nbviewer, onde o CSS de
-`scripts/apresentacao.py` não é aplicado.
+A IA avisou que não conseguiu tirar print — o painel do navegador não estava
+visível — e que validou pelo DOM, sugerindo conferência visual do autor.
 
 ---
 
-## 6. Como o trabalho foi verificado
+## Turno 6 — criação do ai-log
 
-Registro do método, já que o critério do desafio inclui uso responsável de IA:
+**Pedido:** *"Muito bom, eu olhei e gostei. Crie um arquivo .md de ai-log dessa
+nossa sessão e suba na pasta ailog. Suba como ailogclaude.md"*
 
-- **Helpers de formatação** testados isoladamente antes de entrar no notebook
-  (`brl(877500)` → `R$ 877.500`, `pct_br(0.134)` → `13,4%`).
-- **Notebook reexecutado de ponta a ponta** a cada mudança, via
-  `scripts/apresentacao.py`, que executa e regenera o HTML no mesmo passo.
-- **Verificação no browser por DOM computado**, não a olho: famílias de fonte
-  efetivamente aplicadas por elemento, contagem de linhas de cabeçalho,
-  `text-transform`, cores de fundo por célula, contagem de `mjx-container` e
-  razões de contraste calculadas.
-- **Mapa estático** conferido por imagem depois do declutter, com os 8 rótulos
-  legíveis e sem colisão com a legenda.
-
-O painel de navegador não ficou visível no fim da sessão, então a validação da
-seção 8 foi feita só por DOM, e isso foi comunicado em vez de afirmar conferência
-visual.
+**O que a IA fez:** criou `ai-log/ailogclaude.md` e commitou, preenchendo a pasta
+que estava vazia desde o começo da sessão. A primeira versão foi organizada por
+tema, com seções de causa-raiz, método de verificação e divisão de trabalho.
 
 ---
 
-## 7. Pendências deixadas em aberto
+## Turno 7 — reformatação deste log
 
-1. **Popup do mapa conta cotações, não imóveis.** Em `scripts/map_cell.py` a
-   agregação usa `n=('airbnb_listing_id', 'count')` sobre uma base com uma linha
-   por listing × data de preço; o correto seria `nunique()`. Por isso o popup de
-   Meia Praia 1qto diz "3494 imóveis". O raio do marcador satura em `min(n, 60)`,
-   então visualmente não aparece — só o texto está inflado. Levantado pela IA,
-   não corrigido por estar fora do escopo pedido.
+**Pedido:** *"Atualize o ailog inclusive com essa mensagem. Eu quero que seja da
+conversa em si, nao precisa ser com causas raiz etc"*
+
+**O que a IA fez:** reescreveu o arquivo no formato atual — log da conversa, turno
+a turno, na ordem em que aconteceu, com o pedido e a resposta de cada rodada.
+Saíram as seções de análise de causa-raiz, método de verificação e divisão de
+trabalho; o que sobrou das causas técnicas ficou em uma linha, quando fazia parte
+da narrativa do turno. Este turno também está registrado.
+
+---
+
+## Pendências deixadas em aberto
+
+1. **Popup do mapa conta cotações, não imóveis** — em `scripts/map_cell.py` a
+   agregação usa `count()` onde caberia `nunique()`, por isso o popup de Meia
+   Praia 1qto diz "3494 imóveis". Levantado pela IA em dois turnos, não corrigido
+   por estar fora do escopo pedido.
 2. **Link do vídeo** ainda em branco no `README.md`.
 3. **`analise/apresentacao_bruta.html`** é resíduo de uma versão anterior do
    pipeline e está fora do controle de versão; vale um `.gitignore`.
-
----
-
-## 8. Divisão de trabalho nesta sessão
-
-- **Direção, diagnóstico de negócio e critérios visuais:** do autor. A
-  inconsistência entre notebook e relatório, a especificação da seção 5b
-  (título, texto, colunas da tabela, ordenação) e os seis itens da matriz do
-  deep-dive vieram prontos no pedido.
-- **Execução, investigação de causa-raiz e verificação:** da IA. As causas do
-  serif itálico (MathJax), da coluna sumida (`no-index`), do borrão no cabeçalho
-  (Bebas Neue sem peso 700) e do `p` em `system-ui`
-  (`--jp-content-font-family`) foram diagnosticadas na sessão, não relatadas
-  pelo autor — que reportou apenas os sintomas visíveis.
-- **Achados fora do pedido** (coluna `Recomendação` oculta, `-5%` mal colorido,
-  contraste abaixo de AA, popup do mapa) foram comunicados explicitamente, com
-  a distinção entre o que foi corrigido e o que ficou em aberto.
