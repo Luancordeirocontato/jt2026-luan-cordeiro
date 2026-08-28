@@ -23,6 +23,8 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 
 \** **Nota sobre Centro 1q vs Centro 2q:** os Cap Rates são próximos (10,6–13,4% vs 10,7–13,6%) — a distinção **não** é de retorno, e sim de **confiança de dados** (Centro 1q tem apenas 18 anúncios de venda contra 89 do Centro 2q) e do fato de Centro 1q ser exatamente a tese interna que os dados refutam.
 
+> **Nota (caveat):** o Cap Rate de **Meia Praia 1q repousa em n=28 imóveis** no lado Airbnb (bem no limite do corte metodológico). Recomenda-se **validar com dados proprietários de ocupação real da Seazone** antes do commit de capital.
+
 ### Por que esta ordem (premissa diferencial)
 
 - **Meia Praia 1q (1ª):** melhor **eficiência por m²** da cidade (R$2.710/m²/ano a 60% de ocupação — a maior), beira-mar consolidado, maior demanda e ocupação sustentável (estimada 60–65% vs 45–55% de Morretes). No cenário de ocupação **diferencial por perfil de bairro**, é o que lidera (Cap 12,4%–13,4%). É também o mais alinhado à marca Seazone (beira-mar, produto de temporada).
@@ -51,7 +53,7 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 
 Testamos, dentro dos compactos da beira-mar, quais características separam os imóveis que conseguem R$/noite maior:
 
-| Característica | Efeito no R$/noite | Veredicto |
+| Característica | Efeito no R$/noite | Conclusão para a decisão |
 |---|---|---|
 | **Gestão profissional (`is_professional`)** | **+25% a +54%** | ✅ **Única defensável** — priorize |
 | Reserva instantânea (`can_instant_book`) | +31% isolado, mas sem prêmio próprio quando profissional | ⚠️ Proxy do profissional (não recomendação separada) |

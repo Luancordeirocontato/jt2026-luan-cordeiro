@@ -11,7 +11,7 @@ gestão profissional — priorizando **Meia Praia 1q** (retorno sólido + efici�
 
 ## O que este repo entrega
 
-- **Recomendação executiva** (sem código, para decisor): `reports/recomendacao_executiva.md`
+- **Recomendação executiva** (sem código, para decisor): [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
 - **Análise reproduzível** (notebook executado, com números): `analise/01_analise_principal.ipynb`
 - **Metodologia e ressalvas**: `docs/metodologia.md`
 - **Scripts auxiliares** (cap rate, deep-dive, cartão): `scripts/`
@@ -59,6 +59,8 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
 
 ## Como abrir (sem rodar nada)
 
+- **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
+  — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
 - **Apresentação (HTML sem código, pronto pra tela):** [abrir `analise/apresentacao_sem_codigo.html`](analise/apresentacao_sem_codigo.html)
   — versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
 - **Mapa interativo (Cap Rate por bairro × tipo):** [abrir `analise/mapa_interativo.html`](analise/mapa_interativo.html)
