@@ -54,7 +54,8 @@ jupyter notebook analise/
 ```
 
 O notebook executa de ponta a ponta (preparação → Cap Rate → sensibilidade →
-eficiência → confiança → deep-dive → cartão). Todo o raciocínio e decisões metodológicas
+eficiência → confiança → deep-dive → cartão). Todo o raciocínio e decisões
+metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-log/`.
 
 ## Como abrir (sem rodar nada)
 
@@ -66,7 +67,6 @@ eficiência → confiança → deep-dive → cartão). Todo o raciocínio e deci
   — o notebook executado renderiza o folium ao vivo e as imagens, sem precisar clonar o repo.
 
 Para regenerar o HTML de apresentação: `py scripts/apresentacao.py` (gera `analise/apresentacao_sem_codigo.html`).
-estão em `docs/metodologia.md` e o transcript da sessão em `ai-log/`.
 
 ## Estrutura
 
