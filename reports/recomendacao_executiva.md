@@ -104,4 +104,36 @@ Testamos, dentro dos compactos da beira-mar, quais características separam os i
 
 ---
 
+## 7. O que eu faria com mais uma semana
+
+A seção 6 é o que recomendo **à Seazone**. Esta é a minha própria fila de trabalho —
+ordenada por quanto mudaria a resposta, não por quanto aumentaria a precisão decimal.
+As considerações finais do notebook (seção 11) trazem só os três primeiros, que são os
+que mudam a recomendação; a lista completa é esta.
+
+**Muda a resposta**
+
+1. **Ocupação real.** Todo Cap Rate depende da faixa assumida de 45–70% — a maior
+   incerteza do trabalho. Além da base proprietária da Seazone, há uma pista nos
+   próprios dados: o `Price_AV` traz de 1 a 3 capturas por par *(imóvel, data de
+   estadia)*; testar se uma data que some entre capturas indica reserva transformaria
+   ocupação de premissa em medida.
+2. **Cap Rate líquido.** `monthly_condo_fee` está preenchido em 70,1% dos anúncios e
+   `yearly_iptu` em 67,4% — dá para reportar retorno líquido em dois terços da amostra,
+   em vez de tratá-los como campo indisponível.
+3. **Regressão para o sinal invertido** de superhost, rating e reviews (seção 3), que
+   hoje tem mais cara de confundimento com gestão profissional do que de descoberta.
+
+**Aumenta a confiança na resposta atual**
+
+4. **Bootstrap** para dar intervalo de confiança por célula, em vez de mediana pontual —
+   deve mostrar que Centro 1q e Centro 2q são estatisticamente indistinguíveis.
+5. **Distância até a praia como variável contínua**, no lugar do nome do bairro: o
+   episódio de Morretes (seção 4) mostrou que a coordenada carrega sinal que o rótulo
+   não carrega.
+6. **Ticket real por reserva**, incorporando `cleaning_fee` (100% preenchido, mediana
+   R$ 250) — hoje fora do modelo de receita.
+
+---
+
 *Reproduzível em `analise/01_analise_principal.ipynb` · metodologia e ressalvas em `docs/metodologia.md`.*

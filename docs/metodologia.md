@@ -83,8 +83,11 @@
 
 ## Corte de volume das células (para ranking pareado)
 - **Mínimos: N≥20 listagens Airbnb E M≥15 anúncios VivaReal por célula**
-  `bairro × tipo` — calibrado sobre os dados (19 células sobrevivem; o corte pouca muda o
-  volume, só remove células periféricas finas). Casa excluída, então aplica aos
+  `bairro × tipo` — calibrado sobre os dados: das **21 células com dado dos dois lados,
+  8 sobrevivem** ao corte. **O corte não é cosmético**: cinco das treze cortadas teriam
+  `k` ACIMA do líder do ranking — Morretes 3q chega a 30,1% e Tabuleiro 3q a 28,1% —, mas
+  apoiadas em 2 a 12 listings Airbnb. É exatamente o retorno aparente que uma amostra fina
+  fabrica, e é isso que o corte existe para remover. Casa excluída, então aplica aos
   apartamentos.
 
 ## Guerra de outliers
