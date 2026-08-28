@@ -141,16 +141,24 @@ html, body {
 .jp-RenderedHTML th, .jp-RenderedMarkdown th {
   background: var(--accent) !important;
   color: #fff !important;
-  /* Bebas Neue tem so o peso 400 e caixa alta: sem bold sintetico, com tracking */
+  /* Bebas Neue tem so o peso 400 e caixa alta: sem bold sintetico, com tracking.
+     Texto claro sobre fundo escuro fica fino/borrado se antialiasado como corpo;
+     'subpixel-antialiased' + optimizeLegibility devolvem a nitidez, e o corpo
+     maior (17px) engrossa o traco sem precisar de bold falso. */
   font-family: var(--fonte-impacto) !important;
   font-weight: 400;
-  font-size: 15px;
+  font-synthesis: none;
+  font-size: 17px;
   text-transform: uppercase;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.045em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  text-shadow: none;
   padding: 11px 14px;
   text-align: left;
   white-space: nowrap;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 .jp-RenderedHTML td, .jp-RenderedMarkdown td {
   padding: 10px 12px;
@@ -162,14 +170,16 @@ html, body {
 .jp-OutputArea, .jp-RenderedHTML, .jp-RenderedMarkdown {
   overflow-x: auto;
 }
-/* esconde indice numerico do pandas (1a coluna vazia) nas tabelas de leitura */
-table.no-index th:first-child,
-table.no-index td:first-child {
-  display: none;
-}
+/* NAO esconder a 1a coluna: todos os display() do notebook ja usam
+   Styler.hide(axis='index'), que remove o indice do pandas no proprio HTML
+   (nenhuma tabela sai com <th> vazio a esquerda). A regra antiga
+   'table.no-index th:first-child { display:none }' estava, por isso,
+   engolindo a primeira coluna de DADOS: o '#' do ranking e a coluna
+   'Recomendacao' (colorida) do cartao do investimento. */
+table.no-index { table-layout: auto; }
 /* header mais fino e elegante */
 .jp-RenderedHTML th, .jp-RenderedMarkdown th {
-  padding: 8px 12px;
+  padding: 9px 12px;
 }
 .jp-RenderedMarkdown tr:nth-child(even) td, .jp-RenderedHTML tr:nth-child(even) td {
   background: #f8f5ed;
