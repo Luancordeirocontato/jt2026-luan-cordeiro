@@ -59,6 +59,8 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
 
 ## Como abrir (sem rodar nada)
 
+*Sobre os arquivos `.html`: ao clicar direto no GitHub, eles aparecem como código. Para visualizar o mapa interativo e o HTML de apresentação corretamente, faça o download do arquivo (botão "Raw" → salvar) e abra no seu navegador.*
+
 - **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
   — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
 - **Apresentação (HTML sem código, pronto pra tela):** [abrir `analise/apresentacao_sem_codigo.html`](analise/apresentacao_sem_codigo.html)
