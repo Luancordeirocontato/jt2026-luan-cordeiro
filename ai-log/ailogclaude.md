@@ -15,6 +15,8 @@ que a IA fez em resposta.
 | `18c484f` | legibilidade das tabelas: cabeçalho nítido, números pt-BR, fim do MathJax |
 | `b94dc76` | matriz do deep-dive (seção 8): paleta suave e cabeçalho de uma linha |
 | `1d2d735` | ai-log: registro da sessão |
+| `3ef2cf1` | ai-log: reescreve como log da conversa, turno a turno |
+| `8bec454` | alinha scripts auxiliares com a premissa diferencial e sincroniza a bruta |
 
 ---
 
@@ -178,3 +180,36 @@ trabalho; o que sobrou das causas técnicas ficou em uma linha, quando fazia par
 da narrativa do turno. Este turno também está registrado.
 
 ---
+
+## Turno 8 — alinhamento final antes de gravar o vídeo
+
+**Pedido (três itens):**
+
+1. Em `scripts/cartao_investimento.py`: atualizar o comentário ("3 células-alvo"
+   → "4 células do ranking") e usar ocupação diferencial por perfil de bairro em
+   vez da simétrica 55/70%, para o script bater com o notebook e o relatório.
+2. Em `scripts/cap_rate.py`: acrescentar um comentário no topo esclarecendo que
+   aquele script usa ocupação simétrica (referência da seção 4, antes da premissa
+   diferencial), sem mudar a lógica.
+3. Regenerar `analise/apresentacao_bruta.html`, que estava desatualizada.
+
+**O que a IA fez:**
+
+- **`cartao_investimento.py`:** comentário atualizado e ocupação trocada para
+  Meia Praia 60–65%, Centro 55–60%, Morretes 45–55%. Como a ocupação passou a
+  variar por bairro, entrou uma coluna `cenario` (faixa baixa / faixa alta) —
+  sem ela, ver "55%" e "60%" na mesma tabela que "45%" e "65%" não diz qual é
+  qual. A saída agora reproduz o cartão do notebook: Meia Praia 1q 12,4–13,4%,
+  Morretes 2q 10,3–12,6%, Centro 2q 10,7–11,6%, Centro 1q 10,6–11,5%.
+- **`cap_rate.py`:** comentário no topo declarando o escopo simétrico e dizendo
+  que a premissa diferencial inverte o ranking, com ponteiro para a seção 5b, o
+  cartão e o relatório. Lógica intacta; o script foi rodado depois para conferir.
+- **`apresentacao_bruta.html`:** a IA notou que o arquivo não estava só velho —
+  era **órfão do pipeline**. O `apresentacao.py` gravava a versão bruta como
+  `_apresentacao_bruta.html` (com underscore) e apagava no fim, então o
+  `apresentacao_bruta.html` do repo nunca era tocado e voltaria a ficar velho no
+  dia seguinte. Em vez de só regerar o arquivo, a versão bruta passou a ser saída
+  mantida e versionada, regravada no mesmo passo da versão sem código.
+
+Os três HTMLs (`bruta`, `sem_codigo`, `mapa_interativo`) ficaram com o mesmo
+horário de geração, a partir do notebook atual.
