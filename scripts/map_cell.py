@@ -147,17 +147,17 @@ _fonts_html = '''<link rel="preconnect" href="https://fonts.googleapis.com">
   .leaflet-popup-content b, .leaflet-popup-content .cap {
     font-family: var(--fonte-impacto) !important;
     font-weight: 400; text-transform: uppercase; letter-spacing: 0.045em;
-    font-size: 1.25em; color: #0f6b5c;
+    font-size: 1.25em; color: #011337;
   }
   .legenda-cap {
     position: fixed; bottom: 30px; left: 30px; z-index: 9999;
-    background: #fcfaf4; padding: 12px 16px; border: 1px solid #e5dfd1;
+    background: #fffffd; padding: 12px 16px; border: 1px solid #e4e5ea;
     border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.14);
-    font-family: var(--fonte-corpo); font-size: 12.5px; color: #26221c; line-height: 1.7;
+    font-family: var(--fonte-corpo); font-size: 12.5px; color: #19191a; line-height: 1.7;
   }
   .legenda-cap .titulo {
     font-family: var(--fonte-titulo); font-weight: 800; font-size: 15px;
-    color: #26221c; display: block; margin-bottom: 4px;
+    color: #011337; display: block; margin-bottom: 4px;
   }
   .legenda-cap .faixa {
     font-family: var(--fonte-impacto); font-weight: 400; text-transform: uppercase;
