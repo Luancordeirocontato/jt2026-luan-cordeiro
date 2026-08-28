@@ -68,7 +68,7 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
   - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao_sem_codigo.html)
   - versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
 - **Mapa interativo (Cap Rate por bairro × tipo):**
-  - [**Ver online** (renderizado)](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
   - [Ou **baixar arquivo** e abrir no navegador](analise/mapa_interativo.html)
   - mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
 - **Notebook interativo (nbviewer):** [abrir no nbviewer](https://nbviewer.org/github/Luancordeirocontato/jt2026-luan-cordeiro/blob/main/analise/01_analise_principal.ipynb)
