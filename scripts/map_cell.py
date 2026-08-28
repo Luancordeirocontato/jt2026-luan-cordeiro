@@ -115,7 +115,8 @@ def cor_cap(v):
 
 for _, row in _map_df.iterrows():
     if pd.notna(row['cap_cell']):
-        popup = '{} - Cap {:.1%}<br>{} imóveis'.format(row['chave'], row['cap_cell'], int(row['n']))
+        popup = ('{}<br><span class="cap">Cap {:.1%}</span><br>{} imóveis'
+                 .format(row['chave'], row['cap_cell'], int(row['n'])))
     else:
         popup = '{} (fora do ranking)<br>{} imóveis'.format(row['chave'], int(row['n']))
     folium.CircleMarker(
@@ -127,12 +128,50 @@ for _, row in _map_df.iterrows():
         popup=popup,
     ).add_to(m)
 
-legend_html = '''<div style="position:fixed; bottom:30px; left:30px; z-index:9999;
-  background:white; padding:8px 12px; border:1px solid #ccc; font:12px sans-serif;">
-  <b>Cap Rate (diferencial, faixa alta)</b><br>
-  <span style="color:#ff0000">&#9608;</span> baixo ({:.0%})
+# Tipografia do mapa: Playfair Display (titulo), Bebas Neue (rotulo de impacto),
+# Inter/Lato (corpo) - com fallback local caso o mapa seja aberto offline.
+_fonts_html = '''<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2\
+?family=Playfair+Display:wght@700;800&family=Bebas+Neue\
+&family=Inter:wght@400;500;600&family=Lato:wght@400;700&display=swap">
+<style>
+  :root {
+    --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --fonte-impacto: 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+    --fonte-corpo: 'Inter', 'Lato', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  }
+  .leaflet-container, .leaflet-popup-content, .leaflet-control {
+    font-family: var(--fonte-corpo) !important;
+  }
+  .leaflet-popup-content b, .leaflet-popup-content .cap {
+    font-family: var(--fonte-impacto) !important;
+    font-weight: 400; text-transform: uppercase; letter-spacing: 0.045em;
+    font-size: 1.25em; color: #0f6b5c;
+  }
+  .legenda-cap {
+    position: fixed; bottom: 30px; left: 30px; z-index: 9999;
+    background: #fcfaf4; padding: 12px 16px; border: 1px solid #e5dfd1;
+    border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.14);
+    font-family: var(--fonte-corpo); font-size: 12.5px; color: #26221c; line-height: 1.7;
+  }
+  .legenda-cap .titulo {
+    font-family: var(--fonte-titulo); font-weight: 800; font-size: 15px;
+    color: #26221c; display: block; margin-bottom: 4px;
+  }
+  .legenda-cap .faixa {
+    font-family: var(--fonte-impacto); font-weight: 400; text-transform: uppercase;
+    letter-spacing: 0.05em; font-size: 14px;
+  }
+</style>'''
+m.get_root().header.add_child(folium.Element(_fonts_html))
+
+legend_html = '''<div class="legenda-cap">
+  <span class="titulo">Cap Rate (diferencial, faixa alta)</span>
+  <span class="faixa">
+<span style="color:#ff0000">&#9608;</span> baixo ({:.0%})
   <span style="color:#ffff00">&#9608;</span> medio
-  <span style="color:#00ff00">&#9608;</span> alto ({:.0%})<br>
+  <span style="color:#00ff00">&#9608;</span> alto ({:.0%})</span><br>
   <span style="color:#808080">&#9679;</span> fora do ranking<br>
   <i>tamanho do marcador = nº de imóveis</i></div>'''.format(val_min, val_max)
 m.get_root().html.add_child(folium.Element(legend_html))

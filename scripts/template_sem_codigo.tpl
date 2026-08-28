@@ -7,15 +7,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Análise Itapema — Seazone (sem código)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&display=swap">
 <style>
-  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 960px;
+  :root {
+    --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --fonte-impacto: 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+    --fonte-corpo: 'Inter', 'Lato', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  body { font-family: var(--fonte-corpo); max-width: 960px;
          margin: 40px auto; padding: 0 24px; color: #222; line-height: 1.6; }
-  h1 { font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: .3em; }
-  h2 { font-size: 1.35em; margin-top: 1.6em; color: #0a4d8c; }
-  h3 { font-size: 1.1em; }
+  h1 { font-family: var(--fonte-titulo); font-weight: 800; font-size: 2.1em;
+       border-bottom: 2px solid #eee; padding-bottom: .3em; }
+  h2 { font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.5em;
+       margin-top: 1.6em; color: #0a4d8c; }
+  h3 { font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.18em; }
   table { border-collapse: collapse; margin: 1em 0; width: 100%; font-size: .92em; }
   th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: right; }
-  th { background: #f4f4f4; }
+  th { background: #f4f4f4; font-family: var(--fonte-impacto); font-weight: 400;
+       text-transform: uppercase; letter-spacing: .055em; font-size: 14px; }
   tr:nth-child(even) { background: #fafafa; }
   img { max-width: 100%; height: auto; }
   pre, code { background:#f6f6f6; border-radius:4px; padding:2px 6px; font-size:.9em; }

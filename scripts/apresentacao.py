@@ -13,6 +13,15 @@ import sys
 
 from bs4 import BeautifulSoup
 
+# Tipografia: Playfair Display (titulos) + Bebas Neue (destaques de impacto)
+# + Inter/Lato (corpo). Carregada do Google Fonts; os stacks de fallback no CSS
+# garantem leitura offline (Georgia p/ titulo, Arial Narrow p/ destaque, Segoe p/ corpo).
+FONTS_HREF = ('https://fonts.googleapis.com/css2'
+              '?family=Playfair+Display:wght@600;700;800;900'
+              '&family=Bebas+Neue'
+              '&family=Inter:wght@400;500;600;700'
+              '&family=Lato:wght@400;700&display=swap')
+
 NB = 'analise/01_analise_principal.ipynb'
 OUT = 'analise/apresentacao_sem_codigo.html'
 TMP = 'analise/_apresentacao_bruta.html'
@@ -25,12 +34,26 @@ CSS = '''
   --accent-2: #d97706;
   --creme-card: #fcfaf4;
   --borda: #e5dfd1;
+  --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --fonte-impacto: 'Bebas Neue', 'Arial Narrow', 'Haettenschweiler', Impact, sans-serif;
+  --fonte-corpo: 'Inter', 'Lato', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* o CSS do nbconvert aplica var(--jp-content-font-family) em p/li/td e venceria
+     a regra do body; sobrescrever a propria variavel propaga a fonte de corpo */
+  --jp-content-font-family: var(--fonte-corpo) !important;
+  --jp-ui-font-family: var(--fonte-corpo) !important;
+}
+.jp-RenderedMarkdown, .jp-RenderedHTML,
+.jp-RenderedMarkdown p, .jp-RenderedMarkdown li, .jp-RenderedMarkdown blockquote,
+.jp-RenderedMarkdown strong, .jp-RenderedMarkdown em, .jp-RenderedHTML p {
+  font-family: var(--fonte-corpo) !important;
 }
 html, body {
   background: var(--creme) !important;
   color: var(--tinta);
-  font-family: -apple-system, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif;
+  font-family: var(--fonte-corpo) !important;
   font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'kern' 1, 'liga' 1;
   line-height: 1.75;
 }
 .jp-Notebook, main, .jp-Notebook-cell {
@@ -61,19 +84,22 @@ html, body {
 .jp-RenderedMarkdown, .jp-RenderedHTML { padding: 0 !important; }
 .jp-OutputArea { margin: 8px 0 !important; }
 .jp-RenderedMarkdown h1 {
-  font-size: 2.1em; font-weight: 800; color: var(--tinta);
-  letter-spacing: -0.02em;
+  font-family: var(--fonte-titulo) !important;
+  font-size: 2.35em; font-weight: 800; color: var(--tinta);
+  letter-spacing: -0.015em;
   border-bottom: 3px solid var(--accent);
   padding-bottom: 0.25em; margin: 0 0 0.6em; line-height: 1.25;
 }
 .jp-RenderedMarkdown h2 {
-  font-size: 1.45em; font-weight: 800; color: var(--accent);
-  letter-spacing: -0.01em; margin: 1.9em 0 0.5em; padding-top: 0.4em;
+  font-family: var(--fonte-titulo) !important;
+  font-size: 1.6em; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.005em; margin: 1.9em 0 0.5em; padding-top: 0.4em;
   border-top: 1px solid var(--borda);
 }
 .jp-RenderedMarkdown h2:first-child { border-top: none; margin-top: 0.5em; }
 .jp-RenderedMarkdown h3 {
-  font-size: 1.15em; font-weight: 700; color: var(--accent); margin: 1.5em 0 0.4em;
+  font-family: var(--fonte-titulo) !important;
+  font-size: 1.22em; font-weight: 700; color: var(--accent); margin: 1.5em 0 0.4em;
 }
 .jp-RenderedMarkdown { color: var(--tinta); }
 .jp-RenderedMarkdown p { margin: 0.7em 0; }
@@ -115,10 +141,16 @@ html, body {
 .jp-RenderedHTML th, .jp-RenderedMarkdown th {
   background: var(--accent) !important;
   color: #fff !important;
-  font-weight: 700;
+  /* Bebas Neue tem so o peso 400 e caixa alta: sem bold sintetico, com tracking */
+  font-family: var(--fonte-impacto) !important;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
   padding: 11px 14px;
   text-align: left;
   white-space: nowrap;
+  line-height: 1.2;
 }
 .jp-RenderedHTML td, .jp-RenderedMarkdown td {
   padding: 10px 12px;
@@ -152,6 +184,26 @@ table.no-index td:first-child {
 }
 .jp-OutputArea-output .jp-RenderedText pre {
   background: transparent; padding: 4px 8px; margin: 2px 0;
+}
+/* numeros alinhados em coluna (Inter com algarismos tabulares) */
+.jp-RenderedHTML td, .jp-RenderedMarkdown td {
+  font-family: var(--fonte-corpo);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+/* destaque de impacto reutilizavel: <span class="impacto">13,4%</span> */
+.impacto, .jp-RenderedMarkdown .impacto {
+  font-family: var(--fonte-impacto) !important;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.35em;
+  line-height: 1.1;
+  color: var(--accent);
+}
+/* legenda do mapa folium embutido segue a mesma tipografia */
+.leaflet-container, .leaflet-popup-content {
+  font-family: var(--fonte-corpo) !important;
 }
 '''
 
@@ -192,11 +244,17 @@ def main():
     for cell in soup.select('.jp-CodeCell.jp-mod-noOutputs'):
         cell.decompose()
 
-    print('4) injetando CSS customizado...')
+    print('4) injetando fontes + CSS customizado...')
+    title = soup.find('title')
     style = soup.new_tag('style')
     style.string = CSS
-    title = soup.find('title')
     title.insert_after(style)
+    # preconnect + folha do Google Fonts (inseridos ANTES do <style>)
+    for attrs in ({'rel': 'preconnect', 'href': 'https://fonts.googleapis.com'},
+                  {'rel': 'preconnect', 'href': 'https://fonts.gstatic.com',
+                   'crossorigin': 'anonymous'},
+                  {'rel': 'stylesheet', 'href': FONTS_HREF}):
+        title.insert_after(soup.new_tag('link', **attrs))
 
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(str(soup))
