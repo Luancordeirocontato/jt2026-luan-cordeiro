@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_80624a200a32284ac32fe17b6678fd5b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    <div style="position:fixed; bottom:30px; left:30px; z-index:9999;
+  background:white; padding:8px 12px; border:1px solid #ccc; font:12px sans-serif;">
+  <b>Cap Rate (diferencial, faixa alta)</b><br>
+  <span style="color:#ff0000">&#9608;</span> baixo (8%)
+  <span style="color:#ffff00">&#9608;</span> medio
+  <span style="color:#00ff00">&#9608;</span> alto (13%)<br>
+  <span style="color:#808080">&#9679;</span> fora do ranking<br>
+  <i>tamanho do marcador = nº de imóveis</i></div>
+    
+            <div class="folium-map" id="map_80624a200a32284ac32fe17b6678fd5b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_80624a200a32284ac32fe17b6678fd5b = L.map(
+                "map_80624a200a32284ac32fe17b6678fd5b",
+                {
+                    center: [-27.1, -48.606],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aa0f9960b4ef9f7d60c3a912fb763e93 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_aa0f9960b4ef9f7d60c3a912fb763e93.addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+            var circle_marker_cb75f5d4a2c9b5ae57f072be7633f96b = L.circleMarker(
+                [-27.08639666666667, -48.61386666666667],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_9f08568d19b6db82b0ac3baef951bbd8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c64f197a22ad984e6dcd8ba658fc2f9e = $(`<div id="html_c64f197a22ad984e6dcd8ba658fc2f9e" style="width: 100.0%; height: 100.0%;">alto sao bento 1qto (fora do ranking)<br>135 imóveis</div>`)[0];
+                popup_9f08568d19b6db82b0ac3baef951bbd8.setContent(html_c64f197a22ad984e6dcd8ba658fc2f9e);
+            
+        
+
+        circle_marker_cb75f5d4a2c9b5ae57f072be7633f96b.bindPopup(popup_9f08568d19b6db82b0ac3baef951bbd8)
+        ;
+
+        
+    
+    
+            var circle_marker_ca89c8d2c9750b3af2a3c52f17e170df = L.circleMarker(
+                [-27.08712, -48.61605],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.2, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_d17cc93dab83bab443946086d6249077 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b4597c00a787f441a3ee20ae2e77f157 = $(`<div id="html_b4597c00a787f441a3ee20ae2e77f157" style="width: 100.0%; height: 100.0%;">alto sao bento 2q (fora do ranking)<br>48 imóveis</div>`)[0];
+                popup_d17cc93dab83bab443946086d6249077.setContent(html_b4597c00a787f441a3ee20ae2e77f157);
+            
+        
+
+        circle_marker_ca89c8d2c9750b3af2a3c52f17e170df.bindPopup(popup_d17cc93dab83bab443946086d6249077)
+        ;
+
+        
+    
+    
+            var circle_marker_6454cf0d64cc821ad2174442ee1a871d = L.circleMarker(
+                [-27.089207743644067, -48.60761468220338],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_cd465f407db45bc8cd0af3ec6d335583 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_039daa32f717cd13a096ae0315c69913 = $(`<div id="html_039daa32f717cd13a096ae0315c69913" style="width: 100.0%; height: 100.0%;">canto da praia 2q (fora do ranking)<br>472 imóveis</div>`)[0];
+                popup_cd465f407db45bc8cd0af3ec6d335583.setContent(html_039daa32f717cd13a096ae0315c69913);
+            
+        
+
+        circle_marker_6454cf0d64cc821ad2174442ee1a871d.bindPopup(popup_cd465f407db45bc8cd0af3ec6d335583)
+        ;
+
+        
+    
+    
+            var circle_marker_f5d9dadfb67c42581cd608c8ce6c60c2 = L.circleMarker(
+                [-27.08799934387207, -48.604000091552734],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_3a0ff1e1048e0bdf2847b8e899b86dbf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_efc318f573a69ad8b568854fa1a9b7da = $(`<div id="html_efc318f573a69ad8b568854fa1a9b7da" style="width: 100.0%; height: 100.0%;">canto da praia 3q (fora do ranking)<br>69 imóveis</div>`)[0];
+                popup_3a0ff1e1048e0bdf2847b8e899b86dbf.setContent(html_efc318f573a69ad8b568854fa1a9b7da);
+            
+        
+
+        circle_marker_f5d9dadfb67c42581cd608c8ce6c60c2.bindPopup(popup_3a0ff1e1048e0bdf2847b8e899b86dbf)
+        ;
+
+        
+    
+    
+            var circle_marker_65e26a273d4a4694ad905318675fd81e = L.circleMarker(
+                [-27.0908534403478, -48.618143367602585],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_54c8ce395d8ff66c2157fdad9312d6fe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b03448458dc59bf14c76e79071b0b89d = $(`<div id="html_b03448458dc59bf14c76e79071b0b89d" style="width: 100.0%; height: 100.0%;">casa branca 2q (fora do ranking)<br>862 imóveis</div>`)[0];
+                popup_54c8ce395d8ff66c2157fdad9312d6fe.setContent(html_b03448458dc59bf14c76e79071b0b89d);
+            
+        
+
+        circle_marker_65e26a273d4a4694ad905318675fd81e.bindPopup(popup_54c8ce395d8ff66c2157fdad9312d6fe)
+        ;
+
+        
+    
+    
+            var circle_marker_2ae3481df5e9100de9a2a1bcbe61c1c2 = L.circleMarker(
+                [-27.088841273584904, -48.61634849056603],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_1d5ee0583d4e117b5fa67200c97f2c4a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27b2317f1557d2b206e6f5147600da1c = $(`<div id="html_27b2317f1557d2b206e6f5147600da1c" style="width: 100.0%; height: 100.0%;">casa branca 3q (fora do ranking)<br>212 imóveis</div>`)[0];
+                popup_1d5ee0583d4e117b5fa67200c97f2c4a.setContent(html_27b2317f1557d2b206e6f5147600da1c);
+            
+        
+
+        circle_marker_2ae3481df5e9100de9a2a1bcbe61c1c2.bindPopup(popup_1d5ee0583d4e117b5fa67200c97f2c4a)
+        ;
+
+        
+    
+    
+            var circle_marker_9fd70a0e29ca8fa78d6a83c9cd6de74e = L.circleMarker(
+                [-27.093298588835594, -48.61337488726157],
+                {"bubblingMouseEvents": true, "color": "#aaff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#aaff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_c55f816d7de47d57422d95d485a9041f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_78967e7f4d66d8cab3ebf9f2685ef2e2 = $(`<div id="html_78967e7f4d66d8cab3ebf9f2685ef2e2" style="width: 100.0%; height: 100.0%;">centro 1qto - Cap 11.5%<br>13455 imóveis</div>`)[0];
+                popup_c55f816d7de47d57422d95d485a9041f.setContent(html_78967e7f4d66d8cab3ebf9f2685ef2e2);
+            
+        
+
+        circle_marker_9fd70a0e29ca8fa78d6a83c9cd6de74e.bindPopup(popup_c55f816d7de47d57422d95d485a9041f)
+        ;
+
+        
+    
+    
+            var circle_marker_64124eeb7038c72dc13a31cc9a888a01 = L.circleMarker(
+                [-27.094905853761393, -48.61354421143733],
+                {"bubblingMouseEvents": true, "color": "#9fff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9fff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_adeaf778a0da168716882dc4f1eaafb3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a7d62853d18132277545e6d02d75c0c2 = $(`<div id="html_a7d62853d18132277545e6d02d75c0c2" style="width: 100.0%; height: 100.0%;">centro 2q - Cap 11.6%<br>9394 imóveis</div>`)[0];
+                popup_adeaf778a0da168716882dc4f1eaafb3.setContent(html_a7d62853d18132277545e6d02d75c0c2);
+            
+        
+
+        circle_marker_64124eeb7038c72dc13a31cc9a888a01.bindPopup(popup_adeaf778a0da168716882dc4f1eaafb3)
+        ;
+
+        
+    
+    
+            var circle_marker_7ecc656fc9547a6afddad5610f05e43b = L.circleMarker(
+                [-27.098260113579148, -48.614622802846185],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_ccce8a4362dbe7e945197883193a09e2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91d108287e920e86e4a3919a4599f416 = $(`<div id="html_91d108287e920e86e4a3919a4599f416" style="width: 100.0%; height: 100.0%;">centro 3q - Cap 7.8%<br>5466 imóveis</div>`)[0];
+                popup_ccce8a4362dbe7e945197883193a09e2.setContent(html_91d108287e920e86e4a3919a4599f416);
+            
+        
+
+        circle_marker_7ecc656fc9547a6afddad5610f05e43b.bindPopup(popup_ccce8a4362dbe7e945197883193a09e2)
+        ;
+
+        
+    
+    
+            var circle_marker_3d506ef2155756774ca8809fbe7527ee = L.circleMarker(
+                [-27.100057002666837, -48.613081548795606],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_9fe44421c48ea342d1d654800dd68401 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_06cf0f8c1bac1cbbfc4eccb3263c6a35 = $(`<div id="html_06cf0f8c1bac1cbbfc4eccb3263c6a35" style="width: 100.0%; height: 100.0%;">centro 4q+ (fora do ranking)<br>243 imóveis</div>`)[0];
+                popup_9fe44421c48ea342d1d654800dd68401.setContent(html_06cf0f8c1bac1cbbfc4eccb3263c6a35);
+            
+        
+
+        circle_marker_3d506ef2155756774ca8809fbe7527ee.bindPopup(popup_9fe44421c48ea342d1d654800dd68401)
+        ;
+
+        
+    
+    
+            var circle_marker_b4d5b6e9b1f47874135728f029f65e32 = L.circleMarker(
+                [-27.067390000000003, -48.59634622754491],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_2bbf81e17b0a68bb2133f076d2923812 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_32f69376e8240538a59230de8ea75479 = $(`<div id="html_32f69376e8240538a59230de8ea75479" style="width: 100.0%; height: 100.0%;">ilhota 1qto (fora do ranking)<br>167 imóveis</div>`)[0];
+                popup_2bbf81e17b0a68bb2133f076d2923812.setContent(html_32f69376e8240538a59230de8ea75479);
+            
+        
+
+        circle_marker_b4d5b6e9b1f47874135728f029f65e32.bindPopup(popup_2bbf81e17b0a68bb2133f076d2923812)
+        ;
+
+        
+    
+    
+            var circle_marker_e0f1b771c11c66429d5de15be5d9910a = L.circleMarker(
+                [-27.063541630171656, -48.59768241038147],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_821feb70bedc16f78e5c4372cfa4ac95 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8398a0dbc1e9ddc35cdc71b6554c8abe = $(`<div id="html_8398a0dbc1e9ddc35cdc71b6554c8abe" style="width: 100.0%; height: 100.0%;">ilhota 2q (fora do ranking)<br>142 imóveis</div>`)[0];
+                popup_821feb70bedc16f78e5c4372cfa4ac95.setContent(html_8398a0dbc1e9ddc35cdc71b6554c8abe);
+            
+        
+
+        circle_marker_e0f1b771c11c66429d5de15be5d9910a.bindPopup(popup_821feb70bedc16f78e5c4372cfa4ac95)
+        ;
+
+        
+    
+    
+            var circle_marker_b72d056819bf57aaa021e7ffd8b52475 = L.circleMarker(
+                [-27.06431007385254, -48.59523010253906],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_bece16cb8733c49d2aa39b7599f9f88e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_37673c349712ef9cb000dfd75d89b454 = $(`<div id="html_37673c349712ef9cb000dfd75d89b454" style="width: 100.0%; height: 100.0%;">ilhota 3q (fora do ranking)<br>64 imóveis</div>`)[0];
+                popup_bece16cb8733c49d2aa39b7599f9f88e.setContent(html_37673c349712ef9cb000dfd75d89b454);
+            
+        
+
+        circle_marker_b72d056819bf57aaa021e7ffd8b52475.bindPopup(popup_bece16cb8733c49d2aa39b7599f9f88e)
+        ;
+
+        
+    
+    
+            var circle_marker_e53c340a1d2fba27df77f849515f0b59 = L.circleMarker(
+                [-27.12797506333832, -48.60449161193113],
+                {"bubblingMouseEvents": true, "color": "#00ff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_40b9e65a3f2afe74d9c8ff44915b80f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_08b0517d073e407b9a1bbb548f322684 = $(`<div id="html_08b0517d073e407b9a1bbb548f322684" style="width: 100.0%; height: 100.0%;">meia praia 1qto - Cap 13.4%<br>3494 imóveis</div>`)[0];
+                popup_40b9e65a3f2afe74d9c8ff44915b80f2.setContent(html_08b0517d073e407b9a1bbb548f322684);
+            
+        
+
+        circle_marker_e53c340a1d2fba27df77f849515f0b59.bindPopup(popup_40b9e65a3f2afe74d9c8ff44915b80f2)
+        ;
+
+        
+    
+    
+            var circle_marker_73b4d4976aeb73ad3f11c8fd64bb4631 = L.circleMarker(
+                [-27.135337613240363, -48.59743503572983],
+                {"bubblingMouseEvents": true, "color": "#d6ff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d6ff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_03c964a9cff42f8da28f3fc3c0922753 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7dff683bab6658d06f87b663ad35e22f = $(`<div id="html_7dff683bab6658d06f87b663ad35e22f" style="width: 100.0%; height: 100.0%;">meia praia 2q - Cap 11.0%<br>18445 imóveis</div>`)[0];
+                popup_03c964a9cff42f8da28f3fc3c0922753.setContent(html_7dff683bab6658d06f87b663ad35e22f);
+            
+        
+
+        circle_marker_73b4d4976aeb73ad3f11c8fd64bb4631.bindPopup(popup_03c964a9cff42f8da28f3fc3c0922753)
+        ;
+
+        
+    
+    
+            var circle_marker_05c62eefb5ea414187895bc6ebd7e622 = L.circleMarker(
+                [-27.13273236028139, -48.598900402810266],
+                {"bubblingMouseEvents": true, "color": "#ff6800", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6800", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_9a9e574f23f2ca69a0763b8d718ef7c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5ee7ec02da5d29deb1a2b242fe87b87 = $(`<div id="html_a5ee7ec02da5d29deb1a2b242fe87b87" style="width: 100.0%; height: 100.0%;">meia praia 3q - Cap 9.0%<br>42409 imóveis</div>`)[0];
+                popup_9a9e574f23f2ca69a0763b8d718ef7c3.setContent(html_a5ee7ec02da5d29deb1a2b242fe87b87);
+            
+        
+
+        circle_marker_05c62eefb5ea414187895bc6ebd7e622.bindPopup(popup_9a9e574f23f2ca69a0763b8d718ef7c3)
+        ;
+
+        
+    
+    
+            var circle_marker_b9a06c988f2d92adf5c1ba5416db1692 = L.circleMarker(
+                [-27.13279902626438, -48.5984088998562],
+                {"bubblingMouseEvents": true, "color": "#ff3500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff3500", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_70553e285c68877b5c5571e396d6ce09 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_66ba114f174047e1ab9b0ac848e29755 = $(`<div id="html_66ba114f174047e1ab9b0ac848e29755" style="width: 100.0%; height: 100.0%;">meia praia 4q+ - Cap 8.4%<br>6823 imóveis</div>`)[0];
+                popup_70553e285c68877b5c5571e396d6ce09.setContent(html_66ba114f174047e1ab9b0ac848e29755);
+            
+        
+
+        circle_marker_b9a06c988f2d92adf5c1ba5416db1692.bindPopup(popup_70553e285c68877b5c5571e396d6ce09)
+        ;
+
+        
+    
+    
+            var circle_marker_8da48849ce50d88128e9c06ee94eccc0 = L.circleMarker(
+                [-27.117517539974013, -48.610546342642124],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_5d82682fb0466a441b270ad45460d50e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e2f6d2edc2ddff8ab8c35b9617022d7 = $(`<div id="html_9e2f6d2edc2ddff8ab8c35b9617022d7" style="width: 100.0%; height: 100.0%;">morretes 1qto (fora do ranking)<br>254 imóveis</div>`)[0];
+                popup_5d82682fb0466a441b270ad45460d50e.setContent(html_9e2f6d2edc2ddff8ab8c35b9617022d7);
+            
+        
+
+        circle_marker_8da48849ce50d88128e9c06ee94eccc0.bindPopup(popup_5d82682fb0466a441b270ad45460d50e)
+        ;
+
+        
+    
+    
+            var circle_marker_038c9b67d598d750bda8dd1e14bed776 = L.circleMarker(
+                [-27.118072663714255, -48.6117351001091],
+                {"bubblingMouseEvents": true, "color": "#43ff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43ff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_fb145e8f7db6026d778fe8f60983f8e5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b36957ad8a51d90ff8770c5372f347c8 = $(`<div id="html_b36957ad8a51d90ff8770c5372f347c8" style="width: 100.0%; height: 100.0%;">morretes 2q - Cap 12.6%<br>6322 imóveis</div>`)[0];
+                popup_fb145e8f7db6026d778fe8f60983f8e5.setContent(html_b36957ad8a51d90ff8770c5372f347c8);
+            
+        
+
+        circle_marker_038c9b67d598d750bda8dd1e14bed776.bindPopup(popup_fb145e8f7db6026d778fe8f60983f8e5)
+        ;
+
+        
+    
+    
+            var circle_marker_242b695d0b484112719b9e0325bfbf58 = L.circleMarker(
+                [-27.11495169891271, -48.608983445614705],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_c64c4df12d1469f9e4e8489f2b0b9535 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f9d8027301ae54bc9dac356b8e98c5d6 = $(`<div id="html_f9d8027301ae54bc9dac356b8e98c5d6" style="width: 100.0%; height: 100.0%;">morretes 3q (fora do ranking)<br>1258 imóveis</div>`)[0];
+                popup_c64c4df12d1469f9e4e8489f2b0b9535.setContent(html_f9d8027301ae54bc9dac356b8e98c5d6);
+            
+        
+
+        circle_marker_242b695d0b484112719b9e0325bfbf58.bindPopup(popup_c64c4df12d1469f9e4e8489f2b0b9535)
+        ;
+
+        
+    
+    
+            var circle_marker_6686a1e96b542d92992ded1a441139c0 = L.circleMarker(
+                [-27.114069502262442, -48.60956565610859],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_125c410b30a3a106aca176da2a42c67f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_304392ed8337d57a0c3667baaa469ee4 = $(`<div id="html_304392ed8337d57a0c3667baaa469ee4" style="width: 100.0%; height: 100.0%;">morretes 4q+ (fora do ranking)<br>221 imóveis</div>`)[0];
+                popup_125c410b30a3a106aca176da2a42c67f.setContent(html_304392ed8337d57a0c3667baaa469ee4);
+            
+        
+
+        circle_marker_6686a1e96b542d92992ded1a441139c0.bindPopup(popup_125c410b30a3a106aca176da2a42c67f)
+        ;
+
+        
+    
+    
+            var circle_marker_b5854b12ec14408604912f1e15c4c07d = L.circleMarker(
+                [-27.108620832774374, -48.6148108877785],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_a6335c85f2d2d7111aae5d9c6874484a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2719c36833807161fe1d57910678b5e0 = $(`<div id="html_2719c36833807161fe1d57910678b5e0" style="width: 100.0%; height: 100.0%;">tabuleiro dos oliveiras 2q (fora do ranking)<br>1431 imóveis</div>`)[0];
+                popup_a6335c85f2d2d7111aae5d9c6874484a.setContent(html_2719c36833807161fe1d57910678b5e0);
+            
+        
+
+        circle_marker_b5854b12ec14408604912f1e15c4c07d.bindPopup(popup_a6335c85f2d2d7111aae5d9c6874484a)
+        ;
+
+        
+    
+    
+            var circle_marker_28e128d0f695cab920cc4dfe52263a34 = L.circleMarker(
+                [-27.107900657759718, -48.61428556943173],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_3e607a0c195598a4cc1264a639dbb075 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f9f56571f60d880fc856f3a2d853f35e = $(`<div id="html_f9f56571f60d880fc856f3a2d853f35e" style="width: 100.0%; height: 100.0%;">tabuleiro dos oliveiras 3q (fora do ranking)<br>549 imóveis</div>`)[0];
+                popup_3e607a0c195598a4cc1264a639dbb075.setContent(html_f9f56571f60d880fc856f3a2d853f35e);
+            
+        
+
+        circle_marker_28e128d0f695cab920cc4dfe52263a34.bindPopup(popup_3e607a0c195598a4cc1264a639dbb075)
+        ;
+
+        
+    
+    
+            var circle_marker_3198219452d5612e3ce81341ae12a812 = L.circleMarker(
+                [-27.1148, -48.61015],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.733333333333334, "stroke": true, "weight": 3}
+            ).addTo(map_80624a200a32284ac32fe17b6678fd5b);
+        
+    
+        var popup_82be9e085ba07c6fe3172c31e73bd2a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_348ef3145c2fc498c9975c2ec3cc00cd = $(`<div id="html_348ef3145c2fc498c9975c2ec3cc00cd" style="width: 100.0%; height: 100.0%;">tabuleiro dos oliveiras 4q+ (fora do ranking)<br>56 imóveis</div>`)[0];
+                popup_82be9e085ba07c6fe3172c31e73bd2a1.setContent(html_348ef3145c2fc498c9975c2ec3cc00cd);
+            
+        
+
+        circle_marker_3198219452d5612e3ce81341ae12a812.bindPopup(popup_82be9e085ba07c6fe3172c31e73bd2a1)
+        ;
+
+        
+    
+</script>
+</html>
