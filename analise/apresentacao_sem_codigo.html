@@ -188,6 +188,52 @@ table.no-index { table-layout: auto; }
   line-height: 1.1;
   color: var(--accent);
 }
+/* --- matriz do deep-dive (secao 8) ---------------------------------------
+   As regras globais de <th> (Bebas Neue em caixa alta, fundo verde escuro)
+   valem para tabela de ranking, mas nesta matriz elas gritam: os rotulos de
+   caracteristica e de celula viram IS_PROFESSIONAL / MEIA PRAIA 1QTO. Aqui a
+   tipografia volta ao corpo, em caixa normal, e o cabecalho de linha fica
+   claro para nao competir com as cores das celulas. */
+table.deep-dive th, table.deep-dive td {
+  font-family: var(--fonte-corpo) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+}
+table.deep-dive thead th {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  text-align: center !important;
+  padding: 13px 16px !important;
+}
+table.deep-dive thead th.blank {
+  background-color: transparent !important;
+  border: none !important;
+}
+table.deep-dive tbody th {
+  background-color: #eef4f1 !important;
+  color: var(--tinta) !important;
+  font-weight: 500 !important;
+  font-size: 13.5px !important;
+  text-align: left !important;
+  padding: 15px 16px !important;
+}
+/* respiro entre as linhas: a separacao vem de um vao na cor do fundo, nao de
+   uma regra, para nao cortar as faixas pastel */
+table.deep-dive { border-collapse: separate !important; border-spacing: 0 3px !important; }
+table.deep-dive tbody td {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  padding: 15px 18px;
+  border-bottom: none !important;
+}
+/* a faixa zebrada do CSS geral nao se aplica: cada celula tem cor de sinal */
+table.deep-dive tbody tr:nth-child(even) td { background: inherit; }
+
 /* legenda do mapa folium embutido segue a mesma tipografia */
 .leaflet-container, .leaflet-popup-content {
   font-family: var(--fonte-corpo) !important;
@@ -7721,39 +7767,39 @@ Amostra dos dados carregados (5 primeiros registros):
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_48146">
+<table class="no-index" id="T_0645a">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_48146_level0_col0">Bairro</th>
-<th class="col_heading level0 col1" id="T_48146_level0_col1">Tipologia</th>
-<th class="col_heading level0 col2" id="T_48146_level0_col2">R$/noite</th>
+<th class="col_heading level0 col0" id="T_0645a_level0_col0">Bairro</th>
+<th class="col_heading level0 col1" id="T_0645a_level0_col1">Tipologia</th>
+<th class="col_heading level0 col2" id="T_0645a_level0_col2">R$/noite</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_48146_row0_col0">meia praia</td>
-<td class="data row0 col1" id="T_48146_row0_col1">3q</td>
-<td class="data row0 col2" id="T_48146_row0_col2">R$ 471</td>
+<td class="data row0 col0" id="T_0645a_row0_col0">meia praia</td>
+<td class="data row0 col1" id="T_0645a_row0_col1">3q</td>
+<td class="data row0 col2" id="T_0645a_row0_col2">R$ 471</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_48146_row1_col0">meia praia</td>
-<td class="data row1 col1" id="T_48146_row1_col1">3q</td>
-<td class="data row1 col2" id="T_48146_row1_col2">R$ 673</td>
+<td class="data row1 col0" id="T_0645a_row1_col0">meia praia</td>
+<td class="data row1 col1" id="T_0645a_row1_col1">3q</td>
+<td class="data row1 col2" id="T_0645a_row1_col2">R$ 673</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_48146_row2_col0">meia praia</td>
-<td class="data row2 col1" id="T_48146_row2_col1">3q</td>
-<td class="data row2 col2" id="T_48146_row2_col2">R$ 572</td>
+<td class="data row2 col0" id="T_0645a_row2_col0">meia praia</td>
+<td class="data row2 col1" id="T_0645a_row2_col1">3q</td>
+<td class="data row2 col2" id="T_0645a_row2_col2">R$ 572</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_48146_row3_col0">meia praia</td>
-<td class="data row3 col1" id="T_48146_row3_col1">3q</td>
-<td class="data row3 col2" id="T_48146_row3_col2">R$ 743</td>
+<td class="data row3 col0" id="T_0645a_row3_col0">meia praia</td>
+<td class="data row3 col1" id="T_0645a_row3_col1">3q</td>
+<td class="data row3 col2" id="T_0645a_row3_col2">R$ 743</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_48146_row4_col0">meia praia</td>
-<td class="data row4 col1" id="T_48146_row4_col1">3q</td>
-<td class="data row4 col2" id="T_48146_row4_col2">R$ 680</td>
+<td class="data row4 col0" id="T_0645a_row4_col0">meia praia</td>
+<td class="data row4 col1" id="T_0645a_row4_col1">3q</td>
+<td class="data row4 col2" id="T_0645a_row4_col2">R$ 680</td>
 </tr>
 </tbody>
 </table>
@@ -7790,45 +7836,45 @@ Amostra dos dados carregados (5 primeiros registros):
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_83269">
+<table class="no-index" id="T_72456">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_83269_level0_col0">Bairro</th>
-<th class="col_heading level0 col1" id="T_83269_level0_col1">Tipologia</th>
-<th class="col_heading level0 col2" id="T_83269_level0_col2">Preço de compra</th>
-<th class="col_heading level0 col3" id="T_83269_level0_col3">Área m²</th>
+<th class="col_heading level0 col0" id="T_72456_level0_col0">Bairro</th>
+<th class="col_heading level0 col1" id="T_72456_level0_col1">Tipologia</th>
+<th class="col_heading level0 col2" id="T_72456_level0_col2">Preço de compra</th>
+<th class="col_heading level0 col3" id="T_72456_level0_col3">Área m²</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_83269_row0_col0">meia praia</td>
-<td class="data row0 col1" id="T_83269_row0_col1">3q</td>
-<td class="data row0 col2" id="T_83269_row0_col2">R$ 1,598,122</td>
-<td class="data row0 col3" id="T_83269_row0_col3">131 m²</td>
+<td class="data row0 col0" id="T_72456_row0_col0">meia praia</td>
+<td class="data row0 col1" id="T_72456_row0_col1">3q</td>
+<td class="data row0 col2" id="T_72456_row0_col2">R$ 1,598,122</td>
+<td class="data row0 col3" id="T_72456_row0_col3">131 m²</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_83269_row1_col0">meia praia</td>
-<td class="data row1 col1" id="T_83269_row1_col1">3q</td>
-<td class="data row1 col2" id="T_83269_row1_col2">R$ 1,450,000</td>
-<td class="data row1 col3" id="T_83269_row1_col3">118 m²</td>
+<td class="data row1 col0" id="T_72456_row1_col0">meia praia</td>
+<td class="data row1 col1" id="T_72456_row1_col1">3q</td>
+<td class="data row1 col2" id="T_72456_row1_col2">R$ 1,450,000</td>
+<td class="data row1 col3" id="T_72456_row1_col3">118 m²</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_83269_row2_col0">castelo branco</td>
-<td class="data row2 col1" id="T_83269_row2_col1">3q</td>
-<td class="data row2 col2" id="T_83269_row2_col2">R$ 1,500,000</td>
-<td class="data row2 col3" id="T_83269_row2_col3">125 m²</td>
+<td class="data row2 col0" id="T_72456_row2_col0">castelo branco</td>
+<td class="data row2 col1" id="T_72456_row2_col1">3q</td>
+<td class="data row2 col2" id="T_72456_row2_col2">R$ 1,500,000</td>
+<td class="data row2 col3" id="T_72456_row2_col3">125 m²</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_83269_row3_col0">morretes</td>
-<td class="data row3 col1" id="T_83269_row3_col1">2q</td>
-<td class="data row3 col2" id="T_83269_row3_col2">R$ 870,000</td>
-<td class="data row3 col3" id="T_83269_row3_col3">70 m²</td>
+<td class="data row3 col0" id="T_72456_row3_col0">morretes</td>
+<td class="data row3 col1" id="T_72456_row3_col1">2q</td>
+<td class="data row3 col2" id="T_72456_row3_col2">R$ 870,000</td>
+<td class="data row3 col3" id="T_72456_row3_col3">70 m²</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_83269_row4_col0">andorinha</td>
-<td class="data row4 col1" id="T_83269_row4_col1">3q</td>
-<td class="data row4 col2" id="T_83269_row4_col2">R$ 2,150,000</td>
-<td class="data row4 col3" id="T_83269_row4_col3">130 m²</td>
+<td class="data row4 col0" id="T_72456_row4_col0">andorinha</td>
+<td class="data row4 col1" id="T_72456_row4_col1">3q</td>
+<td class="data row4 col2" id="T_72456_row4_col2">R$ 2,150,000</td>
+<td class="data row4 col3" id="T_72456_row4_col3">130 m²</td>
 </tr>
 </tbody>
 </table>
@@ -7861,90 +7907,90 @@ O resultado é apresentado como <strong>Cap Rate de pico/verão</strong>, não m
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_dd2b0">
+<table class="no-index" id="T_7320b">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_dd2b0_level0_col0">Bairro</th>
-<th class="col_heading level0 col1" id="T_dd2b0_level0_col1">Tipo</th>
-<th class="col_heading level0 col2" id="T_dd2b0_level0_col2">Qtd Airbnb</th>
-<th class="col_heading level0 col3" id="T_dd2b0_level0_col3">Qtd venda</th>
-<th class="col_heading level0 col4" id="T_dd2b0_level0_col4">R$/noite</th>
-<th class="col_heading level0 col5" id="T_dd2b0_level0_col5">Preço compra</th>
-<th class="col_heading level0 col6" id="T_dd2b0_level0_col6">Área m²</th>
+<th class="col_heading level0 col0" id="T_7320b_level0_col0">Bairro</th>
+<th class="col_heading level0 col1" id="T_7320b_level0_col1">Tipo</th>
+<th class="col_heading level0 col2" id="T_7320b_level0_col2">Qtd Airbnb</th>
+<th class="col_heading level0 col3" id="T_7320b_level0_col3">Qtd venda</th>
+<th class="col_heading level0 col4" id="T_7320b_level0_col4">R$/noite</th>
+<th class="col_heading level0 col5" id="T_7320b_level0_col5">Preço compra</th>
+<th class="col_heading level0 col6" id="T_7320b_level0_col6">Área m²</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_dd2b0_row0_col0">centro</td>
-<td class="data row0 col1" id="T_dd2b0_row0_col1">1qto</td>
-<td class="data row0 col2" id="T_dd2b0_row0_col2">78</td>
-<td class="data row0 col3" id="T_dd2b0_row0_col3">18.000000</td>
-<td class="data row0 col4" id="T_dd2b0_row0_col4">R$ 471</td>
-<td class="data row0 col5" id="T_dd2b0_row0_col5">R$ 895.000</td>
-<td class="data row0 col6" id="T_dd2b0_row0_col6">53.000000</td>
+<td class="data row0 col0" id="T_7320b_row0_col0">centro</td>
+<td class="data row0 col1" id="T_7320b_row0_col1">1qto</td>
+<td class="data row0 col2" id="T_7320b_row0_col2">78</td>
+<td class="data row0 col3" id="T_7320b_row0_col3">18.000000</td>
+<td class="data row0 col4" id="T_7320b_row0_col4">R$ 471</td>
+<td class="data row0 col5" id="T_7320b_row0_col5">R$ 895.000</td>
+<td class="data row0 col6" id="T_7320b_row0_col6">53.000000</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_dd2b0_row1_col0">centro</td>
-<td class="data row1 col1" id="T_dd2b0_row1_col1">2q</td>
-<td class="data row1 col2" id="T_dd2b0_row1_col2">65</td>
-<td class="data row1 col3" id="T_dd2b0_row1_col3">89.000000</td>
-<td class="data row1 col4" id="T_dd2b0_row1_col4">R$ 611</td>
-<td class="data row1 col5" id="T_dd2b0_row1_col5">R$ 1.150.000</td>
-<td class="data row1 col6" id="T_dd2b0_row1_col6">86.000000</td>
+<td class="data row1 col0" id="T_7320b_row1_col0">centro</td>
+<td class="data row1 col1" id="T_7320b_row1_col1">2q</td>
+<td class="data row1 col2" id="T_7320b_row1_col2">65</td>
+<td class="data row1 col3" id="T_7320b_row1_col3">89.000000</td>
+<td class="data row1 col4" id="T_7320b_row1_col4">R$ 611</td>
+<td class="data row1 col5" id="T_7320b_row1_col5">R$ 1.150.000</td>
+<td class="data row1 col6" id="T_7320b_row1_col6">86.000000</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_dd2b0_row2_col0">centro</td>
-<td class="data row2 col1" id="T_dd2b0_row2_col1">3q</td>
-<td class="data row2 col2" id="T_dd2b0_row2_col2">45</td>
-<td class="data row2 col3" id="T_dd2b0_row2_col3">438.000000</td>
-<td class="data row2 col4" id="T_dd2b0_row2_col4">R$ 749</td>
-<td class="data row2 col5" id="T_dd2b0_row2_col5">R$ 2.100.000</td>
-<td class="data row2 col6" id="T_dd2b0_row2_col6">131.000000</td>
+<td class="data row2 col0" id="T_7320b_row2_col0">centro</td>
+<td class="data row2 col1" id="T_7320b_row2_col1">3q</td>
+<td class="data row2 col2" id="T_7320b_row2_col2">45</td>
+<td class="data row2 col3" id="T_7320b_row2_col3">438.000000</td>
+<td class="data row2 col4" id="T_7320b_row2_col4">R$ 749</td>
+<td class="data row2 col5" id="T_7320b_row2_col5">R$ 2.100.000</td>
+<td class="data row2 col6" id="T_7320b_row2_col6">131.000000</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_dd2b0_row3_col0">meia praia</td>
-<td class="data row3 col1" id="T_dd2b0_row3_col1">1qto</td>
-<td class="data row3 col2" id="T_dd2b0_row3_col2">28</td>
-<td class="data row3 col3" id="T_dd2b0_row3_col3">58.000000</td>
-<td class="data row3 col4" id="T_dd2b0_row3_col4">R$ 495</td>
-<td class="data row3 col5" id="T_dd2b0_row3_col5">R$ 877.500</td>
-<td class="data row3 col6" id="T_dd2b0_row3_col6">40.000000</td>
+<td class="data row3 col0" id="T_7320b_row3_col0">meia praia</td>
+<td class="data row3 col1" id="T_7320b_row3_col1">1qto</td>
+<td class="data row3 col2" id="T_7320b_row3_col2">28</td>
+<td class="data row3 col3" id="T_7320b_row3_col3">58.000000</td>
+<td class="data row3 col4" id="T_7320b_row3_col4">R$ 495</td>
+<td class="data row3 col5" id="T_7320b_row3_col5">R$ 877.500</td>
+<td class="data row3 col6" id="T_7320b_row3_col6">40.000000</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_dd2b0_row4_col0">meia praia</td>
-<td class="data row4 col1" id="T_dd2b0_row4_col1">2q</td>
-<td class="data row4 col2" id="T_dd2b0_row4_col2">187</td>
-<td class="data row4 col3" id="T_dd2b0_row4_col3">244.000000</td>
-<td class="data row4 col4" id="T_dd2b0_row4_col4">R$ 500</td>
-<td class="data row4 col5" id="T_dd2b0_row4_col5">R$ 1.075.000</td>
-<td class="data row4 col6" id="T_dd2b0_row4_col6">85.000000</td>
+<td class="data row4 col0" id="T_7320b_row4_col0">meia praia</td>
+<td class="data row4 col1" id="T_7320b_row4_col1">2q</td>
+<td class="data row4 col2" id="T_7320b_row4_col2">187</td>
+<td class="data row4 col3" id="T_7320b_row4_col3">244.000000</td>
+<td class="data row4 col4" id="T_7320b_row4_col4">R$ 500</td>
+<td class="data row4 col5" id="T_7320b_row4_col5">R$ 1.075.000</td>
+<td class="data row4 col6" id="T_7320b_row4_col6">85.000000</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_dd2b0_row5_col0">meia praia</td>
-<td class="data row5 col1" id="T_dd2b0_row5_col1">3q</td>
-<td class="data row5 col2" id="T_dd2b0_row5_col2">327</td>
-<td class="data row5 col3" id="T_dd2b0_row5_col3">1704.000000</td>
-<td class="data row5 col4" id="T_dd2b0_row5_col4">R$ 712</td>
-<td class="data row5 col5" id="T_dd2b0_row5_col5">R$ 1.884.860</td>
-<td class="data row5 col6" id="T_dd2b0_row5_col6">129.000000</td>
+<td class="data row5 col0" id="T_7320b_row5_col0">meia praia</td>
+<td class="data row5 col1" id="T_7320b_row5_col1">3q</td>
+<td class="data row5 col2" id="T_7320b_row5_col2">327</td>
+<td class="data row5 col3" id="T_7320b_row5_col3">1704.000000</td>
+<td class="data row5 col4" id="T_7320b_row5_col4">R$ 712</td>
+<td class="data row5 col5" id="T_7320b_row5_col5">R$ 1.884.860</td>
+<td class="data row5 col6" id="T_7320b_row5_col6">129.000000</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_dd2b0_row6_col0">meia praia</td>
-<td class="data row6 col1" id="T_dd2b0_row6_col1">4q+</td>
-<td class="data row6 col2" id="T_dd2b0_row6_col2">65</td>
-<td class="data row6 col3" id="T_dd2b0_row6_col3">1375.000000</td>
-<td class="data row6 col4" id="T_dd2b0_row6_col4">R$ 1.300</td>
-<td class="data row6 col5" id="T_dd2b0_row6_col5">R$ 3.671.338</td>
-<td class="data row6 col6" id="T_dd2b0_row6_col6">188.000000</td>
+<td class="data row6 col0" id="T_7320b_row6_col0">meia praia</td>
+<td class="data row6 col1" id="T_7320b_row6_col1">4q+</td>
+<td class="data row6 col2" id="T_7320b_row6_col2">65</td>
+<td class="data row6 col3" id="T_7320b_row6_col3">1375.000000</td>
+<td class="data row6 col4" id="T_7320b_row6_col4">R$ 1.300</td>
+<td class="data row6 col5" id="T_7320b_row6_col5">R$ 3.671.338</td>
+<td class="data row6 col6" id="T_7320b_row6_col6">188.000000</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_dd2b0_row7_col0">morretes</td>
-<td class="data row7 col1" id="T_dd2b0_row7_col1">2q</td>
-<td class="data row7 col2" id="T_dd2b0_row7_col2">51</td>
-<td class="data row7 col3" id="T_dd2b0_row7_col3">1010.000000</td>
-<td class="data row7 col4" id="T_dd2b0_row7_col4">R$ 500</td>
-<td class="data row7 col5" id="T_dd2b0_row7_col5">R$ 793.950</td>
-<td class="data row7 col6" id="T_dd2b0_row7_col6">69.000000</td>
+<td class="data row7 col0" id="T_7320b_row7_col0">morretes</td>
+<td class="data row7 col1" id="T_7320b_row7_col1">2q</td>
+<td class="data row7 col2" id="T_7320b_row7_col2">51</td>
+<td class="data row7 col3" id="T_7320b_row7_col3">1010.000000</td>
+<td class="data row7 col4" id="T_7320b_row7_col4">R$ 500</td>
+<td class="data row7 col5" id="T_7320b_row7_col5">R$ 793.950</td>
+<td class="data row7 col6" id="T_7320b_row7_col6">69.000000</td>
 </tr>
 </tbody>
 </table>
@@ -7976,99 +8022,99 @@ só escalona os valores, não reordena).</p>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_02679">
+<table class="no-index" id="T_e3911">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_02679_level0_col0">#</th>
-<th class="col_heading level0 col1" id="T_02679_level0_col1">Bairro</th>
-<th class="col_heading level0 col2" id="T_02679_level0_col2">Tipo</th>
-<th class="col_heading level0 col3" id="T_02679_level0_col3">R$/noite</th>
-<th class="col_heading level0 col4" id="T_02679_level0_col4">Preço compra</th>
-<th class="col_heading level0 col5" id="T_02679_level0_col5">Cap 50%</th>
-<th class="col_heading level0 col6" id="T_02679_level0_col6">Cap 60%</th>
-<th class="col_heading level0 col7" id="T_02679_level0_col7">Cap 70%</th>
+<th class="col_heading level0 col0" id="T_e3911_level0_col0">#</th>
+<th class="col_heading level0 col1" id="T_e3911_level0_col1">Bairro</th>
+<th class="col_heading level0 col2" id="T_e3911_level0_col2">Tipo</th>
+<th class="col_heading level0 col3" id="T_e3911_level0_col3">R$/noite</th>
+<th class="col_heading level0 col4" id="T_e3911_level0_col4">Preço compra</th>
+<th class="col_heading level0 col5" id="T_e3911_level0_col5">Cap 50%</th>
+<th class="col_heading level0 col6" id="T_e3911_level0_col6">Cap 60%</th>
+<th class="col_heading level0 col7" id="T_e3911_level0_col7">Cap 70%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_02679_row0_col0">1</td>
-<td class="data row0 col1" id="T_02679_row0_col1">morretes</td>
-<td class="data row0 col2" id="T_02679_row0_col2">2q</td>
-<td class="data row0 col3" id="T_02679_row0_col3">R$ 500</td>
-<td class="data row0 col4" id="T_02679_row0_col4">R$ 793.950</td>
-<td class="data row0 col5" id="T_02679_row0_col5">11,5%</td>
-<td class="data row0 col6" id="T_02679_row0_col6">13,8%</td>
-<td class="data row0 col7" id="T_02679_row0_col7">16,1%</td>
+<td class="data row0 col0" id="T_e3911_row0_col0">1</td>
+<td class="data row0 col1" id="T_e3911_row0_col1">morretes</td>
+<td class="data row0 col2" id="T_e3911_row0_col2">2q</td>
+<td class="data row0 col3" id="T_e3911_row0_col3">R$ 500</td>
+<td class="data row0 col4" id="T_e3911_row0_col4">R$ 793.950</td>
+<td class="data row0 col5" id="T_e3911_row0_col5">11,5%</td>
+<td class="data row0 col6" id="T_e3911_row0_col6">13,8%</td>
+<td class="data row0 col7" id="T_e3911_row0_col7">16,1%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_02679_row1_col0">2</td>
-<td class="data row1 col1" id="T_02679_row1_col1">meia praia</td>
-<td class="data row1 col2" id="T_02679_row1_col2">1qto</td>
-<td class="data row1 col3" id="T_02679_row1_col3">R$ 495</td>
-<td class="data row1 col4" id="T_02679_row1_col4">R$ 877.500</td>
-<td class="data row1 col5" id="T_02679_row1_col5">10,3%</td>
-<td class="data row1 col6" id="T_02679_row1_col6">12,4%</td>
-<td class="data row1 col7" id="T_02679_row1_col7">14,4%</td>
+<td class="data row1 col0" id="T_e3911_row1_col0">2</td>
+<td class="data row1 col1" id="T_e3911_row1_col1">meia praia</td>
+<td class="data row1 col2" id="T_e3911_row1_col2">1qto</td>
+<td class="data row1 col3" id="T_e3911_row1_col3">R$ 495</td>
+<td class="data row1 col4" id="T_e3911_row1_col4">R$ 877.500</td>
+<td class="data row1 col5" id="T_e3911_row1_col5">10,3%</td>
+<td class="data row1 col6" id="T_e3911_row1_col6">12,4%</td>
+<td class="data row1 col7" id="T_e3911_row1_col7">14,4%</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_02679_row2_col0">3</td>
-<td class="data row2 col1" id="T_02679_row2_col1">centro</td>
-<td class="data row2 col2" id="T_02679_row2_col2">2q</td>
-<td class="data row2 col3" id="T_02679_row2_col3">R$ 611</td>
-<td class="data row2 col4" id="T_02679_row2_col4">R$ 1.150.000</td>
-<td class="data row2 col5" id="T_02679_row2_col5">9,7%</td>
-<td class="data row2 col6" id="T_02679_row2_col6">11,6%</td>
-<td class="data row2 col7" id="T_02679_row2_col7">13,6%</td>
+<td class="data row2 col0" id="T_e3911_row2_col0">3</td>
+<td class="data row2 col1" id="T_e3911_row2_col1">centro</td>
+<td class="data row2 col2" id="T_e3911_row2_col2">2q</td>
+<td class="data row2 col3" id="T_e3911_row2_col3">R$ 611</td>
+<td class="data row2 col4" id="T_e3911_row2_col4">R$ 1.150.000</td>
+<td class="data row2 col5" id="T_e3911_row2_col5">9,7%</td>
+<td class="data row2 col6" id="T_e3911_row2_col6">11,6%</td>
+<td class="data row2 col7" id="T_e3911_row2_col7">13,6%</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_02679_row3_col0">4</td>
-<td class="data row3 col1" id="T_02679_row3_col1">centro</td>
-<td class="data row3 col2" id="T_02679_row3_col2">1qto</td>
-<td class="data row3 col3" id="T_02679_row3_col3">R$ 471</td>
-<td class="data row3 col4" id="T_02679_row3_col4">R$ 895.000</td>
-<td class="data row3 col5" id="T_02679_row3_col5">9,6%</td>
-<td class="data row3 col6" id="T_02679_row3_col6">11,5%</td>
-<td class="data row3 col7" id="T_02679_row3_col7">13,4%</td>
+<td class="data row3 col0" id="T_e3911_row3_col0">4</td>
+<td class="data row3 col1" id="T_e3911_row3_col1">centro</td>
+<td class="data row3 col2" id="T_e3911_row3_col2">1qto</td>
+<td class="data row3 col3" id="T_e3911_row3_col3">R$ 471</td>
+<td class="data row3 col4" id="T_e3911_row3_col4">R$ 895.000</td>
+<td class="data row3 col5" id="T_e3911_row3_col5">9,6%</td>
+<td class="data row3 col6" id="T_e3911_row3_col6">11,5%</td>
+<td class="data row3 col7" id="T_e3911_row3_col7">13,4%</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_02679_row4_col0">5</td>
-<td class="data row4 col1" id="T_02679_row4_col1">meia praia</td>
-<td class="data row4 col2" id="T_02679_row4_col2">2q</td>
-<td class="data row4 col3" id="T_02679_row4_col3">R$ 500</td>
-<td class="data row4 col4" id="T_02679_row4_col4">R$ 1.075.000</td>
-<td class="data row4 col5" id="T_02679_row4_col5">8,5%</td>
-<td class="data row4 col6" id="T_02679_row4_col6">10,2%</td>
-<td class="data row4 col7" id="T_02679_row4_col7">11,9%</td>
+<td class="data row4 col0" id="T_e3911_row4_col0">5</td>
+<td class="data row4 col1" id="T_e3911_row4_col1">meia praia</td>
+<td class="data row4 col2" id="T_e3911_row4_col2">2q</td>
+<td class="data row4 col3" id="T_e3911_row4_col3">R$ 500</td>
+<td class="data row4 col4" id="T_e3911_row4_col4">R$ 1.075.000</td>
+<td class="data row4 col5" id="T_e3911_row4_col5">8,5%</td>
+<td class="data row4 col6" id="T_e3911_row4_col6">10,2%</td>
+<td class="data row4 col7" id="T_e3911_row4_col7">11,9%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_02679_row5_col0">6</td>
-<td class="data row5 col1" id="T_02679_row5_col1">meia praia</td>
-<td class="data row5 col2" id="T_02679_row5_col2">3q</td>
-<td class="data row5 col3" id="T_02679_row5_col3">R$ 712</td>
-<td class="data row5 col4" id="T_02679_row5_col4">R$ 1.884.860</td>
-<td class="data row5 col5" id="T_02679_row5_col5">6,9%</td>
-<td class="data row5 col6" id="T_02679_row5_col6">8,3%</td>
-<td class="data row5 col7" id="T_02679_row5_col7">9,6%</td>
+<td class="data row5 col0" id="T_e3911_row5_col0">6</td>
+<td class="data row5 col1" id="T_e3911_row5_col1">meia praia</td>
+<td class="data row5 col2" id="T_e3911_row5_col2">3q</td>
+<td class="data row5 col3" id="T_e3911_row5_col3">R$ 712</td>
+<td class="data row5 col4" id="T_e3911_row5_col4">R$ 1.884.860</td>
+<td class="data row5 col5" id="T_e3911_row5_col5">6,9%</td>
+<td class="data row5 col6" id="T_e3911_row5_col6">8,3%</td>
+<td class="data row5 col7" id="T_e3911_row5_col7">9,6%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_02679_row6_col0">7</td>
-<td class="data row6 col1" id="T_02679_row6_col1">centro</td>
-<td class="data row6 col2" id="T_02679_row6_col2">3q</td>
-<td class="data row6 col3" id="T_02679_row6_col3">R$ 749</td>
-<td class="data row6 col4" id="T_02679_row6_col4">R$ 2.100.000</td>
-<td class="data row6 col5" id="T_02679_row6_col5">6,5%</td>
-<td class="data row6 col6" id="T_02679_row6_col6">7,8%</td>
-<td class="data row6 col7" id="T_02679_row6_col7">9,1%</td>
+<td class="data row6 col0" id="T_e3911_row6_col0">7</td>
+<td class="data row6 col1" id="T_e3911_row6_col1">centro</td>
+<td class="data row6 col2" id="T_e3911_row6_col2">3q</td>
+<td class="data row6 col3" id="T_e3911_row6_col3">R$ 749</td>
+<td class="data row6 col4" id="T_e3911_row6_col4">R$ 2.100.000</td>
+<td class="data row6 col5" id="T_e3911_row6_col5">6,5%</td>
+<td class="data row6 col6" id="T_e3911_row6_col6">7,8%</td>
+<td class="data row6 col7" id="T_e3911_row6_col7">9,1%</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_02679_row7_col0">8</td>
-<td class="data row7 col1" id="T_02679_row7_col1">meia praia</td>
-<td class="data row7 col2" id="T_02679_row7_col2">4q+</td>
-<td class="data row7 col3" id="T_02679_row7_col3">R$ 1.300</td>
-<td class="data row7 col4" id="T_02679_row7_col4">R$ 3.671.338</td>
-<td class="data row7 col5" id="T_02679_row7_col5">6,5%</td>
-<td class="data row7 col6" id="T_02679_row7_col6">7,8%</td>
-<td class="data row7 col7" id="T_02679_row7_col7">9,0%</td>
+<td class="data row7 col0" id="T_e3911_row7_col0">8</td>
+<td class="data row7 col1" id="T_e3911_row7_col1">meia praia</td>
+<td class="data row7 col2" id="T_e3911_row7_col2">4q+</td>
+<td class="data row7 col3" id="T_e3911_row7_col3">R$ 1.300</td>
+<td class="data row7 col4" id="T_e3911_row7_col4">R$ 3.671.338</td>
+<td class="data row7 col5" id="T_e3911_row7_col5">6,5%</td>
+<td class="data row7 col6" id="T_e3911_row7_col6">7,8%</td>
+<td class="data row7 col7" id="T_e3911_row7_col7">9,0%</td>
 </tr>
 </tbody>
 </table>
@@ -8100,99 +8146,99 @@ e não como se a ocupação estivesse sendo estimada aqui.</p>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_76145">
+<table class="no-index" id="T_1f4c0">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_76145_level0_col0">Bairro</th>
-<th class="col_heading level0 col1" id="T_76145_level0_col1">Tipo</th>
-<th class="col_heading level0 col2" id="T_76145_level0_col2">k</th>
-<th class="col_heading level0 col3" id="T_76145_level0_col3">Ocup 40%</th>
-<th class="col_heading level0 col4" id="T_76145_level0_col4">Ocup 50%</th>
-<th class="col_heading level0 col5" id="T_76145_level0_col5">Ocup 60%</th>
-<th class="col_heading level0 col6" id="T_76145_level0_col6">Ocup 70%</th>
-<th class="col_heading level0 col7" id="T_76145_level0_col7">Ocup 80%</th>
+<th class="col_heading level0 col0" id="T_1f4c0_level0_col0">Bairro</th>
+<th class="col_heading level0 col1" id="T_1f4c0_level0_col1">Tipo</th>
+<th class="col_heading level0 col2" id="T_1f4c0_level0_col2">k</th>
+<th class="col_heading level0 col3" id="T_1f4c0_level0_col3">Ocup 40%</th>
+<th class="col_heading level0 col4" id="T_1f4c0_level0_col4">Ocup 50%</th>
+<th class="col_heading level0 col5" id="T_1f4c0_level0_col5">Ocup 60%</th>
+<th class="col_heading level0 col6" id="T_1f4c0_level0_col6">Ocup 70%</th>
+<th class="col_heading level0 col7" id="T_1f4c0_level0_col7">Ocup 80%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_76145_row0_col0">morretes</td>
-<td class="data row0 col1" id="T_76145_row0_col1">2q</td>
-<td class="data row0 col2" id="T_76145_row0_col2">23,0%</td>
-<td class="data row0 col3" id="T_76145_row0_col3">9,2%</td>
-<td class="data row0 col4" id="T_76145_row0_col4">11,5%</td>
-<td class="data row0 col5" id="T_76145_row0_col5">13,8%</td>
-<td class="data row0 col6" id="T_76145_row0_col6">16,1%</td>
-<td class="data row0 col7" id="T_76145_row0_col7">18,4%</td>
+<td class="data row0 col0" id="T_1f4c0_row0_col0">morretes</td>
+<td class="data row0 col1" id="T_1f4c0_row0_col1">2q</td>
+<td class="data row0 col2" id="T_1f4c0_row0_col2">23,0%</td>
+<td class="data row0 col3" id="T_1f4c0_row0_col3">9,2%</td>
+<td class="data row0 col4" id="T_1f4c0_row0_col4">11,5%</td>
+<td class="data row0 col5" id="T_1f4c0_row0_col5">13,8%</td>
+<td class="data row0 col6" id="T_1f4c0_row0_col6">16,1%</td>
+<td class="data row0 col7" id="T_1f4c0_row0_col7">18,4%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_76145_row1_col0">meia praia</td>
-<td class="data row1 col1" id="T_76145_row1_col1">1qto</td>
-<td class="data row1 col2" id="T_76145_row1_col2">20,6%</td>
-<td class="data row1 col3" id="T_76145_row1_col3">8,2%</td>
-<td class="data row1 col4" id="T_76145_row1_col4">10,3%</td>
-<td class="data row1 col5" id="T_76145_row1_col5">12,4%</td>
-<td class="data row1 col6" id="T_76145_row1_col6">14,4%</td>
-<td class="data row1 col7" id="T_76145_row1_col7">16,5%</td>
+<td class="data row1 col0" id="T_1f4c0_row1_col0">meia praia</td>
+<td class="data row1 col1" id="T_1f4c0_row1_col1">1qto</td>
+<td class="data row1 col2" id="T_1f4c0_row1_col2">20,6%</td>
+<td class="data row1 col3" id="T_1f4c0_row1_col3">8,2%</td>
+<td class="data row1 col4" id="T_1f4c0_row1_col4">10,3%</td>
+<td class="data row1 col5" id="T_1f4c0_row1_col5">12,4%</td>
+<td class="data row1 col6" id="T_1f4c0_row1_col6">14,4%</td>
+<td class="data row1 col7" id="T_1f4c0_row1_col7">16,5%</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_76145_row2_col0">centro</td>
-<td class="data row2 col1" id="T_76145_row2_col1">2q</td>
-<td class="data row2 col2" id="T_76145_row2_col2">19,4%</td>
-<td class="data row2 col3" id="T_76145_row2_col3">7,8%</td>
-<td class="data row2 col4" id="T_76145_row2_col4">9,7%</td>
-<td class="data row2 col5" id="T_76145_row2_col5">11,6%</td>
-<td class="data row2 col6" id="T_76145_row2_col6">13,6%</td>
-<td class="data row2 col7" id="T_76145_row2_col7">15,5%</td>
+<td class="data row2 col0" id="T_1f4c0_row2_col0">centro</td>
+<td class="data row2 col1" id="T_1f4c0_row2_col1">2q</td>
+<td class="data row2 col2" id="T_1f4c0_row2_col2">19,4%</td>
+<td class="data row2 col3" id="T_1f4c0_row2_col3">7,8%</td>
+<td class="data row2 col4" id="T_1f4c0_row2_col4">9,7%</td>
+<td class="data row2 col5" id="T_1f4c0_row2_col5">11,6%</td>
+<td class="data row2 col6" id="T_1f4c0_row2_col6">13,6%</td>
+<td class="data row2 col7" id="T_1f4c0_row2_col7">15,5%</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_76145_row3_col0">centro</td>
-<td class="data row3 col1" id="T_76145_row3_col1">1qto</td>
-<td class="data row3 col2" id="T_76145_row3_col2">19,2%</td>
-<td class="data row3 col3" id="T_76145_row3_col3">7,7%</td>
-<td class="data row3 col4" id="T_76145_row3_col4">9,6%</td>
-<td class="data row3 col5" id="T_76145_row3_col5">11,5%</td>
-<td class="data row3 col6" id="T_76145_row3_col6">13,4%</td>
-<td class="data row3 col7" id="T_76145_row3_col7">15,4%</td>
+<td class="data row3 col0" id="T_1f4c0_row3_col0">centro</td>
+<td class="data row3 col1" id="T_1f4c0_row3_col1">1qto</td>
+<td class="data row3 col2" id="T_1f4c0_row3_col2">19,2%</td>
+<td class="data row3 col3" id="T_1f4c0_row3_col3">7,7%</td>
+<td class="data row3 col4" id="T_1f4c0_row3_col4">9,6%</td>
+<td class="data row3 col5" id="T_1f4c0_row3_col5">11,5%</td>
+<td class="data row3 col6" id="T_1f4c0_row3_col6">13,4%</td>
+<td class="data row3 col7" id="T_1f4c0_row3_col7">15,4%</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_76145_row4_col0">meia praia</td>
-<td class="data row4 col1" id="T_76145_row4_col1">2q</td>
-<td class="data row4 col2" id="T_76145_row4_col2">17,0%</td>
-<td class="data row4 col3" id="T_76145_row4_col3">6,8%</td>
-<td class="data row4 col4" id="T_76145_row4_col4">8,5%</td>
-<td class="data row4 col5" id="T_76145_row4_col5">10,2%</td>
-<td class="data row4 col6" id="T_76145_row4_col6">11,9%</td>
-<td class="data row4 col7" id="T_76145_row4_col7">13,6%</td>
+<td class="data row4 col0" id="T_1f4c0_row4_col0">meia praia</td>
+<td class="data row4 col1" id="T_1f4c0_row4_col1">2q</td>
+<td class="data row4 col2" id="T_1f4c0_row4_col2">17,0%</td>
+<td class="data row4 col3" id="T_1f4c0_row4_col3">6,8%</td>
+<td class="data row4 col4" id="T_1f4c0_row4_col4">8,5%</td>
+<td class="data row4 col5" id="T_1f4c0_row4_col5">10,2%</td>
+<td class="data row4 col6" id="T_1f4c0_row4_col6">11,9%</td>
+<td class="data row4 col7" id="T_1f4c0_row4_col7">13,6%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_76145_row5_col0">meia praia</td>
-<td class="data row5 col1" id="T_76145_row5_col1">3q</td>
-<td class="data row5 col2" id="T_76145_row5_col2">13,8%</td>
-<td class="data row5 col3" id="T_76145_row5_col3">5,5%</td>
-<td class="data row5 col4" id="T_76145_row5_col4">6,9%</td>
-<td class="data row5 col5" id="T_76145_row5_col5">8,3%</td>
-<td class="data row5 col6" id="T_76145_row5_col6">9,6%</td>
-<td class="data row5 col7" id="T_76145_row5_col7">11,0%</td>
+<td class="data row5 col0" id="T_1f4c0_row5_col0">meia praia</td>
+<td class="data row5 col1" id="T_1f4c0_row5_col1">3q</td>
+<td class="data row5 col2" id="T_1f4c0_row5_col2">13,8%</td>
+<td class="data row5 col3" id="T_1f4c0_row5_col3">5,5%</td>
+<td class="data row5 col4" id="T_1f4c0_row5_col4">6,9%</td>
+<td class="data row5 col5" id="T_1f4c0_row5_col5">8,3%</td>
+<td class="data row5 col6" id="T_1f4c0_row5_col6">9,6%</td>
+<td class="data row5 col7" id="T_1f4c0_row5_col7">11,0%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_76145_row6_col0">centro</td>
-<td class="data row6 col1" id="T_76145_row6_col1">3q</td>
-<td class="data row6 col2" id="T_76145_row6_col2">13,0%</td>
-<td class="data row6 col3" id="T_76145_row6_col3">5,2%</td>
-<td class="data row6 col4" id="T_76145_row6_col4">6,5%</td>
-<td class="data row6 col5" id="T_76145_row6_col5">7,8%</td>
-<td class="data row6 col6" id="T_76145_row6_col6">9,1%</td>
-<td class="data row6 col7" id="T_76145_row6_col7">10,4%</td>
+<td class="data row6 col0" id="T_1f4c0_row6_col0">centro</td>
+<td class="data row6 col1" id="T_1f4c0_row6_col1">3q</td>
+<td class="data row6 col2" id="T_1f4c0_row6_col2">13,0%</td>
+<td class="data row6 col3" id="T_1f4c0_row6_col3">5,2%</td>
+<td class="data row6 col4" id="T_1f4c0_row6_col4">6,5%</td>
+<td class="data row6 col5" id="T_1f4c0_row6_col5">7,8%</td>
+<td class="data row6 col6" id="T_1f4c0_row6_col6">9,1%</td>
+<td class="data row6 col7" id="T_1f4c0_row6_col7">10,4%</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_76145_row7_col0">meia praia</td>
-<td class="data row7 col1" id="T_76145_row7_col1">4q+</td>
-<td class="data row7 col2" id="T_76145_row7_col2">12,9%</td>
-<td class="data row7 col3" id="T_76145_row7_col3">5,2%</td>
-<td class="data row7 col4" id="T_76145_row7_col4">6,5%</td>
-<td class="data row7 col5" id="T_76145_row7_col5">7,8%</td>
-<td class="data row7 col6" id="T_76145_row7_col6">9,0%</td>
-<td class="data row7 col7" id="T_76145_row7_col7">10,3%</td>
+<td class="data row7 col0" id="T_1f4c0_row7_col0">meia praia</td>
+<td class="data row7 col1" id="T_1f4c0_row7_col1">4q+</td>
+<td class="data row7 col2" id="T_1f4c0_row7_col2">12,9%</td>
+<td class="data row7 col3" id="T_1f4c0_row7_col3">5,2%</td>
+<td class="data row7 col4" id="T_1f4c0_row7_col4">6,5%</td>
+<td class="data row7 col5" id="T_1f4c0_row7_col5">7,8%</td>
+<td class="data row7 col6" id="T_1f4c0_row7_col6">9,0%</td>
+<td class="data row7 col7" id="T_1f4c0_row7_col7">10,3%</td>
 </tr>
 </tbody>
 </table>
@@ -8231,99 +8277,99 @@ no VivaReal</strong> indicando oversupply. Nenhum analista sério assumiria a me
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_20f2d">
+<table class="no-index" id="T_3927f">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_20f2d_level0_col0">#</th>
-<th class="col_heading level0 col1" id="T_20f2d_level0_col1">Bairro</th>
-<th class="col_heading level0 col2" id="T_20f2d_level0_col2">Tipo</th>
-<th class="col_heading level0 col3" id="T_20f2d_level0_col3">Ocup. baixa</th>
-<th class="col_heading level0 col4" id="T_20f2d_level0_col4">Ocup. alta</th>
-<th class="col_heading level0 col5" id="T_20f2d_level0_col5">Cap diferencial (baixa)</th>
-<th class="col_heading level0 col6" id="T_20f2d_level0_col6">Cap diferencial (alta)</th>
-<th class="col_heading level0 col7" id="T_20f2d_level0_col7">Premissa</th>
+<th class="col_heading level0 col0" id="T_3927f_level0_col0">#</th>
+<th class="col_heading level0 col1" id="T_3927f_level0_col1">Bairro</th>
+<th class="col_heading level0 col2" id="T_3927f_level0_col2">Tipo</th>
+<th class="col_heading level0 col3" id="T_3927f_level0_col3">Ocup. baixa</th>
+<th class="col_heading level0 col4" id="T_3927f_level0_col4">Ocup. alta</th>
+<th class="col_heading level0 col5" id="T_3927f_level0_col5">Cap diferencial (baixa)</th>
+<th class="col_heading level0 col6" id="T_3927f_level0_col6">Cap diferencial (alta)</th>
+<th class="col_heading level0 col7" id="T_3927f_level0_col7">Premissa</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_20f2d_row0_col0">1</td>
-<td class="data row0 col1" id="T_20f2d_row0_col1">meia praia</td>
-<td class="data row0 col2" id="T_20f2d_row0_col2">1qto</td>
-<td class="data row0 col3" id="T_20f2d_row0_col3">60%</td>
-<td class="data row0 col4" id="T_20f2d_row0_col4">65%</td>
-<td class="data row0 col5" id="T_20f2d_row0_col5">12,4%</td>
-<td class="data row0 col6" id="T_20f2d_row0_col6">13,4%</td>
-<td class="data row0 col7" id="T_20f2d_row0_col7">perfil atribuido</td>
+<td class="data row0 col0" id="T_3927f_row0_col0">1</td>
+<td class="data row0 col1" id="T_3927f_row0_col1">meia praia</td>
+<td class="data row0 col2" id="T_3927f_row0_col2">1qto</td>
+<td class="data row0 col3" id="T_3927f_row0_col3">60%</td>
+<td class="data row0 col4" id="T_3927f_row0_col4">65%</td>
+<td class="data row0 col5" id="T_3927f_row0_col5">12,4%</td>
+<td class="data row0 col6" id="T_3927f_row0_col6">13,4%</td>
+<td class="data row0 col7" id="T_3927f_row0_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_20f2d_row1_col0">2</td>
-<td class="data row1 col1" id="T_20f2d_row1_col1">morretes</td>
-<td class="data row1 col2" id="T_20f2d_row1_col2">2q</td>
-<td class="data row1 col3" id="T_20f2d_row1_col3">45%</td>
-<td class="data row1 col4" id="T_20f2d_row1_col4">55%</td>
-<td class="data row1 col5" id="T_20f2d_row1_col5">10,3%</td>
-<td class="data row1 col6" id="T_20f2d_row1_col6">12,6%</td>
-<td class="data row1 col7" id="T_20f2d_row1_col7">perfil atribuido</td>
+<td class="data row1 col0" id="T_3927f_row1_col0">2</td>
+<td class="data row1 col1" id="T_3927f_row1_col1">morretes</td>
+<td class="data row1 col2" id="T_3927f_row1_col2">2q</td>
+<td class="data row1 col3" id="T_3927f_row1_col3">45%</td>
+<td class="data row1 col4" id="T_3927f_row1_col4">55%</td>
+<td class="data row1 col5" id="T_3927f_row1_col5">10,3%</td>
+<td class="data row1 col6" id="T_3927f_row1_col6">12,6%</td>
+<td class="data row1 col7" id="T_3927f_row1_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_20f2d_row2_col0">3</td>
-<td class="data row2 col1" id="T_20f2d_row2_col1">centro</td>
-<td class="data row2 col2" id="T_20f2d_row2_col2">2q</td>
-<td class="data row2 col3" id="T_20f2d_row2_col3">55%</td>
-<td class="data row2 col4" id="T_20f2d_row2_col4">60%</td>
-<td class="data row2 col5" id="T_20f2d_row2_col5">10,7%</td>
-<td class="data row2 col6" id="T_20f2d_row2_col6">11,6%</td>
-<td class="data row2 col7" id="T_20f2d_row2_col7">perfil atribuido</td>
+<td class="data row2 col0" id="T_3927f_row2_col0">3</td>
+<td class="data row2 col1" id="T_3927f_row2_col1">centro</td>
+<td class="data row2 col2" id="T_3927f_row2_col2">2q</td>
+<td class="data row2 col3" id="T_3927f_row2_col3">55%</td>
+<td class="data row2 col4" id="T_3927f_row2_col4">60%</td>
+<td class="data row2 col5" id="T_3927f_row2_col5">10,7%</td>
+<td class="data row2 col6" id="T_3927f_row2_col6">11,6%</td>
+<td class="data row2 col7" id="T_3927f_row2_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_20f2d_row3_col0">4</td>
-<td class="data row3 col1" id="T_20f2d_row3_col1">centro</td>
-<td class="data row3 col2" id="T_20f2d_row3_col2">1qto</td>
-<td class="data row3 col3" id="T_20f2d_row3_col3">55%</td>
-<td class="data row3 col4" id="T_20f2d_row3_col4">60%</td>
-<td class="data row3 col5" id="T_20f2d_row3_col5">10,6%</td>
-<td class="data row3 col6" id="T_20f2d_row3_col6">11,5%</td>
-<td class="data row3 col7" id="T_20f2d_row3_col7">perfil atribuido</td>
+<td class="data row3 col0" id="T_3927f_row3_col0">4</td>
+<td class="data row3 col1" id="T_3927f_row3_col1">centro</td>
+<td class="data row3 col2" id="T_3927f_row3_col2">1qto</td>
+<td class="data row3 col3" id="T_3927f_row3_col3">55%</td>
+<td class="data row3 col4" id="T_3927f_row3_col4">60%</td>
+<td class="data row3 col5" id="T_3927f_row3_col5">10,6%</td>
+<td class="data row3 col6" id="T_3927f_row3_col6">11,5%</td>
+<td class="data row3 col7" id="T_3927f_row3_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_20f2d_row4_col0">5</td>
-<td class="data row4 col1" id="T_20f2d_row4_col1">meia praia</td>
-<td class="data row4 col2" id="T_20f2d_row4_col2">2q</td>
-<td class="data row4 col3" id="T_20f2d_row4_col3">60%</td>
-<td class="data row4 col4" id="T_20f2d_row4_col4">65%</td>
-<td class="data row4 col5" id="T_20f2d_row4_col5">10,2%</td>
-<td class="data row4 col6" id="T_20f2d_row4_col6">11,0%</td>
-<td class="data row4 col7" id="T_20f2d_row4_col7">perfil atribuido</td>
+<td class="data row4 col0" id="T_3927f_row4_col0">5</td>
+<td class="data row4 col1" id="T_3927f_row4_col1">meia praia</td>
+<td class="data row4 col2" id="T_3927f_row4_col2">2q</td>
+<td class="data row4 col3" id="T_3927f_row4_col3">60%</td>
+<td class="data row4 col4" id="T_3927f_row4_col4">65%</td>
+<td class="data row4 col5" id="T_3927f_row4_col5">10,2%</td>
+<td class="data row4 col6" id="T_3927f_row4_col6">11,0%</td>
+<td class="data row4 col7" id="T_3927f_row4_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_20f2d_row5_col0">6</td>
-<td class="data row5 col1" id="T_20f2d_row5_col1">meia praia</td>
-<td class="data row5 col2" id="T_20f2d_row5_col2">3q</td>
-<td class="data row5 col3" id="T_20f2d_row5_col3">60%</td>
-<td class="data row5 col4" id="T_20f2d_row5_col4">65%</td>
-<td class="data row5 col5" id="T_20f2d_row5_col5">8,3%</td>
-<td class="data row5 col6" id="T_20f2d_row5_col6">9,0%</td>
-<td class="data row5 col7" id="T_20f2d_row5_col7">perfil atribuido</td>
+<td class="data row5 col0" id="T_3927f_row5_col0">6</td>
+<td class="data row5 col1" id="T_3927f_row5_col1">meia praia</td>
+<td class="data row5 col2" id="T_3927f_row5_col2">3q</td>
+<td class="data row5 col3" id="T_3927f_row5_col3">60%</td>
+<td class="data row5 col4" id="T_3927f_row5_col4">65%</td>
+<td class="data row5 col5" id="T_3927f_row5_col5">8,3%</td>
+<td class="data row5 col6" id="T_3927f_row5_col6">9,0%</td>
+<td class="data row5 col7" id="T_3927f_row5_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_20f2d_row6_col0">7</td>
-<td class="data row6 col1" id="T_20f2d_row6_col1">meia praia</td>
-<td class="data row6 col2" id="T_20f2d_row6_col2">4q+</td>
-<td class="data row6 col3" id="T_20f2d_row6_col3">60%</td>
-<td class="data row6 col4" id="T_20f2d_row6_col4">65%</td>
-<td class="data row6 col5" id="T_20f2d_row6_col5">7,8%</td>
-<td class="data row6 col6" id="T_20f2d_row6_col6">8,4%</td>
-<td class="data row6 col7" id="T_20f2d_row6_col7">perfil atribuido</td>
+<td class="data row6 col0" id="T_3927f_row6_col0">7</td>
+<td class="data row6 col1" id="T_3927f_row6_col1">meia praia</td>
+<td class="data row6 col2" id="T_3927f_row6_col2">4q+</td>
+<td class="data row6 col3" id="T_3927f_row6_col3">60%</td>
+<td class="data row6 col4" id="T_3927f_row6_col4">65%</td>
+<td class="data row6 col5" id="T_3927f_row6_col5">7,8%</td>
+<td class="data row6 col6" id="T_3927f_row6_col6">8,4%</td>
+<td class="data row6 col7" id="T_3927f_row6_col7">perfil atribuido</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_20f2d_row7_col0">8</td>
-<td class="data row7 col1" id="T_20f2d_row7_col1">centro</td>
-<td class="data row7 col2" id="T_20f2d_row7_col2">3q</td>
-<td class="data row7 col3" id="T_20f2d_row7_col3">55%</td>
-<td class="data row7 col4" id="T_20f2d_row7_col4">60%</td>
-<td class="data row7 col5" id="T_20f2d_row7_col5">7,2%</td>
-<td class="data row7 col6" id="T_20f2d_row7_col6">7,8%</td>
-<td class="data row7 col7" id="T_20f2d_row7_col7">perfil atribuido</td>
+<td class="data row7 col0" id="T_3927f_row7_col0">8</td>
+<td class="data row7 col1" id="T_3927f_row7_col1">centro</td>
+<td class="data row7 col2" id="T_3927f_row7_col2">3q</td>
+<td class="data row7 col3" id="T_3927f_row7_col3">55%</td>
+<td class="data row7 col4" id="T_3927f_row7_col4">60%</td>
+<td class="data row7 col5" id="T_3927f_row7_col5">7,2%</td>
+<td class="data row7 col6" id="T_3927f_row7_col6">7,8%</td>
+<td class="data row7 col7" id="T_3927f_row7_col7">perfil atribuido</td>
 </tr>
 </tbody>
 </table>
@@ -8374,90 +8420,90 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_94e5f">
+<table class="no-index" id="T_b7afc">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_94e5f_level0_col0">#</th>
-<th class="col_heading level0 col1" id="T_94e5f_level0_col1">Bairro</th>
-<th class="col_heading level0 col2" id="T_94e5f_level0_col2">Tipo</th>
-<th class="col_heading level0 col3" id="T_94e5f_level0_col3">Área m²</th>
-<th class="col_heading level0 col4" id="T_94e5f_level0_col4">R$/noite</th>
-<th class="col_heading level0 col5" id="T_94e5f_level0_col5">R$/m² ano</th>
-<th class="col_heading level0 col6" id="T_94e5f_level0_col6">R$/m² ano (60%)</th>
+<th class="col_heading level0 col0" id="T_b7afc_level0_col0">#</th>
+<th class="col_heading level0 col1" id="T_b7afc_level0_col1">Bairro</th>
+<th class="col_heading level0 col2" id="T_b7afc_level0_col2">Tipo</th>
+<th class="col_heading level0 col3" id="T_b7afc_level0_col3">Área m²</th>
+<th class="col_heading level0 col4" id="T_b7afc_level0_col4">R$/noite</th>
+<th class="col_heading level0 col5" id="T_b7afc_level0_col5">R$/m² ano</th>
+<th class="col_heading level0 col6" id="T_b7afc_level0_col6">R$/m² ano (60%)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_94e5f_row0_col0">1</td>
-<td class="data row0 col1" id="T_94e5f_row0_col1">meia praia</td>
-<td class="data row0 col2" id="T_94e5f_row0_col2">1qto</td>
-<td class="data row0 col3" id="T_94e5f_row0_col3">40 m²</td>
-<td class="data row0 col4" id="T_94e5f_row0_col4">R$ 495</td>
-<td class="data row0 col5" id="T_94e5f_row0_col5">R$ 4.517</td>
-<td class="data row0 col6" id="T_94e5f_row0_col6">R$ 2.710</td>
+<td class="data row0 col0" id="T_b7afc_row0_col0">1</td>
+<td class="data row0 col1" id="T_b7afc_row0_col1">meia praia</td>
+<td class="data row0 col2" id="T_b7afc_row0_col2">1qto</td>
+<td class="data row0 col3" id="T_b7afc_row0_col3">40 m²</td>
+<td class="data row0 col4" id="T_b7afc_row0_col4">R$ 495</td>
+<td class="data row0 col5" id="T_b7afc_row0_col5">R$ 4.517</td>
+<td class="data row0 col6" id="T_b7afc_row0_col6">R$ 2.710</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_94e5f_row1_col0">2</td>
-<td class="data row1 col1" id="T_94e5f_row1_col1">centro</td>
-<td class="data row1 col2" id="T_94e5f_row1_col2">1qto</td>
-<td class="data row1 col3" id="T_94e5f_row1_col3">53 m²</td>
-<td class="data row1 col4" id="T_94e5f_row1_col4">R$ 471</td>
-<td class="data row1 col5" id="T_94e5f_row1_col5">R$ 3.244</td>
-<td class="data row1 col6" id="T_94e5f_row1_col6">R$ 1.946</td>
+<td class="data row1 col0" id="T_b7afc_row1_col0">2</td>
+<td class="data row1 col1" id="T_b7afc_row1_col1">centro</td>
+<td class="data row1 col2" id="T_b7afc_row1_col2">1qto</td>
+<td class="data row1 col3" id="T_b7afc_row1_col3">53 m²</td>
+<td class="data row1 col4" id="T_b7afc_row1_col4">R$ 471</td>
+<td class="data row1 col5" id="T_b7afc_row1_col5">R$ 3.244</td>
+<td class="data row1 col6" id="T_b7afc_row1_col6">R$ 1.946</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_94e5f_row2_col0">3</td>
-<td class="data row2 col1" id="T_94e5f_row2_col1">morretes</td>
-<td class="data row2 col2" id="T_94e5f_row2_col2">2q</td>
-<td class="data row2 col3" id="T_94e5f_row2_col3">69 m²</td>
-<td class="data row2 col4" id="T_94e5f_row2_col4">R$ 500</td>
-<td class="data row2 col5" id="T_94e5f_row2_col5">R$ 2.645</td>
-<td class="data row2 col6" id="T_94e5f_row2_col6">R$ 1.587</td>
+<td class="data row2 col0" id="T_b7afc_row2_col0">3</td>
+<td class="data row2 col1" id="T_b7afc_row2_col1">morretes</td>
+<td class="data row2 col2" id="T_b7afc_row2_col2">2q</td>
+<td class="data row2 col3" id="T_b7afc_row2_col3">69 m²</td>
+<td class="data row2 col4" id="T_b7afc_row2_col4">R$ 500</td>
+<td class="data row2 col5" id="T_b7afc_row2_col5">R$ 2.645</td>
+<td class="data row2 col6" id="T_b7afc_row2_col6">R$ 1.587</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_94e5f_row3_col0">4</td>
-<td class="data row3 col1" id="T_94e5f_row3_col1">centro</td>
-<td class="data row3 col2" id="T_94e5f_row3_col2">2q</td>
-<td class="data row3 col3" id="T_94e5f_row3_col3">86 m²</td>
-<td class="data row3 col4" id="T_94e5f_row3_col4">R$ 611</td>
-<td class="data row3 col5" id="T_94e5f_row3_col5">R$ 2.593</td>
-<td class="data row3 col6" id="T_94e5f_row3_col6">R$ 1.556</td>
+<td class="data row3 col0" id="T_b7afc_row3_col0">4</td>
+<td class="data row3 col1" id="T_b7afc_row3_col1">centro</td>
+<td class="data row3 col2" id="T_b7afc_row3_col2">2q</td>
+<td class="data row3 col3" id="T_b7afc_row3_col3">86 m²</td>
+<td class="data row3 col4" id="T_b7afc_row3_col4">R$ 611</td>
+<td class="data row3 col5" id="T_b7afc_row3_col5">R$ 2.593</td>
+<td class="data row3 col6" id="T_b7afc_row3_col6">R$ 1.556</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_94e5f_row4_col0">5</td>
-<td class="data row4 col1" id="T_94e5f_row4_col1">meia praia</td>
-<td class="data row4 col2" id="T_94e5f_row4_col2">4q+</td>
-<td class="data row4 col3" id="T_94e5f_row4_col3">188 m²</td>
-<td class="data row4 col4" id="T_94e5f_row4_col4">R$ 1.300</td>
-<td class="data row4 col5" id="T_94e5f_row4_col5">R$ 2.524</td>
-<td class="data row4 col6" id="T_94e5f_row4_col6">R$ 1.514</td>
+<td class="data row4 col0" id="T_b7afc_row4_col0">5</td>
+<td class="data row4 col1" id="T_b7afc_row4_col1">meia praia</td>
+<td class="data row4 col2" id="T_b7afc_row4_col2">4q+</td>
+<td class="data row4 col3" id="T_b7afc_row4_col3">188 m²</td>
+<td class="data row4 col4" id="T_b7afc_row4_col4">R$ 1.300</td>
+<td class="data row4 col5" id="T_b7afc_row4_col5">R$ 2.524</td>
+<td class="data row4 col6" id="T_b7afc_row4_col6">R$ 1.514</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_94e5f_row5_col0">6</td>
-<td class="data row5 col1" id="T_94e5f_row5_col1">meia praia</td>
-<td class="data row5 col2" id="T_94e5f_row5_col2">2q</td>
-<td class="data row5 col3" id="T_94e5f_row5_col3">85 m²</td>
-<td class="data row5 col4" id="T_94e5f_row5_col4">R$ 500</td>
-<td class="data row5 col5" id="T_94e5f_row5_col5">R$ 2.147</td>
-<td class="data row5 col6" id="T_94e5f_row5_col6">R$ 1.288</td>
+<td class="data row5 col0" id="T_b7afc_row5_col0">6</td>
+<td class="data row5 col1" id="T_b7afc_row5_col1">meia praia</td>
+<td class="data row5 col2" id="T_b7afc_row5_col2">2q</td>
+<td class="data row5 col3" id="T_b7afc_row5_col3">85 m²</td>
+<td class="data row5 col4" id="T_b7afc_row5_col4">R$ 500</td>
+<td class="data row5 col5" id="T_b7afc_row5_col5">R$ 2.147</td>
+<td class="data row5 col6" id="T_b7afc_row5_col6">R$ 1.288</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_94e5f_row6_col0">7</td>
-<td class="data row6 col1" id="T_94e5f_row6_col1">centro</td>
-<td class="data row6 col2" id="T_94e5f_row6_col2">3q</td>
-<td class="data row6 col3" id="T_94e5f_row6_col3">131 m²</td>
-<td class="data row6 col4" id="T_94e5f_row6_col4">R$ 749</td>
-<td class="data row6 col5" id="T_94e5f_row6_col5">R$ 2.087</td>
-<td class="data row6 col6" id="T_94e5f_row6_col6">R$ 1.252</td>
+<td class="data row6 col0" id="T_b7afc_row6_col0">7</td>
+<td class="data row6 col1" id="T_b7afc_row6_col1">centro</td>
+<td class="data row6 col2" id="T_b7afc_row6_col2">3q</td>
+<td class="data row6 col3" id="T_b7afc_row6_col3">131 m²</td>
+<td class="data row6 col4" id="T_b7afc_row6_col4">R$ 749</td>
+<td class="data row6 col5" id="T_b7afc_row6_col5">R$ 2.087</td>
+<td class="data row6 col6" id="T_b7afc_row6_col6">R$ 1.252</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_94e5f_row7_col0">8</td>
-<td class="data row7 col1" id="T_94e5f_row7_col1">meia praia</td>
-<td class="data row7 col2" id="T_94e5f_row7_col2">3q</td>
-<td class="data row7 col3" id="T_94e5f_row7_col3">129 m²</td>
-<td class="data row7 col4" id="T_94e5f_row7_col4">R$ 712</td>
-<td class="data row7 col5" id="T_94e5f_row7_col5">R$ 2.014</td>
-<td class="data row7 col6" id="T_94e5f_row7_col6">R$ 1.208</td>
+<td class="data row7 col0" id="T_b7afc_row7_col0">8</td>
+<td class="data row7 col1" id="T_b7afc_row7_col1">meia praia</td>
+<td class="data row7 col2" id="T_b7afc_row7_col2">3q</td>
+<td class="data row7 col3" id="T_b7afc_row7_col3">129 m²</td>
+<td class="data row7 col4" id="T_b7afc_row7_col4">R$ 712</td>
+<td class="data row7 col5" id="T_b7afc_row7_col5">R$ 2.014</td>
+<td class="data row7 col6" id="T_b7afc_row7_col6">R$ 1.208</td>
 </tr>
 </tbody>
 </table>
@@ -8491,72 +8537,72 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table class="no-index" id="T_9d728">
+<table class="no-index" id="T_0fb64">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_9d728_level0_col0">#</th>
-<th class="col_heading level0 col1" id="T_9d728_level0_col1">Bairro</th>
-<th class="col_heading level0 col2" id="T_9d728_level0_col2">Tipo</th>
-<th class="col_heading level0 col3" id="T_9d728_level0_col3">Cap 60%</th>
-<th class="col_heading level0 col4" id="T_9d728_level0_col4">Confiança</th>
+<th class="col_heading level0 col0" id="T_0fb64_level0_col0">#</th>
+<th class="col_heading level0 col1" id="T_0fb64_level0_col1">Bairro</th>
+<th class="col_heading level0 col2" id="T_0fb64_level0_col2">Tipo</th>
+<th class="col_heading level0 col3" id="T_0fb64_level0_col3">Cap 60%</th>
+<th class="col_heading level0 col4" id="T_0fb64_level0_col4">Confiança</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_9d728_row0_col0">1</td>
-<td class="data row0 col1" id="T_9d728_row0_col1">morretes</td>
-<td class="data row0 col2" id="T_9d728_row0_col2">2q</td>
-<td class="data row0 col3" id="T_9d728_row0_col3">13,8%</td>
-<td class="data row0 col4" id="T_9d728_row0_col4">media</td>
+<td class="data row0 col0" id="T_0fb64_row0_col0">1</td>
+<td class="data row0 col1" id="T_0fb64_row0_col1">morretes</td>
+<td class="data row0 col2" id="T_0fb64_row0_col2">2q</td>
+<td class="data row0 col3" id="T_0fb64_row0_col3">13,8%</td>
+<td class="data row0 col4" id="T_0fb64_row0_col4">media</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_9d728_row1_col0">2</td>
-<td class="data row1 col1" id="T_9d728_row1_col1">meia praia</td>
-<td class="data row1 col2" id="T_9d728_row1_col2">1qto</td>
-<td class="data row1 col3" id="T_9d728_row1_col3">12,4%</td>
-<td class="data row1 col4" id="T_9d728_row1_col4">baixa</td>
+<td class="data row1 col0" id="T_0fb64_row1_col0">2</td>
+<td class="data row1 col1" id="T_0fb64_row1_col1">meia praia</td>
+<td class="data row1 col2" id="T_0fb64_row1_col2">1qto</td>
+<td class="data row1 col3" id="T_0fb64_row1_col3">12,4%</td>
+<td class="data row1 col4" id="T_0fb64_row1_col4">baixa</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_9d728_row2_col0">3</td>
-<td class="data row2 col1" id="T_9d728_row2_col1">centro</td>
-<td class="data row2 col2" id="T_9d728_row2_col2">2q</td>
-<td class="data row2 col3" id="T_9d728_row2_col3">11,6%</td>
-<td class="data row2 col4" id="T_9d728_row2_col4">media</td>
+<td class="data row2 col0" id="T_0fb64_row2_col0">3</td>
+<td class="data row2 col1" id="T_0fb64_row2_col1">centro</td>
+<td class="data row2 col2" id="T_0fb64_row2_col2">2q</td>
+<td class="data row2 col3" id="T_0fb64_row2_col3">11,6%</td>
+<td class="data row2 col4" id="T_0fb64_row2_col4">media</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_9d728_row3_col0">4</td>
-<td class="data row3 col1" id="T_9d728_row3_col1">centro</td>
-<td class="data row3 col2" id="T_9d728_row3_col2">1qto</td>
-<td class="data row3 col3" id="T_9d728_row3_col3">11,5%</td>
-<td class="data row3 col4" id="T_9d728_row3_col4">baixa-fina</td>
+<td class="data row3 col0" id="T_0fb64_row3_col0">4</td>
+<td class="data row3 col1" id="T_0fb64_row3_col1">centro</td>
+<td class="data row3 col2" id="T_0fb64_row3_col2">1qto</td>
+<td class="data row3 col3" id="T_0fb64_row3_col3">11,5%</td>
+<td class="data row3 col4" id="T_0fb64_row3_col4">baixa-fina</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_9d728_row4_col0">5</td>
-<td class="data row4 col1" id="T_9d728_row4_col1">meia praia</td>
-<td class="data row4 col2" id="T_9d728_row4_col2">2q</td>
-<td class="data row4 col3" id="T_9d728_row4_col3">10,2%</td>
-<td class="data row4 col4" id="T_9d728_row4_col4">alta</td>
+<td class="data row4 col0" id="T_0fb64_row4_col0">5</td>
+<td class="data row4 col1" id="T_0fb64_row4_col1">meia praia</td>
+<td class="data row4 col2" id="T_0fb64_row4_col2">2q</td>
+<td class="data row4 col3" id="T_0fb64_row4_col3">10,2%</td>
+<td class="data row4 col4" id="T_0fb64_row4_col4">alta</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_9d728_row5_col0">6</td>
-<td class="data row5 col1" id="T_9d728_row5_col1">meia praia</td>
-<td class="data row5 col2" id="T_9d728_row5_col2">3q</td>
-<td class="data row5 col3" id="T_9d728_row5_col3">8,3%</td>
-<td class="data row5 col4" id="T_9d728_row5_col4">alta</td>
+<td class="data row5 col0" id="T_0fb64_row5_col0">6</td>
+<td class="data row5 col1" id="T_0fb64_row5_col1">meia praia</td>
+<td class="data row5 col2" id="T_0fb64_row5_col2">3q</td>
+<td class="data row5 col3" id="T_0fb64_row5_col3">8,3%</td>
+<td class="data row5 col4" id="T_0fb64_row5_col4">alta</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_9d728_row6_col0">7</td>
-<td class="data row6 col1" id="T_9d728_row6_col1">centro</td>
-<td class="data row6 col2" id="T_9d728_row6_col2">3q</td>
-<td class="data row6 col3" id="T_9d728_row6_col3">7,8%</td>
-<td class="data row6 col4" id="T_9d728_row6_col4">baixa</td>
+<td class="data row6 col0" id="T_0fb64_row6_col0">7</td>
+<td class="data row6 col1" id="T_0fb64_row6_col1">centro</td>
+<td class="data row6 col2" id="T_0fb64_row6_col2">3q</td>
+<td class="data row6 col3" id="T_0fb64_row6_col3">7,8%</td>
+<td class="data row6 col4" id="T_0fb64_row6_col4">baixa</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_9d728_row7_col0">8</td>
-<td class="data row7 col1" id="T_9d728_row7_col1">meia praia</td>
-<td class="data row7 col2" id="T_9d728_row7_col2">4q+</td>
-<td class="data row7 col3" id="T_9d728_row7_col3">7,8%</td>
-<td class="data row7 col4" id="T_9d728_row7_col4">media</td>
+<td class="data row7 col0" id="T_0fb64_row7_col0">8</td>
+<td class="data row7 col1" id="T_0fb64_row7_col1">meia praia</td>
+<td class="data row7 col2" id="T_0fb64_row7_col2">4q+</td>
+<td class="data row7 col3" id="T_0fb64_row7_col3">7,8%</td>
+<td class="data row7 col4" id="T_0fb64_row7_col4">media</td>
 </tr>
 </tbody>
 </table>
@@ -8586,94 +8632,125 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_97792_row0_col0, #T_97792_row1_col0, #T_97792_row2_col1, #T_97792_row2_col3, #T_97792_row3_col1, #T_97792_row3_col3, #T_97792_row4_col1, #T_97792_row4_col3, #T_97792_row5_col1, #T_97792_row5_col3, #T_97792_row6_col1, #T_97792_row6_col2, #T_97792_row7_col0 {
-  background-color: #c0452e;
-  color: #ffffff;
-  font-weight: 700;
+#T_b11cf  {
+  border-collapse: separate;
+  border-spacing: 0 3px;
 }
-#T_97792_row0_col1, #T_97792_row0_col2, #T_97792_row0_col3, #T_97792_row1_col1, #T_97792_row1_col2, #T_97792_row2_col2, #T_97792_row4_col0, #T_97792_row5_col2, #T_97792_row6_col0, #T_97792_row6_col3, #T_97792_row7_col1, #T_97792_row7_col2 {
-  background-color: #138a4f;
+#T_b11cf thead th {
+  background-color: #0f6b5c;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 13.5px;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  text-align: center;
+  padding: 13px 16px;
+  white-space: nowrap;
 }
-#T_97792_row1_col3, #T_97792_row2_col0, #T_97792_row3_col0, #T_97792_row3_col2, #T_97792_row4_col2, #T_97792_row5_col0, #T_97792_row7_col3 {
-  background-color: #eae8e1;
-  color: #b9b4a8;
+#T_b11cf thead th.blank {
+  background-color: transparent;
+}
+#T_b11cf tbody th {
+  background-color: #eef4f1;
+  color: #26221c;
+  font-weight: 500;
+  font-size: 13.5px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: left;
+  padding: 15px 16px;
+  white-space: nowrap;
+}
+#T_b11cf tbody td {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  padding: 15px 18px;
+  border-bottom: none;
+}
+#T_b11cf_row0_col0, #T_b11cf_row1_col3, #T_b11cf_row2_col0, #T_b11cf_row3_col0, #T_b11cf_row3_col2, #T_b11cf_row4_col2, #T_b11cf_row5_col0, #T_b11cf_row7_col3 {
+  background-color: #f2f1ed;
+  color: #6f6a5e;
+  font-weight: 500;
+}
+#T_b11cf_row0_col1, #T_b11cf_row0_col2, #T_b11cf_row0_col3, #T_b11cf_row1_col1, #T_b11cf_row1_col2, #T_b11cf_row2_col2, #T_b11cf_row4_col0, #T_b11cf_row5_col2, #T_b11cf_row6_col0, #T_b11cf_row6_col3, #T_b11cf_row7_col1, #T_b11cf_row7_col2 {
+  background-color: #d6efe0;
+  color: #0f5c3c;
+  font-weight: 600;
+}
+#T_b11cf_row1_col0, #T_b11cf_row2_col1, #T_b11cf_row2_col3, #T_b11cf_row3_col1, #T_b11cf_row3_col3, #T_b11cf_row4_col1, #T_b11cf_row4_col3, #T_b11cf_row5_col1, #T_b11cf_row5_col3, #T_b11cf_row6_col1, #T_b11cf_row6_col2, #T_b11cf_row7_col0 {
+  background-color: #fadfd7;
+  color: #8d3924;
+  font-weight: 600;
 }
 </style>
-<table id="T_97792">
+<table class="deep-dive" id="T_b11cf">
 <thead>
 <tr>
-<th class="index_name level0">celula</th>
-<th class="col_heading level0 col0" id="T_97792_level0_col0">centro 1qto</th>
-<th class="col_heading level0 col1" id="T_97792_level0_col1">centro 2q</th>
-<th class="col_heading level0 col2" id="T_97792_level0_col2">meia praia 1qto</th>
-<th class="col_heading level0 col3" id="T_97792_level0_col3">meia praia 2q</th>
-</tr>
-<tr>
-<th class="index_name level0">carac</th>
-<th class="blank col0"> </th>
-<th class="blank col1"> </th>
-<th class="blank col2"> </th>
-<th class="blank col3"> </th>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0" id="T_b11cf_level0_col0">Centro 1qto</th>
+<th class="col_heading level0 col1" id="T_b11cf_level0_col1">Centro 2q</th>
+<th class="col_heading level0 col2" id="T_b11cf_level0_col2">Meia Praia 1qto</th>
+<th class="col_heading level0 col3" id="T_b11cf_level0_col3">Meia Praia 2q</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_97792_level0_row0">is_professional</th>
-<td class="data row0 col0" id="T_97792_row0_col0">-5%</td>
-<td class="data row0 col1" id="T_97792_row0_col1">+54%</td>
-<td class="data row0 col2" id="T_97792_row0_col2">+22%</td>
-<td class="data row0 col3" id="T_97792_row0_col3">+30%</td>
+<th class="row_heading level0 row0" id="T_b11cf_level0_row0">is_professional</th>
+<td class="data row0 col0" id="T_b11cf_row0_col0">-5%</td>
+<td class="data row0 col1" id="T_b11cf_row0_col1">+54%</td>
+<td class="data row0 col2" id="T_b11cf_row0_col2">+22%</td>
+<td class="data row0 col3" id="T_b11cf_row0_col3">+30%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_97792_level0_row1">can_instant_book</th>
-<td class="data row1 col0" id="T_97792_row1_col0">-10%</td>
-<td class="data row1 col1" id="T_97792_row1_col1">+31%</td>
-<td class="data row1 col2" id="T_97792_row1_col2">+34%</td>
-<td class="data row1 col3" id="T_97792_row1_col3">-3%</td>
+<th class="row_heading level0 row1" id="T_b11cf_level0_row1">can_instant_book</th>
+<td class="data row1 col0" id="T_b11cf_row1_col0">-10%</td>
+<td class="data row1 col1" id="T_b11cf_row1_col1">+31%</td>
+<td class="data row1 col2" id="T_b11cf_row1_col2">+34%</td>
+<td class="data row1 col3" id="T_b11cf_row1_col3">-3%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_97792_level0_row2">number_of_reviews &gt;= 20</th>
-<td class="data row2 col0" id="T_97792_row2_col0">0</td>
-<td class="data row2 col1" id="T_97792_row2_col1">-46%</td>
-<td class="data row2 col2" id="T_97792_row2_col2">+9%</td>
-<td class="data row2 col3" id="T_97792_row2_col3">-10%</td>
+<th class="row_heading level0 row2" id="T_b11cf_level0_row2">number_of_reviews &gt;= 20</th>
+<td class="data row2 col0" id="T_b11cf_row2_col0">0</td>
+<td class="data row2 col1" id="T_b11cf_row2_col1">-46%</td>
+<td class="data row2 col2" id="T_b11cf_row2_col2">+9%</td>
+<td class="data row2 col3" id="T_b11cf_row2_col3">-10%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_97792_level0_row3">is_superhost</th>
-<td class="data row3 col0" id="T_97792_row3_col0">0</td>
-<td class="data row3 col1" id="T_97792_row3_col1">-25%</td>
-<td class="data row3 col2" id="T_97792_row3_col2">+2%</td>
-<td class="data row3 col3" id="T_97792_row3_col3">-14%</td>
+<th class="row_heading level0 row3" id="T_b11cf_level0_row3">is_superhost</th>
+<td class="data row3 col0" id="T_b11cf_row3_col0">0</td>
+<td class="data row3 col1" id="T_b11cf_row3_col1">-25%</td>
+<td class="data row3 col2" id="T_b11cf_row3_col2">+2%</td>
+<td class="data row3 col3" id="T_b11cf_row3_col3">-14%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_97792_level0_row4">is_guest_favorite</th>
-<td class="data row4 col0" id="T_97792_row4_col0">+17%</td>
-<td class="data row4 col1" id="T_97792_row4_col1">-24%</td>
-<td class="data row4 col2" id="T_97792_row4_col2">-2%</td>
-<td class="data row4 col3" id="T_97792_row4_col3">-10%</td>
+<th class="row_heading level0 row4" id="T_b11cf_level0_row4">is_guest_favorite</th>
+<td class="data row4 col0" id="T_b11cf_row4_col0">+17%</td>
+<td class="data row4 col1" id="T_b11cf_row4_col1">-24%</td>
+<td class="data row4 col2" id="T_b11cf_row4_col2">-2%</td>
+<td class="data row4 col3" id="T_b11cf_row4_col3">-10%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_97792_level0_row5">star_rating &gt;= 4.8</th>
-<td class="data row5 col0" id="T_97792_row5_col0">0</td>
-<td class="data row5 col1" id="T_97792_row5_col1">-27%</td>
-<td class="data row5 col2" id="T_97792_row5_col2">+48%</td>
-<td class="data row5 col3" id="T_97792_row5_col3">-6%</td>
+<th class="row_heading level0 row5" id="T_b11cf_level0_row5">star_rating &gt;= 4.8</th>
+<td class="data row5 col0" id="T_b11cf_row5_col0">0</td>
+<td class="data row5 col1" id="T_b11cf_row5_col1">-27%</td>
+<td class="data row5 col2" id="T_b11cf_row5_col2">+48%</td>
+<td class="data row5 col3" id="T_b11cf_row5_col3">-6%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_97792_level0_row6">picture_count &gt;= 30</th>
-<td class="data row6 col0" id="T_97792_row6_col0">+17%</td>
-<td class="data row6 col1" id="T_97792_row6_col1">-23%</td>
-<td class="data row6 col2" id="T_97792_row6_col2">-10%</td>
-<td class="data row6 col3" id="T_97792_row6_col3">+11%</td>
+<th class="row_heading level0 row6" id="T_b11cf_level0_row6">picture_count &gt;= 30</th>
+<td class="data row6 col0" id="T_b11cf_row6_col0">+17%</td>
+<td class="data row6 col1" id="T_b11cf_row6_col1">-23%</td>
+<td class="data row6 col2" id="T_b11cf_row6_col2">-10%</td>
+<td class="data row6 col3" id="T_b11cf_row6_col3">+11%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row7" id="T_97792_level0_row7">years_host &gt;= 3</th>
-<td class="data row7 col0" id="T_97792_row7_col0">-12%</td>
-<td class="data row7 col1" id="T_97792_row7_col1">+10%</td>
-<td class="data row7 col2" id="T_97792_row7_col2">+6%</td>
-<td class="data row7 col3" id="T_97792_row7_col3">-1%</td>
+<th class="row_heading level0 row7" id="T_b11cf_level0_row7">years_host &gt;= 3</th>
+<td class="data row7 col0" id="T_b11cf_row7_col0">-12%</td>
+<td class="data row7 col1" id="T_b11cf_row7_col1">+10%</td>
+<td class="data row7 col2" id="T_b11cf_row7_col2">+6%</td>
+<td class="data row7 col3" id="T_b11cf_row7_col3">-1%</td>
 </tr>
 </tbody>
 </table>
@@ -8717,81 +8794,81 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_1596e_row0_col0 {
+#T_b5d5b_row0_col0 {
   background-color: #138a4f;
   color: #ffffff;
   font-weight: 700;
   text-align: left;
 }
-#T_1596e_row0_col1, #T_1596e_row1_col1, #T_1596e_row2_col1, #T_1596e_row3_col1 {
+#T_b5d5b_row0_col1, #T_b5d5b_row1_col1, #T_b5d5b_row2_col1, #T_b5d5b_row3_col1 {
   text-align: left;
 }
-#T_1596e_row1_col0 {
+#T_b5d5b_row1_col0 {
   background-color: #a3c04a;
   color: #1a1a1a;
   font-weight: 700;
   text-align: left;
 }
-#T_1596e_row2_col0 {
+#T_b5d5b_row2_col0 {
   background-color: #e0b400;
   color: #1a1a1a;
   font-weight: 700;
   text-align: left;
 }
-#T_1596e_row3_col0 {
+#T_b5d5b_row3_col0 {
   background-color: #b5b0a4;
   color: #ffffff;
   text-align: left;
 }
 </style>
-<table class="no-index" id="T_1596e">
+<table class="no-index" id="T_b5d5b">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_1596e_level0_col0">Recomendação</th>
-<th class="col_heading level0 col1" id="T_1596e_level0_col1">Bairro / Tipo</th>
-<th class="col_heading level0 col2" id="T_1596e_level0_col2">Ocupação</th>
-<th class="col_heading level0 col3" id="T_1596e_level0_col3">Preço compra</th>
-<th class="col_heading level0 col4" id="T_1596e_level0_col4">Receita anual bruta</th>
-<th class="col_heading level0 col5" id="T_1596e_level0_col5">Cap Rate</th>
-<th class="col_heading level0 col6" id="T_1596e_level0_col6">Payback</th>
+<th class="col_heading level0 col0" id="T_b5d5b_level0_col0">Recomendação</th>
+<th class="col_heading level0 col1" id="T_b5d5b_level0_col1">Bairro / Tipo</th>
+<th class="col_heading level0 col2" id="T_b5d5b_level0_col2">Ocupação</th>
+<th class="col_heading level0 col3" id="T_b5d5b_level0_col3">Preço compra</th>
+<th class="col_heading level0 col4" id="T_b5d5b_level0_col4">Receita anual bruta</th>
+<th class="col_heading level0 col5" id="T_b5d5b_level0_col5">Cap Rate</th>
+<th class="col_heading level0 col6" id="T_b5d5b_level0_col6">Payback</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_1596e_row0_col0">1ª — aposta principal</td>
-<td class="data row0 col1" id="T_1596e_row0_col1">Meia Praia 1q</td>
-<td class="data row0 col2" id="T_1596e_row0_col2">60%–65%</td>
-<td class="data row0 col3" id="T_1596e_row0_col3">R$ 877.500</td>
-<td class="data row0 col4" id="T_1596e_row0_col4">R$ 108.405 a 117.439</td>
-<td class="data row0 col5" id="T_1596e_row0_col5">12,4% a 13,4%</td>
-<td class="data row0 col6" id="T_1596e_row0_col6">7,5 a 8,1 anos</td>
+<td class="data row0 col0" id="T_b5d5b_row0_col0">1ª — aposta principal</td>
+<td class="data row0 col1" id="T_b5d5b_row0_col1">Meia Praia 1q</td>
+<td class="data row0 col2" id="T_b5d5b_row0_col2">60%–65%</td>
+<td class="data row0 col3" id="T_b5d5b_row0_col3">R$ 877.500</td>
+<td class="data row0 col4" id="T_b5d5b_row0_col4">R$ 108.405 a 117.439</td>
+<td class="data row0 col5" id="T_b5d5b_row0_col5">12,4% a 13,4%</td>
+<td class="data row0 col6" id="T_b5d5b_row0_col6">7,5 a 8,1 anos</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_1596e_row1_col0">2ª — upside</td>
-<td class="data row1 col1" id="T_1596e_row1_col1">Morretes 2q</td>
-<td class="data row1 col2" id="T_1596e_row1_col2">45%–55%</td>
-<td class="data row1 col3" id="T_1596e_row1_col3">R$ 793.950</td>
-<td class="data row1 col4" id="T_1596e_row1_col4">R$ 82.125 a 100.375</td>
-<td class="data row1 col5" id="T_1596e_row1_col5">10,3% a 12,6%</td>
-<td class="data row1 col6" id="T_1596e_row1_col6">7,9 a 9,7 anos</td>
+<td class="data row1 col0" id="T_b5d5b_row1_col0">2ª — upside</td>
+<td class="data row1 col1" id="T_b5d5b_row1_col1">Morretes 2q</td>
+<td class="data row1 col2" id="T_b5d5b_row1_col2">45%–55%</td>
+<td class="data row1 col3" id="T_b5d5b_row1_col3">R$ 793.950</td>
+<td class="data row1 col4" id="T_b5d5b_row1_col4">R$ 82.125 a 100.375</td>
+<td class="data row1 col5" id="T_b5d5b_row1_col5">10,3% a 12,6%</td>
+<td class="data row1 col6" id="T_b5d5b_row1_col6">7,9 a 9,7 anos</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_1596e_row2_col0">3ª — segura</td>
-<td class="data row2 col1" id="T_1596e_row2_col1">Centro 2q</td>
-<td class="data row2 col2" id="T_1596e_row2_col2">55%–60%</td>
-<td class="data row2 col3" id="T_1596e_row2_col3">R$ 1.150.000</td>
-<td class="data row2 col4" id="T_1596e_row2_col4">R$ 122.658 a 133.809</td>
-<td class="data row2 col5" id="T_1596e_row2_col5">10,7% a 11,6%</td>
-<td class="data row2 col6" id="T_1596e_row2_col6">8,6 a 9,4 anos</td>
+<td class="data row2 col0" id="T_b5d5b_row2_col0">3ª — segura</td>
+<td class="data row2 col1" id="T_b5d5b_row2_col1">Centro 2q</td>
+<td class="data row2 col2" id="T_b5d5b_row2_col2">55%–60%</td>
+<td class="data row2 col3" id="T_b5d5b_row2_col3">R$ 1.150.000</td>
+<td class="data row2 col4" id="T_b5d5b_row2_col4">R$ 122.658 a 133.809</td>
+<td class="data row2 col5" id="T_b5d5b_row2_col5">10,7% a 11,6%</td>
+<td class="data row2 col6" id="T_b5d5b_row2_col6">8,6 a 9,4 anos</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_1596e_row3_col0">Fora — tese refutada</td>
-<td class="data row3 col1" id="T_1596e_row3_col1">Centro 1q</td>
-<td class="data row3 col2" id="T_1596e_row3_col2">55%–60%</td>
-<td class="data row3 col3" id="T_1596e_row3_col3">R$ 895.000</td>
-<td class="data row3 col4" id="T_1596e_row3_col4">R$ 94.553 a 103.149</td>
-<td class="data row3 col5" id="T_1596e_row3_col5">10,6% a 11,5%</td>
-<td class="data row3 col6" id="T_1596e_row3_col6">8,7 a 9,5 anos</td>
+<td class="data row3 col0" id="T_b5d5b_row3_col0">Fora — tese refutada</td>
+<td class="data row3 col1" id="T_b5d5b_row3_col1">Centro 1q</td>
+<td class="data row3 col2" id="T_b5d5b_row3_col2">55%–60%</td>
+<td class="data row3 col3" id="T_b5d5b_row3_col3">R$ 895.000</td>
+<td class="data row3 col4" id="T_b5d5b_row3_col4">R$ 94.553 a 103.149</td>
+<td class="data row3 col5" id="T_b5d5b_row3_col5">10,6% a 11,5%</td>
+<td class="data row3 col6" id="T_b5d5b_row3_col6">8,7 a 9,5 anos</td>
 </tr>
 </tbody>
 </table>
@@ -8899,7 +8976,7 @@ Usou contexto do notebook.
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_949e3b1cdf9a8b89a450c3922492bac7 {
+                #map_6e4ea1f6c250cfa95bac0e4adb3a4e80 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -8921,14 +8998,14 @@ Usou contexto do notebook.
   &lt;span style=&quot;color:#808080&quot;&gt;&amp;#9679;&lt;/span&gt; fora do ranking&lt;br&gt;
   &lt;i&gt;tamanho do marcador = nº de imóveis&lt;/i&gt;&lt;/div&gt;
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_949e3b1cdf9a8b89a450c3922492bac7&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_6e4ea1f6c250cfa95bac0e4adb3a4e80&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_949e3b1cdf9a8b89a450c3922492bac7 = L.map(
-                &quot;map_949e3b1cdf9a8b89a450c3922492bac7&quot;,
+            var map_6e4ea1f6c250cfa95bac0e4adb3a4e80 = L.map(
+                &quot;map_6e4ea1f6c250cfa95bac0e4adb3a4e80&quot;,
                 {
                     center: [-27.1, -48.606],
                     crs: L.CRS.EPSG3857,
@@ -8942,520 +9019,520 @@ Usou contexto do notebook.
 
         
     
-            var tile_layer_c062ae542eedadbc007080fca2b89495 = L.tileLayer(
+            var tile_layer_aea2abca9c2f4f0ddcc15f19e1f1f910 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_c062ae542eedadbc007080fca2b89495.addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            tile_layer_aea2abca9c2f4f0ddcc15f19e1f1f910.addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-            var circle_marker_7c4ee6fb8200556945a520003c616533 = L.circleMarker(
+            var circle_marker_4f126d9956e1605661de6a3d7757bc0b = L.circleMarker(
                 [-27.08639666666667, -48.61386666666667],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_b83ba2c3ce30f5fb4c585652e39b9534 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_cb55de8381379c9fe9558fb3c2dee02f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_71f9b259ed7bce14e9c0a59355b753c8 = $(`&lt;div id=&quot;html_71f9b259ed7bce14e9c0a59355b753c8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;alto sao bento 1qto (fora do ranking)&lt;br&gt;135 imóveis&lt;/div&gt;`)[0];
-                popup_b83ba2c3ce30f5fb4c585652e39b9534.setContent(html_71f9b259ed7bce14e9c0a59355b753c8);
+                var html_aa10123a4279f0ceb8417ce356b29866 = $(`&lt;div id=&quot;html_aa10123a4279f0ceb8417ce356b29866&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;alto sao bento 1qto (fora do ranking)&lt;br&gt;135 imóveis&lt;/div&gt;`)[0];
+                popup_cb55de8381379c9fe9558fb3c2dee02f.setContent(html_aa10123a4279f0ceb8417ce356b29866);
             
         
 
-        circle_marker_7c4ee6fb8200556945a520003c616533.bindPopup(popup_b83ba2c3ce30f5fb4c585652e39b9534)
+        circle_marker_4f126d9956e1605661de6a3d7757bc0b.bindPopup(popup_cb55de8381379c9fe9558fb3c2dee02f)
         ;
 
         
     
     
-            var circle_marker_cb74c3d9e0095cd9bbcb298bfd613b55 = L.circleMarker(
+            var circle_marker_067557bc1fcd276f89f07f43e4b4a5c8 = L.circleMarker(
                 [-27.08712, -48.61605],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 11.2, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_8110fe2ff5efa73c4284c403f61ce1da = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_8526151842b3484fc3878733cbe2c29a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_013cbe36f6229304c508a29dd72522bb = $(`&lt;div id=&quot;html_013cbe36f6229304c508a29dd72522bb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;alto sao bento 2q (fora do ranking)&lt;br&gt;48 imóveis&lt;/div&gt;`)[0];
-                popup_8110fe2ff5efa73c4284c403f61ce1da.setContent(html_013cbe36f6229304c508a29dd72522bb);
+                var html_b61045dfb5b5d5be1c7fab9386a2ac54 = $(`&lt;div id=&quot;html_b61045dfb5b5d5be1c7fab9386a2ac54&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;alto sao bento 2q (fora do ranking)&lt;br&gt;48 imóveis&lt;/div&gt;`)[0];
+                popup_8526151842b3484fc3878733cbe2c29a.setContent(html_b61045dfb5b5d5be1c7fab9386a2ac54);
             
         
 
-        circle_marker_cb74c3d9e0095cd9bbcb298bfd613b55.bindPopup(popup_8110fe2ff5efa73c4284c403f61ce1da)
+        circle_marker_067557bc1fcd276f89f07f43e4b4a5c8.bindPopup(popup_8526151842b3484fc3878733cbe2c29a)
         ;
 
         
     
     
-            var circle_marker_d4235deaf8296c912f5da2b2fe9ab5ca = L.circleMarker(
+            var circle_marker_e1e59ffe37c980b87b51b8ec157f7318 = L.circleMarker(
                 [-27.089207743644067, -48.60761468220338],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_06f02838c4a396cc3d97df470e3fbcfa = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_14e43ebddb5ef3bdb5b8142a786b60c8 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_04fdae64964c498f07275c806d924f64 = $(`&lt;div id=&quot;html_04fdae64964c498f07275c806d924f64&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;canto da praia 2q (fora do ranking)&lt;br&gt;472 imóveis&lt;/div&gt;`)[0];
-                popup_06f02838c4a396cc3d97df470e3fbcfa.setContent(html_04fdae64964c498f07275c806d924f64);
+                var html_3e57de1722d4b7e7177222c5b3806e3a = $(`&lt;div id=&quot;html_3e57de1722d4b7e7177222c5b3806e3a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;canto da praia 2q (fora do ranking)&lt;br&gt;472 imóveis&lt;/div&gt;`)[0];
+                popup_14e43ebddb5ef3bdb5b8142a786b60c8.setContent(html_3e57de1722d4b7e7177222c5b3806e3a);
             
         
 
-        circle_marker_d4235deaf8296c912f5da2b2fe9ab5ca.bindPopup(popup_06f02838c4a396cc3d97df470e3fbcfa)
+        circle_marker_e1e59ffe37c980b87b51b8ec157f7318.bindPopup(popup_14e43ebddb5ef3bdb5b8142a786b60c8)
         ;
 
         
     
     
-            var circle_marker_154e50ea14cf47ed1b40c918a2c58364 = L.circleMarker(
+            var circle_marker_9f846c39c730317849a0232cf9152d5b = L.circleMarker(
                 [-27.08799934387207, -48.604000091552734],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_c21d3361c79cb6648f46a95154bfa380 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_80ec2838c362550dd1f94a28b62c8531 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_ae12448aec59ec7a0fabaceb7d711944 = $(`&lt;div id=&quot;html_ae12448aec59ec7a0fabaceb7d711944&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;canto da praia 3q (fora do ranking)&lt;br&gt;69 imóveis&lt;/div&gt;`)[0];
-                popup_c21d3361c79cb6648f46a95154bfa380.setContent(html_ae12448aec59ec7a0fabaceb7d711944);
+                var html_51ae8d62487cfb78898925f96158f3f2 = $(`&lt;div id=&quot;html_51ae8d62487cfb78898925f96158f3f2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;canto da praia 3q (fora do ranking)&lt;br&gt;69 imóveis&lt;/div&gt;`)[0];
+                popup_80ec2838c362550dd1f94a28b62c8531.setContent(html_51ae8d62487cfb78898925f96158f3f2);
             
         
 
-        circle_marker_154e50ea14cf47ed1b40c918a2c58364.bindPopup(popup_c21d3361c79cb6648f46a95154bfa380)
+        circle_marker_9f846c39c730317849a0232cf9152d5b.bindPopup(popup_80ec2838c362550dd1f94a28b62c8531)
         ;
 
         
     
     
-            var circle_marker_cc4113c912fc78774b5753b6a5d4fe61 = L.circleMarker(
+            var circle_marker_c7aa76ab6a91d53d433dbf092876b467 = L.circleMarker(
                 [-27.0908534403478, -48.618143367602585],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_adf034c99b136db72d854105306df564 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_bae33c86bd60090e801119ebb4e6b485 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_c32d09247d773a5b3017f27f6d3812b6 = $(`&lt;div id=&quot;html_c32d09247d773a5b3017f27f6d3812b6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;casa branca 2q (fora do ranking)&lt;br&gt;862 imóveis&lt;/div&gt;`)[0];
-                popup_adf034c99b136db72d854105306df564.setContent(html_c32d09247d773a5b3017f27f6d3812b6);
+                var html_75abce74a2243993e48c2c98e3d50aac = $(`&lt;div id=&quot;html_75abce74a2243993e48c2c98e3d50aac&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;casa branca 2q (fora do ranking)&lt;br&gt;862 imóveis&lt;/div&gt;`)[0];
+                popup_bae33c86bd60090e801119ebb4e6b485.setContent(html_75abce74a2243993e48c2c98e3d50aac);
             
         
 
-        circle_marker_cc4113c912fc78774b5753b6a5d4fe61.bindPopup(popup_adf034c99b136db72d854105306df564)
+        circle_marker_c7aa76ab6a91d53d433dbf092876b467.bindPopup(popup_bae33c86bd60090e801119ebb4e6b485)
         ;
 
         
     
     
-            var circle_marker_1efb08a7dd3d5ae8f295820af0f6a5d0 = L.circleMarker(
+            var circle_marker_ddb8d2e1042ead1421db49ca089d3883 = L.circleMarker(
                 [-27.088841273584904, -48.61634849056603],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_bf59bfbfbbebed5e680683218d3ae766 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_91c6dc2314956ad1e2f6598fcbf1bf59 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_c682359d91adcc444271618ce89fba10 = $(`&lt;div id=&quot;html_c682359d91adcc444271618ce89fba10&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;casa branca 3q (fora do ranking)&lt;br&gt;212 imóveis&lt;/div&gt;`)[0];
-                popup_bf59bfbfbbebed5e680683218d3ae766.setContent(html_c682359d91adcc444271618ce89fba10);
+                var html_212b0768e870282ebf6a0fc0b130325e = $(`&lt;div id=&quot;html_212b0768e870282ebf6a0fc0b130325e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;casa branca 3q (fora do ranking)&lt;br&gt;212 imóveis&lt;/div&gt;`)[0];
+                popup_91c6dc2314956ad1e2f6598fcbf1bf59.setContent(html_212b0768e870282ebf6a0fc0b130325e);
             
         
 
-        circle_marker_1efb08a7dd3d5ae8f295820af0f6a5d0.bindPopup(popup_bf59bfbfbbebed5e680683218d3ae766)
+        circle_marker_ddb8d2e1042ead1421db49ca089d3883.bindPopup(popup_91c6dc2314956ad1e2f6598fcbf1bf59)
         ;
 
         
     
     
-            var circle_marker_cf5b3122ebaaff0d9c7aad72e68b63f9 = L.circleMarker(
+            var circle_marker_99f643a1b289acf38d365723f6abebe4 = L.circleMarker(
                 [-27.093298588835594, -48.61337488726157],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#aaff00&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#aaff00&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_7a36efe3c118eb1cd27da1247c45efa4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_3688ea837cffc41fac5817beeaf2c740 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_89ca1195390fb7f4656a254922d673a3 = $(`&lt;div id=&quot;html_89ca1195390fb7f4656a254922d673a3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 1qto&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.5%&lt;/span&gt;&lt;br&gt;13455 imóveis&lt;/div&gt;`)[0];
-                popup_7a36efe3c118eb1cd27da1247c45efa4.setContent(html_89ca1195390fb7f4656a254922d673a3);
+                var html_e85fe376a0431bac013b793b5da8611e = $(`&lt;div id=&quot;html_e85fe376a0431bac013b793b5da8611e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 1qto&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.5%&lt;/span&gt;&lt;br&gt;13455 imóveis&lt;/div&gt;`)[0];
+                popup_3688ea837cffc41fac5817beeaf2c740.setContent(html_e85fe376a0431bac013b793b5da8611e);
             
         
 
-        circle_marker_cf5b3122ebaaff0d9c7aad72e68b63f9.bindPopup(popup_7a36efe3c118eb1cd27da1247c45efa4)
+        circle_marker_99f643a1b289acf38d365723f6abebe4.bindPopup(popup_3688ea837cffc41fac5817beeaf2c740)
         ;
 
         
     
     
-            var circle_marker_17dcfbb17a14a9901f587b55acb56ffc = L.circleMarker(
+            var circle_marker_acbb3adf302ee2c440a2b5ad8484a897 = L.circleMarker(
                 [-27.094905853761393, -48.61354421143733],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#9fff00&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#9fff00&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_0774d53eab5c2609d9dfef49fb7a59cb = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_9974632d038541458329087e5752bb4b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_eaaa8d5b2dde66491705360fcdfb290b = $(`&lt;div id=&quot;html_eaaa8d5b2dde66491705360fcdfb290b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.6%&lt;/span&gt;&lt;br&gt;9394 imóveis&lt;/div&gt;`)[0];
-                popup_0774d53eab5c2609d9dfef49fb7a59cb.setContent(html_eaaa8d5b2dde66491705360fcdfb290b);
+                var html_47baa1a456f32f31572e9b0992626212 = $(`&lt;div id=&quot;html_47baa1a456f32f31572e9b0992626212&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.6%&lt;/span&gt;&lt;br&gt;9394 imóveis&lt;/div&gt;`)[0];
+                popup_9974632d038541458329087e5752bb4b.setContent(html_47baa1a456f32f31572e9b0992626212);
             
         
 
-        circle_marker_17dcfbb17a14a9901f587b55acb56ffc.bindPopup(popup_0774d53eab5c2609d9dfef49fb7a59cb)
+        circle_marker_acbb3adf302ee2c440a2b5ad8484a897.bindPopup(popup_9974632d038541458329087e5752bb4b)
         ;
 
         
     
     
-            var circle_marker_1a851cfd933281d494b4131c75ca0e7c = L.circleMarker(
+            var circle_marker_2da308cdb149a1acbfba675e81e504ba = L.circleMarker(
                 [-27.098260113579148, -48.614622802846185],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#ff0000&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#ff0000&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_80e9f3be56e4622570915b395c662ca0 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_0a5ed7367791389286943efe83d5145c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_3c88015a972dd1b726dc2aaa2d94ca5c = $(`&lt;div id=&quot;html_3c88015a972dd1b726dc2aaa2d94ca5c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 3q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 7.8%&lt;/span&gt;&lt;br&gt;5466 imóveis&lt;/div&gt;`)[0];
-                popup_80e9f3be56e4622570915b395c662ca0.setContent(html_3c88015a972dd1b726dc2aaa2d94ca5c);
+                var html_4c7e92f03314acc28c155b44b93e62f3 = $(`&lt;div id=&quot;html_4c7e92f03314acc28c155b44b93e62f3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 3q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 7.8%&lt;/span&gt;&lt;br&gt;5466 imóveis&lt;/div&gt;`)[0];
+                popup_0a5ed7367791389286943efe83d5145c.setContent(html_4c7e92f03314acc28c155b44b93e62f3);
             
         
 
-        circle_marker_1a851cfd933281d494b4131c75ca0e7c.bindPopup(popup_80e9f3be56e4622570915b395c662ca0)
+        circle_marker_2da308cdb149a1acbfba675e81e504ba.bindPopup(popup_0a5ed7367791389286943efe83d5145c)
         ;
 
         
     
     
-            var circle_marker_916084299553b250c6fbce9d273f12d3 = L.circleMarker(
+            var circle_marker_928cee94b2c99771f04fe1d4efa9853c = L.circleMarker(
                 [-27.100057002666837, -48.613081548795606],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_d05f34b174bce3acb8c78bad0c54ee2a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_a6991fbd841906baa58b72e5b7fab539 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_8055b016dd5bd209fa2f6cb334e61b27 = $(`&lt;div id=&quot;html_8055b016dd5bd209fa2f6cb334e61b27&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 4q+ (fora do ranking)&lt;br&gt;243 imóveis&lt;/div&gt;`)[0];
-                popup_d05f34b174bce3acb8c78bad0c54ee2a.setContent(html_8055b016dd5bd209fa2f6cb334e61b27);
+                var html_599d9bd6e02300872461e3b423de2240 = $(`&lt;div id=&quot;html_599d9bd6e02300872461e3b423de2240&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;centro 4q+ (fora do ranking)&lt;br&gt;243 imóveis&lt;/div&gt;`)[0];
+                popup_a6991fbd841906baa58b72e5b7fab539.setContent(html_599d9bd6e02300872461e3b423de2240);
             
         
 
-        circle_marker_916084299553b250c6fbce9d273f12d3.bindPopup(popup_d05f34b174bce3acb8c78bad0c54ee2a)
+        circle_marker_928cee94b2c99771f04fe1d4efa9853c.bindPopup(popup_a6991fbd841906baa58b72e5b7fab539)
         ;
 
         
     
     
-            var circle_marker_f35168779726467fc5a5b92e3cdc8a47 = L.circleMarker(
+            var circle_marker_5b5174a00651e3c44237eb9e63e370f9 = L.circleMarker(
                 [-27.067390000000003, -48.59634622754491],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_334402794f3ee3afd37f42d112f2c5ff = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_8c5f9c2a31cb2f74f2d0f2e9b01296f9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e3c1aa5ec2c550592fa130cbf62ec761 = $(`&lt;div id=&quot;html_e3c1aa5ec2c550592fa130cbf62ec761&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 1qto (fora do ranking)&lt;br&gt;167 imóveis&lt;/div&gt;`)[0];
-                popup_334402794f3ee3afd37f42d112f2c5ff.setContent(html_e3c1aa5ec2c550592fa130cbf62ec761);
+                var html_c6d22c66a5f419f32b8bf3ed5c5406f7 = $(`&lt;div id=&quot;html_c6d22c66a5f419f32b8bf3ed5c5406f7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 1qto (fora do ranking)&lt;br&gt;167 imóveis&lt;/div&gt;`)[0];
+                popup_8c5f9c2a31cb2f74f2d0f2e9b01296f9.setContent(html_c6d22c66a5f419f32b8bf3ed5c5406f7);
             
         
 
-        circle_marker_f35168779726467fc5a5b92e3cdc8a47.bindPopup(popup_334402794f3ee3afd37f42d112f2c5ff)
+        circle_marker_5b5174a00651e3c44237eb9e63e370f9.bindPopup(popup_8c5f9c2a31cb2f74f2d0f2e9b01296f9)
         ;
 
         
     
     
-            var circle_marker_412df58066a6045c43e4eb511ec8c758 = L.circleMarker(
+            var circle_marker_4f714359bac0826707c5f19e1704ea7b = L.circleMarker(
                 [-27.063541630171656, -48.59768241038147],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_a57350d78bc8e73012257bc556caebd4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_0fb72fc26331019bba1c0bcf51f0b9a4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_063acf4c734dd40040bc5ae50ff1c82a = $(`&lt;div id=&quot;html_063acf4c734dd40040bc5ae50ff1c82a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 2q (fora do ranking)&lt;br&gt;142 imóveis&lt;/div&gt;`)[0];
-                popup_a57350d78bc8e73012257bc556caebd4.setContent(html_063acf4c734dd40040bc5ae50ff1c82a);
+                var html_1b3c4baab725bae39d33bcb33ab37316 = $(`&lt;div id=&quot;html_1b3c4baab725bae39d33bcb33ab37316&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 2q (fora do ranking)&lt;br&gt;142 imóveis&lt;/div&gt;`)[0];
+                popup_0fb72fc26331019bba1c0bcf51f0b9a4.setContent(html_1b3c4baab725bae39d33bcb33ab37316);
             
         
 
-        circle_marker_412df58066a6045c43e4eb511ec8c758.bindPopup(popup_a57350d78bc8e73012257bc556caebd4)
+        circle_marker_4f714359bac0826707c5f19e1704ea7b.bindPopup(popup_0fb72fc26331019bba1c0bcf51f0b9a4)
         ;
 
         
     
     
-            var circle_marker_bf51da0354a8f0ece89160aaa6026f38 = L.circleMarker(
+            var circle_marker_d4843048c58d391a78098e4c6b81623a = L.circleMarker(
                 [-27.06431007385254, -48.59523010253906],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_1002ccee4ece82923fab4346db8a95d2 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_795ec793def1430071fbbc09cbb13600 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_fed1f8f0898e254142904a83c9e223d1 = $(`&lt;div id=&quot;html_fed1f8f0898e254142904a83c9e223d1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 3q (fora do ranking)&lt;br&gt;64 imóveis&lt;/div&gt;`)[0];
-                popup_1002ccee4ece82923fab4346db8a95d2.setContent(html_fed1f8f0898e254142904a83c9e223d1);
+                var html_495ab295cf81035cd4747ce9909b0c07 = $(`&lt;div id=&quot;html_495ab295cf81035cd4747ce9909b0c07&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;ilhota 3q (fora do ranking)&lt;br&gt;64 imóveis&lt;/div&gt;`)[0];
+                popup_795ec793def1430071fbbc09cbb13600.setContent(html_495ab295cf81035cd4747ce9909b0c07);
             
         
 
-        circle_marker_bf51da0354a8f0ece89160aaa6026f38.bindPopup(popup_1002ccee4ece82923fab4346db8a95d2)
+        circle_marker_d4843048c58d391a78098e4c6b81623a.bindPopup(popup_795ec793def1430071fbbc09cbb13600)
         ;
 
         
     
     
-            var circle_marker_1e2db02a6f35577f318310cf8c4f96ba = L.circleMarker(
+            var circle_marker_7ab1194b5475558d1804909873a4f32e = L.circleMarker(
                 [-27.12797506333832, -48.60449161193113],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#00ff00&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#00ff00&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_292a183203355a2a4e5f794e019cd72e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_5c4c26d6ea275ce5873c86ffa1d469bd = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_4cd4f40506caf5ae27852d233cbca852 = $(`&lt;div id=&quot;html_4cd4f40506caf5ae27852d233cbca852&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 1qto&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 13.4%&lt;/span&gt;&lt;br&gt;3494 imóveis&lt;/div&gt;`)[0];
-                popup_292a183203355a2a4e5f794e019cd72e.setContent(html_4cd4f40506caf5ae27852d233cbca852);
+                var html_98e1bb829027aac478e10f9f17a37171 = $(`&lt;div id=&quot;html_98e1bb829027aac478e10f9f17a37171&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 1qto&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 13.4%&lt;/span&gt;&lt;br&gt;3494 imóveis&lt;/div&gt;`)[0];
+                popup_5c4c26d6ea275ce5873c86ffa1d469bd.setContent(html_98e1bb829027aac478e10f9f17a37171);
             
         
 
-        circle_marker_1e2db02a6f35577f318310cf8c4f96ba.bindPopup(popup_292a183203355a2a4e5f794e019cd72e)
+        circle_marker_7ab1194b5475558d1804909873a4f32e.bindPopup(popup_5c4c26d6ea275ce5873c86ffa1d469bd)
         ;
 
         
     
     
-            var circle_marker_72de01bfe539e93e9b36b040bd09211a = L.circleMarker(
+            var circle_marker_39017031b8e35375cc98001c591741fa = L.circleMarker(
                 [-27.135337613240363, -48.59743503572983],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#d6ff00&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#d6ff00&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_bc6ef588b152a42d78beada8c4d1e0b6 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_808d967a5a1037b29518f0ddaac0de1b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_475e444db7058feefa215b1d29a6ca84 = $(`&lt;div id=&quot;html_475e444db7058feefa215b1d29a6ca84&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.0%&lt;/span&gt;&lt;br&gt;18445 imóveis&lt;/div&gt;`)[0];
-                popup_bc6ef588b152a42d78beada8c4d1e0b6.setContent(html_475e444db7058feefa215b1d29a6ca84);
+                var html_e0b95981ae7d53c86f48182d46aa67a3 = $(`&lt;div id=&quot;html_e0b95981ae7d53c86f48182d46aa67a3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 11.0%&lt;/span&gt;&lt;br&gt;18445 imóveis&lt;/div&gt;`)[0];
+                popup_808d967a5a1037b29518f0ddaac0de1b.setContent(html_e0b95981ae7d53c86f48182d46aa67a3);
             
         
 
-        circle_marker_72de01bfe539e93e9b36b040bd09211a.bindPopup(popup_bc6ef588b152a42d78beada8c4d1e0b6)
+        circle_marker_39017031b8e35375cc98001c591741fa.bindPopup(popup_808d967a5a1037b29518f0ddaac0de1b)
         ;
 
         
     
     
-            var circle_marker_9f282063826af1d2f8a1412c67170526 = L.circleMarker(
+            var circle_marker_4e673dd376cad10304506fa79c95a7a8 = L.circleMarker(
                 [-27.13273236028139, -48.598900402810266],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#ff6800&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#ff6800&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_bb3720c3e98bc9a962e70b8d05cccb6e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_ffc7e25fdbece5585a1d89e77f10d4c1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_a296842d945cd8ad4d090dffbfa619b7 = $(`&lt;div id=&quot;html_a296842d945cd8ad4d090dffbfa619b7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 3q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 9.0%&lt;/span&gt;&lt;br&gt;42409 imóveis&lt;/div&gt;`)[0];
-                popup_bb3720c3e98bc9a962e70b8d05cccb6e.setContent(html_a296842d945cd8ad4d090dffbfa619b7);
+                var html_2f6c399dc3a6bb18d61e643dc10e15a9 = $(`&lt;div id=&quot;html_2f6c399dc3a6bb18d61e643dc10e15a9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 3q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 9.0%&lt;/span&gt;&lt;br&gt;42409 imóveis&lt;/div&gt;`)[0];
+                popup_ffc7e25fdbece5585a1d89e77f10d4c1.setContent(html_2f6c399dc3a6bb18d61e643dc10e15a9);
             
         
 
-        circle_marker_9f282063826af1d2f8a1412c67170526.bindPopup(popup_bb3720c3e98bc9a962e70b8d05cccb6e)
+        circle_marker_4e673dd376cad10304506fa79c95a7a8.bindPopup(popup_ffc7e25fdbece5585a1d89e77f10d4c1)
         ;
 
         
     
     
-            var circle_marker_13eac8beb5945c99d250e60ca751ae22 = L.circleMarker(
+            var circle_marker_78ad9e35803ee6a94b52af0d02aba611 = L.circleMarker(
                 [-27.13279902626438, -48.5984088998562],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#ff3500&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#ff3500&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_1cca4d3f8f9c32de3337667f22664a36 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_4668748dada27f5aeaf0dc660199b8de = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_5a91fd9906552fada9a23ff9eb8ff662 = $(`&lt;div id=&quot;html_5a91fd9906552fada9a23ff9eb8ff662&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 4q+&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 8.4%&lt;/span&gt;&lt;br&gt;6823 imóveis&lt;/div&gt;`)[0];
-                popup_1cca4d3f8f9c32de3337667f22664a36.setContent(html_5a91fd9906552fada9a23ff9eb8ff662);
+                var html_adcb7ed4e274b2bf869b9369299c83f9 = $(`&lt;div id=&quot;html_adcb7ed4e274b2bf869b9369299c83f9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;meia praia 4q+&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 8.4%&lt;/span&gt;&lt;br&gt;6823 imóveis&lt;/div&gt;`)[0];
+                popup_4668748dada27f5aeaf0dc660199b8de.setContent(html_adcb7ed4e274b2bf869b9369299c83f9);
             
         
 
-        circle_marker_13eac8beb5945c99d250e60ca751ae22.bindPopup(popup_1cca4d3f8f9c32de3337667f22664a36)
+        circle_marker_78ad9e35803ee6a94b52af0d02aba611.bindPopup(popup_4668748dada27f5aeaf0dc660199b8de)
         ;
 
         
     
     
-            var circle_marker_2839464dd16bb8b35b75cfa23ee4f974 = L.circleMarker(
+            var circle_marker_65a120a3359857a2a37894eac35c07da = L.circleMarker(
                 [-27.117517539974013, -48.610546342642124],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_baa6c494fbb449097e2179c27144c92e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_f80f4849877c755c14ff948002f837f5 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_9f11ee77b3016d3bb00d55bd320e7939 = $(`&lt;div id=&quot;html_9f11ee77b3016d3bb00d55bd320e7939&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 1qto (fora do ranking)&lt;br&gt;254 imóveis&lt;/div&gt;`)[0];
-                popup_baa6c494fbb449097e2179c27144c92e.setContent(html_9f11ee77b3016d3bb00d55bd320e7939);
+                var html_1de6d3f0aabd503aaf320497e6d30c53 = $(`&lt;div id=&quot;html_1de6d3f0aabd503aaf320497e6d30c53&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 1qto (fora do ranking)&lt;br&gt;254 imóveis&lt;/div&gt;`)[0];
+                popup_f80f4849877c755c14ff948002f837f5.setContent(html_1de6d3f0aabd503aaf320497e6d30c53);
             
         
 
-        circle_marker_2839464dd16bb8b35b75cfa23ee4f974.bindPopup(popup_baa6c494fbb449097e2179c27144c92e)
+        circle_marker_65a120a3359857a2a37894eac35c07da.bindPopup(popup_f80f4849877c755c14ff948002f837f5)
         ;
 
         
     
     
-            var circle_marker_01e817878d87c54c2e23cb7fefbc8d78 = L.circleMarker(
+            var circle_marker_ab64d51c40c9b81757178edf980251c1 = L.circleMarker(
                 [-27.118072663714255, -48.6117351001091],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#43ff00&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#43ff00&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_21a284ab25cc79af7394206a9f9fc8d2 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_f305dc9c3b74ac9ffd5bd5d006072127 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_15b882be948a1ca01c140ece15bbee12 = $(`&lt;div id=&quot;html_15b882be948a1ca01c140ece15bbee12&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 12.6%&lt;/span&gt;&lt;br&gt;6322 imóveis&lt;/div&gt;`)[0];
-                popup_21a284ab25cc79af7394206a9f9fc8d2.setContent(html_15b882be948a1ca01c140ece15bbee12);
+                var html_acd4109789b0e29e0782aedb2c41ce8b = $(`&lt;div id=&quot;html_acd4109789b0e29e0782aedb2c41ce8b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 2q&lt;br&gt;&lt;span class=&quot;cap&quot;&gt;Cap 12.6%&lt;/span&gt;&lt;br&gt;6322 imóveis&lt;/div&gt;`)[0];
+                popup_f305dc9c3b74ac9ffd5bd5d006072127.setContent(html_acd4109789b0e29e0782aedb2c41ce8b);
             
         
 
-        circle_marker_01e817878d87c54c2e23cb7fefbc8d78.bindPopup(popup_21a284ab25cc79af7394206a9f9fc8d2)
+        circle_marker_ab64d51c40c9b81757178edf980251c1.bindPopup(popup_f305dc9c3b74ac9ffd5bd5d006072127)
         ;
 
         
     
     
-            var circle_marker_c15c63c4c61221b0d96352a09efedb6c = L.circleMarker(
+            var circle_marker_25e118ef8491b5f421f84e26e2aea489 = L.circleMarker(
                 [-27.11495169891271, -48.608983445614705],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_c376b5b05e6afcc5504e5d840f4877a1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_0d9d59741a31eac5ae94a6ed750d0ac4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_0cf5b5ac30cf6b4c44b52f0f9cdf9eca = $(`&lt;div id=&quot;html_0cf5b5ac30cf6b4c44b52f0f9cdf9eca&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 3q (fora do ranking)&lt;br&gt;1258 imóveis&lt;/div&gt;`)[0];
-                popup_c376b5b05e6afcc5504e5d840f4877a1.setContent(html_0cf5b5ac30cf6b4c44b52f0f9cdf9eca);
+                var html_981939cef4feeb754553d68d0e7712f4 = $(`&lt;div id=&quot;html_981939cef4feeb754553d68d0e7712f4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 3q (fora do ranking)&lt;br&gt;1258 imóveis&lt;/div&gt;`)[0];
+                popup_0d9d59741a31eac5ae94a6ed750d0ac4.setContent(html_981939cef4feeb754553d68d0e7712f4);
             
         
 
-        circle_marker_c15c63c4c61221b0d96352a09efedb6c.bindPopup(popup_c376b5b05e6afcc5504e5d840f4877a1)
+        circle_marker_25e118ef8491b5f421f84e26e2aea489.bindPopup(popup_0d9d59741a31eac5ae94a6ed750d0ac4)
         ;
 
         
     
     
-            var circle_marker_fc55ee7c9ab45d684c01e35538b4bb5b = L.circleMarker(
+            var circle_marker_4ac6a204de80fa40ae754fed69efd8a9 = L.circleMarker(
                 [-27.114069502262442, -48.60956565610859],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_39ce4cc4777615da68f1c6df81fc2aef = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_ce3cc94ab18b66af4e9fac52e9d977ba = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_abd22601efcd1d7dfd7d2c218d2a9fb5 = $(`&lt;div id=&quot;html_abd22601efcd1d7dfd7d2c218d2a9fb5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 4q+ (fora do ranking)&lt;br&gt;221 imóveis&lt;/div&gt;`)[0];
-                popup_39ce4cc4777615da68f1c6df81fc2aef.setContent(html_abd22601efcd1d7dfd7d2c218d2a9fb5);
+                var html_094c8e78deeb839470aadaf0b6cea3c6 = $(`&lt;div id=&quot;html_094c8e78deeb839470aadaf0b6cea3c6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;morretes 4q+ (fora do ranking)&lt;br&gt;221 imóveis&lt;/div&gt;`)[0];
+                popup_ce3cc94ab18b66af4e9fac52e9d977ba.setContent(html_094c8e78deeb839470aadaf0b6cea3c6);
             
         
 
-        circle_marker_fc55ee7c9ab45d684c01e35538b4bb5b.bindPopup(popup_39ce4cc4777615da68f1c6df81fc2aef)
+        circle_marker_4ac6a204de80fa40ae754fed69efd8a9.bindPopup(popup_ce3cc94ab18b66af4e9fac52e9d977ba)
         ;
 
         
     
     
-            var circle_marker_edf62aaf5cd3a59e9dcbb901973e741f = L.circleMarker(
+            var circle_marker_8f577af266f8c4bf9dcb2401a4aede8b = L.circleMarker(
                 [-27.108620832774374, -48.6148108877785],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_fcc424d01e9b38257a6371ba450fef6d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_6a5fa7a16e7a969837ec29e67e3d2702 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_a9e03c157d7fee99839341392c3d77d0 = $(`&lt;div id=&quot;html_a9e03c157d7fee99839341392c3d77d0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 2q (fora do ranking)&lt;br&gt;1431 imóveis&lt;/div&gt;`)[0];
-                popup_fcc424d01e9b38257a6371ba450fef6d.setContent(html_a9e03c157d7fee99839341392c3d77d0);
+                var html_355bd8c01a7c166ed0570c6cd14d32f9 = $(`&lt;div id=&quot;html_355bd8c01a7c166ed0570c6cd14d32f9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 2q (fora do ranking)&lt;br&gt;1431 imóveis&lt;/div&gt;`)[0];
+                popup_6a5fa7a16e7a969837ec29e67e3d2702.setContent(html_355bd8c01a7c166ed0570c6cd14d32f9);
             
         
 
-        circle_marker_edf62aaf5cd3a59e9dcbb901973e741f.bindPopup(popup_fcc424d01e9b38257a6371ba450fef6d)
+        circle_marker_8f577af266f8c4bf9dcb2401a4aede8b.bindPopup(popup_6a5fa7a16e7a969837ec29e67e3d2702)
         ;
 
         
     
     
-            var circle_marker_8fadf415c633695a993043ba06bab736 = L.circleMarker(
+            var circle_marker_14090838cb670a31da43a1f4381bf3a4 = L.circleMarker(
                 [-27.107900657759718, -48.61428556943173],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_372744edc2461963cc9df6830b92a79a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_b36d63da0c336fdeb2239a595a4fc34f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_b483bfabd612a7d912944c7613a81ba3 = $(`&lt;div id=&quot;html_b483bfabd612a7d912944c7613a81ba3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 3q (fora do ranking)&lt;br&gt;549 imóveis&lt;/div&gt;`)[0];
-                popup_372744edc2461963cc9df6830b92a79a.setContent(html_b483bfabd612a7d912944c7613a81ba3);
+                var html_547df57f228c47af7a8f1054a4d6bf73 = $(`&lt;div id=&quot;html_547df57f228c47af7a8f1054a4d6bf73&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 3q (fora do ranking)&lt;br&gt;549 imóveis&lt;/div&gt;`)[0];
+                popup_b36d63da0c336fdeb2239a595a4fc34f.setContent(html_547df57f228c47af7a8f1054a4d6bf73);
             
         
 
-        circle_marker_8fadf415c633695a993043ba06bab736.bindPopup(popup_372744edc2461963cc9df6830b92a79a)
+        circle_marker_14090838cb670a31da43a1f4381bf3a4.bindPopup(popup_b36d63da0c336fdeb2239a595a4fc34f)
         ;
 
         
     
     
-            var circle_marker_a9b28b5fee91c8400350cbd2538c8def = L.circleMarker(
+            var circle_marker_f5567f0ada31a213843d11ee665b41be = L.circleMarker(
                 [-27.1148, -48.61015],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;gray&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;gray&quot;, &quot;fillOpacity&quot;: 0.8, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 11.733333333333334, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            ).addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
     
-        var popup_8f32b9289ee8465a30cf234cc307232a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_f63c48e4507ce8771be6ae2d937d309f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_3126293896a0fb00d126e093511f26c8 = $(`&lt;div id=&quot;html_3126293896a0fb00d126e093511f26c8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 4q+ (fora do ranking)&lt;br&gt;56 imóveis&lt;/div&gt;`)[0];
-                popup_8f32b9289ee8465a30cf234cc307232a.setContent(html_3126293896a0fb00d126e093511f26c8);
+                var html_93f18b1801e95391c35d4f02462b1962 = $(`&lt;div id=&quot;html_93f18b1801e95391c35d4f02462b1962&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;tabuleiro dos oliveiras 4q+ (fora do ranking)&lt;br&gt;56 imóveis&lt;/div&gt;`)[0];
+                popup_f63c48e4507ce8771be6ae2d937d309f.setContent(html_93f18b1801e95391c35d4f02462b1962);
             
         
 
-        circle_marker_a9b28b5fee91c8400350cbd2538c8def.bindPopup(popup_8f32b9289ee8465a30cf234cc307232a)
+        circle_marker_f5567f0ada31a213843d11ee665b41be.bindPopup(popup_f63c48e4507ce8771be6ae2d937d309f)
         ;
 
         
     
     
-            tile_layer_c062ae542eedadbc007080fca2b89495.addTo(map_949e3b1cdf9a8b89a450c3922492bac7);
+            tile_layer_aea2abca9c2f4f0ddcc15f19e1f1f910.addTo(map_6e4ea1f6c250cfa95bac0e4adb3a4e80);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" webkitallowfullscreen=""></iframe></div></div>

@@ -211,6 +211,52 @@ table.no-index { table-layout: auto; }
   line-height: 1.1;
   color: var(--accent);
 }
+/* --- matriz do deep-dive (secao 8) ---------------------------------------
+   As regras globais de <th> (Bebas Neue em caixa alta, fundo verde escuro)
+   valem para tabela de ranking, mas nesta matriz elas gritam: os rotulos de
+   caracteristica e de celula viram IS_PROFESSIONAL / MEIA PRAIA 1QTO. Aqui a
+   tipografia volta ao corpo, em caixa normal, e o cabecalho de linha fica
+   claro para nao competir com as cores das celulas. */
+table.deep-dive th, table.deep-dive td {
+  font-family: var(--fonte-corpo) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+}
+table.deep-dive thead th {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  text-align: center !important;
+  padding: 13px 16px !important;
+}
+table.deep-dive thead th.blank {
+  background-color: transparent !important;
+  border: none !important;
+}
+table.deep-dive tbody th {
+  background-color: #eef4f1 !important;
+  color: var(--tinta) !important;
+  font-weight: 500 !important;
+  font-size: 13.5px !important;
+  text-align: left !important;
+  padding: 15px 16px !important;
+}
+/* respiro entre as linhas: a separacao vem de um vao na cor do fundo, nao de
+   uma regra, para nao cortar as faixas pastel */
+table.deep-dive { border-collapse: separate !important; border-spacing: 0 3px !important; }
+table.deep-dive tbody td {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  padding: 15px 18px;
+  border-bottom: none !important;
+}
+/* a faixa zebrada do CSS geral nao se aplica: cada celula tem cor de sinal */
+table.deep-dive tbody tr:nth-child(even) td { background: inherit; }
+
 /* legenda do mapa folium embutido segue a mesma tipografia */
 .leaflet-container, .leaflet-popup-content {
   font-family: var(--fonte-corpo) !important;
