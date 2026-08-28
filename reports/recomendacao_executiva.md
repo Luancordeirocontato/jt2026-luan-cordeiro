@@ -21,14 +21,16 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 
 \* Receita e Cap Rate são **brutos** e apresentados nas faixas de ocupação por perfil de bairro: **45–70% para Morretes** (inclui o cenário pessimista de ocupação real mais baixa), **55–70% para os demais**. Cap Rate = receita anual ÷ preço de compra. Janela de preço é verão (jan–abr), o que **superestima** — ver Seção 5.
 
+\** **Nota sobre Centro 1q vs Centro 2q:** os Cap Rates são próximos (10,6–13,4% vs 10,7–13,6%) — a distinção **não** é de retorno, e sim de **confiança de dados** (Centro 1q tem apenas 18 anúncios de venda contra 89 do Centro 2q) e do fato de Centro 1q ser exatamente a tese interna que os dados refutam.
+
 ### Por que esta ordem (premissa diferencial)
 
 - **Meia Praia 1q (1ª):** melhor **eficiência por m²** da cidade (R$2.710/m²/ano a 60% de ocupação — a maior), beira-mar consolidado, maior demanda e ocupação sustentável (estimada 60–65% vs 45–55% de Morretes). No cenário de ocupação **diferencial por perfil de bairro**, é o que lidera (Cap 12,4%–13,4%). É também o mais alinhado à marca Seazone (beira-mar, produto de temporada).
 - **Morretes 2q (2ª · upside):** melhor Cap **potencial** (até 16,1% a 70% de ocupação) e preço de compra ~10% menor. **Mas**: a 300–600m da praia (não primeira linha), bairro mais periférico, com ocupação real provável menor. No cenário diferencial cai para 10,3%–12,6% (abaixo da Meia Praia). Entra como **opção de valor**, não como líder.
 
   *Seleção dentro do bairro:* dentro de Morretes 2q, imóveis na faixa mais oriental (litoral, mesma longitude de Meia Praia) rendem ~R$550/noite mediano vs ~R$400 no subgrupo mais interior — diferença de ~37%. Isso é insight de seleção prática: dentro do bairro, priorizar a compra na faixa costeira. Não refinamos o Cap Rate porque o VivaReal não tem coordenadas por anúncio, então a estimativa de compra fica para o Morretes inteiro.
-- **Centro 2q (3ª · segura):** retorno menor, mas com confiança de dados melhor e sinal forte de **gestão profissional** (+54% de R$/noite quando `is_professional` — o mais forte de todas as células). Boa opção se a prioridade for estabilidade e operação madura.
-- **Centro 1q (FORA):** menor retorno (10,6%–13,4%) **e** menor confiança (n=18 anúncios de venda). É o pior dos quatro no retorno. **A tese interna "studio/1q no Centro" não se sustenta em nenhum das duas visões.**
+- **Centro 2q (3ª · segura):** o Cap Rate (10,7–13,6%) é quase igual ao de Centro 1q — a diferença **não é retorno**. Entra na recomendação por **confiança de dados** bem melhor (89 anúncios de venda vs 18) e pelo sinal forte de **gestão profissional** (+54% de R$/noite quando `is_professional` — o mais forte de todas as células). Boa opção se a prioridade for estabilidade e operação madura.
+- **Centro 1q (FORA):** o Cap Rate (10,6–13,4%) é quase idêntico ao Centro 2q, mas duas coisas tiram ele da recomendação. Primeiro: a confiança de dados é a mais baixa das quatro células (apenas 18 anúncios de venda no VivaReal, contra 89 do Centro 2q). Segundo, e mais importante: essa célula **é** a tese interna "studio/1qto no Centro" que estamos testando — e os dados mostram que ela não lidera em nenhuma métrica. Manter ela na recomendação seria confirmar a tese que os próprios dados refutam.
 
 ---
 

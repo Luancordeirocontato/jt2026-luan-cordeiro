@@ -58,10 +58,14 @@ eficiência → confiança → deep-dive → cartão). Todo o raciocínio e deci
 
 ## Como abrir (sem rodar nada)
 
+- **Apresentação (HTML sem código, pronto pra tela):** [abrir `analise/apresentacao_sem_codigo.html`](analise/apresentacao_sem_codigo.html)
+  — versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
 - **Mapa interativo (Cap Rate por bairro × tipo):** [abrir `analise/mapa_interativo.html`](analise/mapa_interativo.html)
   — mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
 - **Notebook interativo (nbviewer):** [abrir no nbviewer](https://nbviewer.org/github/Luancordeirocontato/jt2026-luan-cordeiro/blob/main/analise/01_analise_principal.ipynb)
   — o notebook executado renderiza o folium ao vivo e as imagens, sem precisar clonar o repo.
+
+Para regenerar o HTML de apresentação: `py scripts/apresentacao.py` (gera `analise/apresentacao_sem_codigo.html`).
 estão em `docs/metodologia.md` e o transcript da sessão em `ai-log/`.
 
 ## Estrutura

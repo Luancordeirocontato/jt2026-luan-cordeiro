@@ -1,0 +1,209 @@
+# Gera a versão HTML de APRESENTAÇÃO do notebook: sem código, só markdown + outputs,
+# com estilo de "material de consultoria".
+# Fluxo:
+#   1. executa o notebook (atualiza outputs: matrizes/tabelas)
+#   2. nbconvert --to html (template lab, converte markdown e embute imagens/folium)
+#   3. remove blocos de input de código (.jp-Cell-inputWrapper) e labels "In [n]"
+#   4. injeta CSS customizado (fundo creme, tabelas, destaques...)
+# Uso:  py scripts/apresentacao.py   (a partir da raiz do repo)
+# Obs.: depende de mistune<=2.0.5 (compatível com nbconvert 7.14) e beautifulsoup4.
+import os
+import subprocess
+import sys
+
+from bs4 import BeautifulSoup
+
+NB = 'analise/01_analise_principal.ipynb'
+OUT = 'analise/apresentacao_sem_codigo.html'
+TMP = 'analise/_apresentacao_bruta.html'
+
+CSS = '''
+:root {
+  --creme: #f6f2e9;
+  --tinta: #26221c;
+  --accent: #0f6b5c;
+  --accent-2: #d97706;
+  --creme-card: #fcfaf4;
+  --borda: #e5dfd1;
+}
+html, body {
+  background: var(--creme) !important;
+  color: var(--tinta);
+  font-family: -apple-system, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.jp-Notebook, main, .jp-Notebook-cell {
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.jp-Notebook { padding: 56px 28px !important; }
+.jp-Cell {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+.jp-Cell-inputWrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.jp-InputCollapser, .jp-OutputCollapser, .jp-Collapser,
+.jp-InputArea-prompt, .jp-OutputArea-prompt, .jp-Prompt, .jp-Metadata,
+.jp-Cell-outputCollapser, .jp-Cell-inputCollapser, .jp-InputPlaceholder {
+  display: none !important;
+}
+.jp-InputArea, .jp-Cell-inputArea { padding: 0 !important; }
+.jp-RenderedMarkdown, .jp-RenderedHTML { padding: 0 !important; }
+.jp-OutputArea { margin: 8px 0 !important; }
+.jp-RenderedMarkdown h1 {
+  font-size: 2.1em; font-weight: 800; color: var(--tinta);
+  letter-spacing: -0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.25em; margin: 0 0 0.6em; line-height: 1.25;
+}
+.jp-RenderedMarkdown h2 {
+  font-size: 1.45em; font-weight: 800; color: var(--accent);
+  letter-spacing: -0.01em; margin: 1.9em 0 0.5em; padding-top: 0.4em;
+  border-top: 1px solid var(--borda);
+}
+.jp-RenderedMarkdown h2:first-child { border-top: none; margin-top: 0.5em; }
+.jp-RenderedMarkdown h3 {
+  font-size: 1.15em; font-weight: 700; color: var(--accent); margin: 1.5em 0 0.4em;
+}
+.jp-RenderedMarkdown { color: var(--tinta); }
+.jp-RenderedMarkdown p { margin: 0.7em 0; }
+.jp-RenderedMarkdown li { margin: 0.5em 0; }
+.jp-RenderedMarkdown ul, .jp-RenderedMarkdown ol { padding-left: 1.4em; margin: 0.7em 0; }
+.jp-RenderedMarkdown strong { color: var(--accent); font-weight: 700; }
+.jp-RenderedMarkdown hr { border: none; border-top: 1px solid var(--borda); margin: 2em 0; }
+.jp-RenderedMarkdown a:not(.anchor-link) { color: var(--accent-2); font-weight: 600; }
+.jp-RenderedMarkdown blockquote {
+  background: #eef4f1 !important;
+  border-left: 5px solid var(--accent) !important;
+  border-radius: 0 10px 10px 0;
+  color: #1f3d34;
+  padding: 14px 20px; margin: 1.2em 0; font-size: 0.98em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.jp-RenderedMarkdown blockquote p { margin: 0.3em 0; }
+.jp-RenderedMarkdown code {
+  background: #ffe9d1 !important;
+  color: #7a3d02 !important;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.86em; padding: 2px 6px; border-radius: 6px;
+}
+.jp-RenderedMarkdown pre {
+  background: #efead9; border-radius: 10px; padding: 14px 18px;
+  overflow-x: auto; line-height: 1.5;
+}
+/* --- tabelas: collapse elimina bordas duplas / sobreposicao de cabecalho --- */
+.jp-RenderedHTML table, .jp-RenderedMarkdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  font-size: 13.5px;
+  box-sizing: border-box;
+}
+/* cabecalho em UMA linha: nunca quebra. Se faltar espaco, scroll horizontal. */
+.jp-RenderedHTML th, .jp-RenderedMarkdown th {
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 700;
+  padding: 11px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+.jp-RenderedHTML td, .jp-RenderedMarkdown td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borda);
+  background: var(--creme-card);
+  white-space: nowrap;
+}
+/* permite scroll horizontal em vez de quebrar/sobrepor */
+.jp-OutputArea, .jp-RenderedHTML, .jp-RenderedMarkdown {
+  overflow-x: auto;
+}
+/* esconde indice numerico do pandas (1a coluna vazia) nas tabelas de leitura */
+table.no-index th:first-child,
+table.no-index td:first-child {
+  display: none;
+}
+/* header mais fino e elegante */
+.jp-RenderedHTML th, .jp-RenderedMarkdown th {
+  padding: 8px 12px;
+}
+.jp-RenderedMarkdown tr:nth-child(even) td, .jp-RenderedHTML tr:nth-child(even) td {
+  background: #f8f5ed;
+}
+.jp-RenderedMarkdown tr:last-child td, .jp-RenderedHTML tr:last-child td {
+  border-bottom: none;
+}
+.jp-RenderedMarkdown img, .jp-RenderedHTML img, .jp-RenderedImage img, .jp-OutputArea img {
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+  margin: 1em 0;
+}
+.jp-OutputArea-output .jp-RenderedText pre {
+  background: transparent; padding: 4px 8px; margin: 2px 0;
+}
+'''
+
+
+def main():
+    repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    nb_path = os.path.join(repo, NB)
+    tmp_path = os.path.join(repo, TMP)
+    out_path = os.path.join(repo, OUT)
+    nb_dir = os.path.dirname(nb_path)
+
+    print('1) executando notebook...')
+    r = subprocess.run(
+        [sys.executable, '-m', 'jupyter', 'nbconvert', '--to', 'notebook',
+         '--execute', '--inplace', NB],
+        cwd=repo, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2500:])
+        sys.exit(1)
+
+    print('2) nbconvert para HTML...')
+    r = subprocess.run(
+        [sys.executable, '-m', 'jupyter', 'nbconvert', '--to', 'html',
+         nb_path, '--output', os.path.basename(TMP)],
+        cwd=nb_dir, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2000:])
+        sys.exit(1)
+
+    print('3) removendo código...')
+    with open(tmp_path, encoding='utf-8') as f:
+        soup = BeautifulSoup(f.read(), 'html.parser')
+    for c in soup.select('.jp-CodeCell'):
+        for iw in c.select('.jp-Cell-inputWrapper'):
+            iw.decompose()
+    for p in soup.select('.jp-InputArea-prompt'):
+        p.decompose()
+    for cell in soup.select('.jp-CodeCell.jp-mod-noOutputs'):
+        cell.decompose()
+
+    print('4) injetando CSS customizado...')
+    style = soup.new_tag('style')
+    style.string = CSS
+    title = soup.find('title')
+    title.insert_after(style)
+
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(str(soup))
+    if os.path.exists(tmp_path):
+        os.remove(tmp_path)
+    print(f'OK -> {OUT} ({os.path.getsize(out_path)//1024} KB)')
+
+
+if __name__ == '__main__':
+    main()
