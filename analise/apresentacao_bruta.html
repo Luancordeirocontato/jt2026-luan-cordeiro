@@ -3,242 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>01_analise_principal</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&amp;family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><style>
-:root {
-  --creme: #f6f2e9;
-  --tinta: #26221c;
-  --accent: #0f6b5c;
-  --accent-2: #d97706;
-  --creme-card: #fcfaf4;
-  --borda: #e5dfd1;
-  --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --fonte-impacto: 'Bebas Neue', 'Arial Narrow', 'Haettenschweiler', Impact, sans-serif;
-  --fonte-corpo: 'Inter', 'Lato', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  /* o CSS do nbconvert aplica var(--jp-content-font-family) em p/li/td e venceria
-     a regra do body; sobrescrever a propria variavel propaga a fonte de corpo */
-  --jp-content-font-family: var(--fonte-corpo) !important;
-  --jp-ui-font-family: var(--fonte-corpo) !important;
-}
-.jp-RenderedMarkdown, .jp-RenderedHTML,
-.jp-RenderedMarkdown p, .jp-RenderedMarkdown li, .jp-RenderedMarkdown blockquote,
-.jp-RenderedMarkdown strong, .jp-RenderedMarkdown em, .jp-RenderedHTML p {
-  font-family: var(--fonte-corpo) !important;
-}
-html, body {
-  background: var(--creme) !important;
-  color: var(--tinta);
-  font-family: var(--fonte-corpo) !important;
-  font-size: 17px;
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'kern' 1, 'liga' 1;
-  line-height: 1.75;
-}
-.jp-Notebook, main, .jp-Notebook-cell {
-  max-width: 860px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.jp-Notebook { padding: 56px 28px !important; }
-.jp-Cell {
-  box-shadow: none !important;
-  border: none !important;
-  background: transparent !important;
-  margin: 0 0 8px !important;
-  padding: 0 !important;
-}
-.jp-Cell-inputWrapper {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-.jp-InputCollapser, .jp-OutputCollapser, .jp-Collapser,
-.jp-InputArea-prompt, .jp-OutputArea-prompt, .jp-Prompt, .jp-Metadata,
-.jp-Cell-outputCollapser, .jp-Cell-inputCollapser, .jp-InputPlaceholder {
-  display: none !important;
-}
-.jp-InputArea, .jp-Cell-inputArea { padding: 0 !important; }
-.jp-RenderedMarkdown, .jp-RenderedHTML { padding: 0 !important; }
-.jp-OutputArea { margin: 8px 0 !important; }
-.jp-RenderedMarkdown h1 {
-  font-family: var(--fonte-titulo) !important;
-  font-size: 2.35em; font-weight: 800; color: var(--tinta);
-  letter-spacing: -0.015em;
-  border-bottom: 3px solid var(--accent);
-  padding-bottom: 0.25em; margin: 0 0 0.6em; line-height: 1.25;
-}
-.jp-RenderedMarkdown h2 {
-  font-family: var(--fonte-titulo) !important;
-  font-size: 1.6em; font-weight: 700; color: var(--accent);
-  letter-spacing: -0.005em; margin: 1.9em 0 0.5em; padding-top: 0.4em;
-  border-top: 1px solid var(--borda);
-}
-.jp-RenderedMarkdown h2:first-child { border-top: none; margin-top: 0.5em; }
-.jp-RenderedMarkdown h3 {
-  font-family: var(--fonte-titulo) !important;
-  font-size: 1.22em; font-weight: 700; color: var(--accent); margin: 1.5em 0 0.4em;
-}
-.jp-RenderedMarkdown { color: var(--tinta); }
-.jp-RenderedMarkdown p { margin: 0.7em 0; }
-.jp-RenderedMarkdown li { margin: 0.5em 0; }
-.jp-RenderedMarkdown ul, .jp-RenderedMarkdown ol { padding-left: 1.4em; margin: 0.7em 0; }
-.jp-RenderedMarkdown strong { color: var(--accent); font-weight: 700; }
-.jp-RenderedMarkdown hr { border: none; border-top: 1px solid var(--borda); margin: 2em 0; }
-.jp-RenderedMarkdown a:not(.anchor-link) { color: var(--accent-2); font-weight: 600; }
-.jp-RenderedMarkdown blockquote {
-  background: #eef4f1 !important;
-  border-left: 5px solid var(--accent) !important;
-  border-radius: 0 10px 10px 0;
-  color: #1f3d34;
-  padding: 14px 20px; margin: 1.2em 0; font-size: 0.98em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-.jp-RenderedMarkdown blockquote p { margin: 0.3em 0; }
-.jp-RenderedMarkdown code {
-  background: #ffe9d1 !important;
-  color: #7a3d02 !important;
-  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
-  font-size: 0.86em; padding: 2px 6px; border-radius: 6px;
-}
-.jp-RenderedMarkdown pre {
-  background: #efead9; border-radius: 10px; padding: 14px 18px;
-  overflow-x: auto; line-height: 1.5;
-}
-/* --- tabelas: collapse elimina bordas duplas / sobreposicao de cabecalho --- */
-.jp-RenderedHTML table, .jp-RenderedMarkdown table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1.2em 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  font-size: 13.5px;
-  box-sizing: border-box;
-}
-/* cabecalho em UMA linha: nunca quebra. Se faltar espaco, scroll horizontal. */
-.jp-RenderedHTML th, .jp-RenderedMarkdown th {
-  background: var(--accent) !important;
-  color: #fff !important;
-  /* Bebas Neue tem so o peso 400 e caixa alta: sem bold sintetico, com tracking.
-     Texto claro sobre fundo escuro fica fino/borrado se antialiasado como corpo;
-     'subpixel-antialiased' + optimizeLegibility devolvem a nitidez, e o corpo
-     maior (17px) engrossa o traco sem precisar de bold falso. */
-  font-family: var(--fonte-impacto) !important;
-  font-weight: 400;
-  font-synthesis: none;
-  font-size: 17px;
-  text-transform: uppercase;
-  letter-spacing: 0.045em;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
-  text-rendering: optimizeLegibility;
-  text-shadow: none;
-  padding: 11px 14px;
-  text-align: left;
-  white-space: nowrap;
-  line-height: 1.25;
-}
-.jp-RenderedHTML td, .jp-RenderedMarkdown td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--borda);
-  background: var(--creme-card);
-  white-space: nowrap;
-}
-/* permite scroll horizontal em vez de quebrar/sobrepor */
-.jp-OutputArea, .jp-RenderedHTML, .jp-RenderedMarkdown {
-  overflow-x: auto;
-}
-/* NAO esconder a 1a coluna: todos os display() do notebook ja usam
-   Styler.hide(axis='index'), que remove o indice do pandas no proprio HTML
-   (nenhuma tabela sai com <th> vazio a esquerda). A regra antiga
-   'table.no-index th:first-child { display:none }' estava, por isso,
-   engolindo a primeira coluna de DADOS: o '#' do ranking e a coluna
-   'Recomendacao' (colorida) do cartao do investimento. */
-table.no-index { table-layout: auto; }
-/* header mais fino e elegante */
-.jp-RenderedHTML th, .jp-RenderedMarkdown th {
-  padding: 9px 12px;
-}
-.jp-RenderedMarkdown tr:nth-child(even) td, .jp-RenderedHTML tr:nth-child(even) td {
-  background: #f8f5ed;
-}
-.jp-RenderedMarkdown tr:last-child td, .jp-RenderedHTML tr:last-child td {
-  border-bottom: none;
-}
-.jp-RenderedMarkdown img, .jp-RenderedHTML img, .jp-RenderedImage img, .jp-OutputArea img {
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.14);
-  margin: 1em 0;
-}
-.jp-OutputArea-output .jp-RenderedText pre {
-  background: transparent; padding: 4px 8px; margin: 2px 0;
-}
-/* numeros alinhados em coluna (Inter com algarismos tabulares) */
-.jp-RenderedHTML td, .jp-RenderedMarkdown td {
-  font-family: var(--fonte-corpo);
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum' 1;
-}
-/* destaque de impacto reutilizavel: <span class="impacto">13,4%</span> */
-.impacto, .jp-RenderedMarkdown .impacto {
-  font-family: var(--fonte-impacto) !important;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 1.35em;
-  line-height: 1.1;
-  color: var(--accent);
-}
-/* --- matriz do deep-dive (secao 8) ---------------------------------------
-   As regras globais de <th> (Bebas Neue em caixa alta, fundo verde escuro)
-   valem para tabela de ranking, mas nesta matriz elas gritam: os rotulos de
-   caracteristica e de celula viram IS_PROFESSIONAL / MEIA PRAIA 1QTO. Aqui a
-   tipografia volta ao corpo, em caixa normal, e o cabecalho de linha fica
-   claro para nao competir com as cores das celulas. */
-table.deep-dive th, table.deep-dive td {
-  font-family: var(--fonte-corpo) !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  white-space: nowrap;
-}
-table.deep-dive thead th {
-  background-color: var(--accent) !important;
-  color: #fff !important;
-  font-weight: 600 !important;
-  font-size: 13.5px !important;
-  text-align: center !important;
-  padding: 13px 16px !important;
-}
-table.deep-dive thead th.blank {
-  background-color: transparent !important;
-  border: none !important;
-}
-table.deep-dive tbody th {
-  background-color: #eef4f1 !important;
-  color: var(--tinta) !important;
-  font-weight: 500 !important;
-  font-size: 13.5px !important;
-  text-align: left !important;
-  padding: 15px 16px !important;
-}
-/* respiro entre as linhas: a separacao vem de um vao na cor do fundo, nao de
-   uma regra, para nao cortar as faixas pastel */
-table.deep-dive { border-collapse: separate !important; border-spacing: 0 3px !important; }
-table.deep-dive tbody td {
-  font-size: 15px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  text-align: center;
-  padding: 15px 18px;
-  border-bottom: none !important;
-}
-/* a faixa zebrada do CSS geral nao se aplica: cada celula tem cor de sinal */
-table.deep-dive tbody tr:nth-child(even) td { background: inherit; }
-
-/* legenda do mapa folium embutido segue a mesma tipografia */
-.leaflet-container, .leaflet-popup-content {
-  font-family: var(--fonte-corpo) !important;
-}
-</style><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>01_analise_principal</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7716,7 +7481,8 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="An%C3%A1lise-principal-%E2%80%94-Seazone-Jovens-Talentos-2026">Análise principal — Seazone Jovens Talentos 2026<a class="anchor-link" href="#An%C3%A1lise-principal-%E2%80%94-Seazone-Jovens-Talentos-2026">¶</a></h1><h2 id="Ranking-de-investimento-em-short-stay-%E2%80%94-Itapema-(SC)">Ranking de investimento em short-stay — Itapema (SC)<a class="anchor-link" href="#Ranking-de-investimento-em-short-stay-%E2%80%94-Itapema-(SC)">¶</a></h2><p>Fluxo linear: preparação → Cap Rate (métrica A) → sensibilidade de ocupação → eficiência por m² (métrica C) → ranking com coluna de confiança → deep-dive → cartão do investimento.</p>
 <p>Decisões metodológicas consolidadas em <code>docs/metodologia.md</code>. Arquivos brutos em <code>data/</code> (imutáveis).</p>
 </div>
@@ -7727,7 +7493,8 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="0.-Importa%C3%A7%C3%B5es-e-helpers">0. Importações e helpers<a class="anchor-link" href="#0.-Importa%C3%A7%C3%B5es-e-helpers">¶</a></h2><ul>
 <li>normalização de bairro (mapa humano em <code>docs/metodologia.md</code>)</li>
 <li>bin de tipologia (apartamentos): 1qto (0-1), 2q, 3q, 4q+</li>
@@ -7736,12 +7503,86 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5b81d7c9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">unicodedata</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">norm</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">return</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s1">'NFD'</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">,</span> <span class="s1">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">MERGERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'jardim praiamar'</span><span class="p">:</span> <span class="s1">'jardim praia mar'</span><span class="p">,</span>
+    <span class="s1">'meia praia - frente mar'</span><span class="p">:</span> <span class="s1">'meia praia'</span><span class="p">,</span>
+    <span class="s1">'taboleiro'</span><span class="p">:</span> <span class="s1">'tabuleiro dos oliveiras'</span><span class="p">,</span>
+    <span class="s1">'tabuleiro'</span><span class="p">:</span> <span class="s1">'tabuleiro dos oliveiras'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bairro_canonic</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">MERGERS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bin_tipo</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Bin de tipologia de apartamento por nº de quartos."""</span>
+    <span class="k">if</span> <span class="n">nb</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'1qto'</span>
+    <span class="k">if</span> <span class="n">nb</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'2q'</span>
+    <span class="k">if</span> <span class="n">nb</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'3q'</span>
+    <span class="k">return</span> <span class="s1">'4q+'</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clip_outliers</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">q_lo</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">q_hi</span><span class="o">=</span><span class="mf">0.99</span><span class="p">):</span>
+    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="n">q_lo</span><span class="p">,</span> <span class="n">q_hi</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">lo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">)]</span>
+
+<span class="c1"># ---------------------------------------------------------------- formatacao pt-BR</span>
+<span class="c1"># Os numeros sao exibidos no padrao brasileiro (milhar com ponto, decimal com</span>
+<span class="c1"># virgula). O padrao do Python e o ingles ("877,500" = 877 mil), que num relatorio</span>
+<span class="c1"># em portugues se le como 877 reais e 50 centavos.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">num_br</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""1234567.8 -&gt; '1.234.567,8' (dec=1)."""</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">'{:,.</span><span class="si">{}</span><span class="s1">f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dec</span><span class="p">)</span>
+    <span class="c1"># troca via sentinela para nao sobrescrever o separador ja convertido</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="s1">'</span><span class="se">\x00</span><span class="s1">'</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\x00</span><span class="s1">'</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">brl</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""877500 -&gt; 'R$ 877.500'."""</span>
+    <span class="k">return</span> <span class="s1">'R$ '</span> <span class="o">+</span> <span class="n">num_br</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dec</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">brl_faixa</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Faixa de valor com UM sinal de $.</span>
+
+<span class="sd">    Dois '$' no mesmo texto viram delimitador de LaTeX inline: o MathJax do</span>
+<span class="sd">    nbconvert captura 'R$ 108.405 a R$ 117.439' e tipografa o meio como</span>
+<span class="sd">    matematica (sai em serif italico e ilegivel). Um '$' so nao dispara.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="s1">'R$ </span><span class="si">{}</span><span class="s1"> a </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_br</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">dec</span><span class="p">),</span> <span class="n">num_br</span><span class="p">(</span><span class="n">hi</span><span class="p">,</span> <span class="n">dec</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pct_br</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""0.134 -&gt; '13,4%'."""</span>
+    <span class="k">return</span> <span class="n">num_br</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">dec</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'%'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f4ad380">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="1.-Prepara%C3%A7%C3%A3o-%E2%80%94-lado-Airbnb-(receita)">1. Preparação — lado Airbnb (receita)<a class="anchor-link" href="#1.-Prepara%C3%A7%C3%A3o-%E2%80%94-lado-Airbnb-(receita)">¶</a></h2><p>Junta <code>Details</code> (tipologia) + <code>Mesh</code> (bairro) + <code>Price_AV</code> (R$/noite).
 Exclui: <code>none</code>, <code>hotel</code>, <code>terreno</code>, <code>comercial</code>, <code>outros</code>, <code>casas</code>.
 Tipologia binada como <code>1qto/2q/3q/4q+</code>.</p>
@@ -7749,7 +7590,40 @@ Tipologia binada como <code>1qto/2q/3q/4q+</code>.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dc1a151b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">BASE</span> <span class="o">=</span> <span class="s1">'../data/'</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE</span><span class="si">}</span><span class="s1">Details_Itapema.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="s1">'number_of_bedrooms'</span><span class="p">,</span> <span class="s1">'listing_type'</span><span class="p">,</span> <span class="s1">'owner_id'</span><span class="p">,</span> <span class="s1">'star_rating'</span><span class="p">,</span> <span class="s1">'number_of_reviews'</span><span class="p">,</span> <span class="s1">'picture_count'</span><span class="p">,</span> <span class="s1">'min_nights'</span><span class="p">,</span> <span class="s1">'cleaning_fee'</span><span class="p">,</span> <span class="s1">'number_of_guests'</span><span class="p">,</span> <span class="s1">'is_professional'</span><span class="p">,</span> <span class="s1">'can_instant_book'</span><span class="p">,</span> <span class="s1">'is_guest_favorite'</span><span class="p">])</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE</span><span class="si">}</span><span class="s1">Mesh_Ids_Data_Itapema.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="s1">'suburb'</span><span class="p">])</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">M</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">'none'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">])</span>
+<span class="n">M</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bairro_canonic</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE</span><span class="si">}</span><span class="s1">Price_AV_Itapema.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">])</span>
 
+<span class="n">air</span> <span class="o">=</span> <span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">M</span><span class="p">[[</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="s1">'bairro'</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">))</span>
+<span class="n">air</span> <span class="o">=</span> <span class="n">air</span><span class="p">[</span><span class="n">air</span><span class="p">[</span><span class="s1">'listing_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'apartamento'</span><span class="p">]</span>
+<span class="n">air</span><span class="p">[</span><span class="s1">'tipo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">air</span><span class="p">[</span><span class="s1">'number_of_bedrooms'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bin_tipo</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'listings Airbnb (apartamento, com preço):'</span><span class="p">,</span> <span class="n">air</span><span class="p">[</span><span class="s1">'airbnb_listing_id'</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="c1"># Previa de leitura (5 primeiros registros, colunas essenciais)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Amostra dos dados carregados (5 primeiros registros):'</span><span class="p">)</span>
+<span class="n">_preview</span> <span class="o">=</span> <span class="n">air</span><span class="p">[[</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'price'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_preview</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipologia'</span><span class="p">,</span><span class="s1">'R$/noite'</span><span class="p">]</span>
+<span class="n">_preview</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_preview</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'R$ </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">,.0f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_preview</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"index"</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class="no-index"'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7812,13 +7686,42 @@ Amostra dos dados carregados (5 primeiros registros):
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="2.-Prepara%C3%A7%C3%A3o-%E2%80%94-lado-VivaReal-(pre%C3%A7o-de-compra)">2. Preparação — lado VivaReal (preço de compra)<a class="anchor-link" href="#2.-Prepara%C3%A7%C3%A3o-%E2%80%94-lado-VivaReal-(pre%C3%A7o-de-compra)">¶</a></h2><p>Filtra <code>apartamento</code>, <code>sale_price</code> &gt; 0, outlier 1-99%, tipologia binada.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e3e0ee19">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE</span><span class="si">}</span><span class="s1">VivaReal_Itapema.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">,</span> <span class="s1">'bedrooms'</span><span class="p">,</span> <span class="s1">'listing_type'</span><span class="p">,</span> <span class="s1">'sale_price'</span><span class="p">,</span> <span class="s1">'usable_area'</span><span class="p">])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[(</span><span class="n">V</span><span class="p">[</span><span class="s1">'listing_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'apartamento'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="s1">'sale_price'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">])</span>
+<span class="n">V</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="s1">'suburb'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bairro_canonic</span><span class="p">)</span>
+<span class="n">V</span><span class="p">[</span><span class="s1">'tipo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="s1">'bedrooms'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bin_tipo</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">clip_outliers</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="s1">'sale_price'</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s1">'anúncios VivaReal (apartamento):'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+
+<span class="c1"># Previa de leitura (5 primeiros registros, colunas essenciais)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Amostra dos dados carregados (5 primeiros registros):'</span><span class="p">)</span>
+<span class="n">_preview_v</span> <span class="o">=</span> <span class="n">V</span><span class="p">[[</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'sale_price'</span><span class="p">,</span><span class="s1">'usable_area'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_preview_v</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipologia'</span><span class="p">,</span><span class="s1">'Preço de compra'</span><span class="p">,</span><span class="s1">'Área m²'</span><span class="p">]</span>
+<span class="n">_preview_v</span><span class="p">[</span><span class="s1">'Preço de compra'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_preview_v</span><span class="p">[</span><span class="s1">'Preço de compra'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'R$ </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">,.0f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">_preview_v</span><span class="p">[</span><span class="s1">'Área m²'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_preview_v</span><span class="p">[</span><span class="s1">'Área m²'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">,.0f</span><span class="si">}</span><span class="s1"> m²'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_preview_v</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7887,7 +7790,8 @@ Amostra dos dados carregados (5 primeiros registros):
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="3.-Tabela-cruzada-bairro-%C3%97-tipo">3. Tabela cruzada bairro × tipo<a class="anchor-link" href="#3.-Tabela-cruzada-bairro-%C3%97-tipo">¶</a></h2><p>Agrega por célula: nº de listings Airbnb, nº de anúncios de venda,
 mediana R$/noite, mediana de preço de compra.
 Aplica corte de volume <strong>N≥20 (Airbnb) e M≥15 (VivaReal)</strong> por célula.</p>
@@ -7897,7 +7801,38 @@ O resultado é apresentado como <strong>Cap Rate de pico/verão</strong>, não m
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=604714e6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">cnt</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])[</span><span class="s1">'airbnb_listing_id'</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n_airbnb'</span><span class="p">)</span>
+<span class="n">rec</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])[</span><span class="s1">'price'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'price_med_noite'</span><span class="p">)</span>
+<span class="n">nviv</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n_vivareal'</span><span class="p">)</span>
+<span class="n">prec</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])[</span><span class="s1">'sale_price'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'sale_price_med'</span><span class="p">)</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])[</span><span class="s1">'usable_area'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'area_med_m2'</span><span class="p">)</span>
 
+<span class="n">tab</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'price_med_noite'</span><span class="p">:</span> <span class="n">rec</span><span class="p">,</span> <span class="s1">'sale_price_med'</span><span class="p">:</span> <span class="n">prec</span><span class="p">,</span>
+                     <span class="s1">'n_vivareal'</span><span class="p">:</span> <span class="n">nviv</span><span class="p">,</span> <span class="s1">'area_med_m2'</span><span class="p">:</span> <span class="n">area</span><span class="p">})</span>
+         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+<span class="n">tab</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[(</span><span class="n">tab</span><span class="p">[</span><span class="s1">'n_airbnb'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="s1">'n_vivareal'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">15</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'n_airbnb'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'n_airbnb'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">tab</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># exibição de leitura (colunas internas ficam no background)</span>
+<span class="n">_tab_leitura</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_tab_leitura</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'R$/noite'</span><span class="p">,</span><span class="s1">'Preço compra'</span><span class="p">,</span><span class="s1">'Qtd venda'</span><span class="p">,</span><span class="s1">'Área m²'</span><span class="p">,</span><span class="s1">'Qtd Airbnb'</span><span class="p">]</span>
+<span class="n">_tab_leitura</span> <span class="o">=</span> <span class="n">_tab_leitura</span><span class="p">[[</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'Qtd Airbnb'</span><span class="p">,</span><span class="s1">'Qtd venda'</span><span class="p">,</span><span class="s1">'R$/noite'</span><span class="p">,</span><span class="s1">'Preço compra'</span><span class="p">,</span><span class="s1">'Área m²'</span><span class="p">]]</span>
+<span class="n">_tab_leitura</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_tab_leitura</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="n">_tab_leitura</span><span class="p">[</span><span class="s1">'Preço compra'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_tab_leitura</span><span class="p">[</span><span class="s1">'Preço compra'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_tab_leitura</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8003,7 +7938,8 @@ O resultado é apresentado como <strong>Cap Rate de pico/verão</strong>, não m
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="4.-Cap-Rate-short-stay-(m%C3%A9trica-A)">4. Cap Rate short-stay (métrica A)<a class="anchor-link" href="#4.-Cap-Rate-short-stay-(m%C3%A9trica-A)">¶</a></h2><p><code>cap_rate(ocupação) = ocupação × R$/noite × 365 ÷ preço de compra</code></p>
 <p>Como a ocupação real não está nos dados, apresentamos o multiplicador <code>k = R$/noite × 365 ÷ preço</code>
 e o Cap Rate para ocupações de cenário. <strong>O ranking por <code>k</code> independe da ocupação</strong> (ocupação
@@ -8012,7 +7948,30 @@ só escalona os valores, não reordena).</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=69838eca">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tab</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'price_med_noite'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">/</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'sale_price_med'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]:</span>
+    <span class="n">tab</span><span class="p">[</span><span class="sa">f</span><span class="s1">'cap_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">o</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">*</span> <span class="n">o</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'rank'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'min'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
+<span class="n">_cap_tbl</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'rank'</span><span class="p">)[[</span><span class="s1">'rank'</span><span class="p">,</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'price_med_noite'</span><span class="p">,</span><span class="s1">'sale_price_med'</span><span class="p">,</span><span class="s1">'cap_50'</span><span class="p">,</span><span class="s1">'cap_60'</span><span class="p">,</span><span class="s1">'cap_70'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_cap_tbl</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#'</span><span class="p">,</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'R$/noite'</span><span class="p">,</span><span class="s1">'Preço compra'</span><span class="p">,</span><span class="s1">'Cap 50%'</span><span class="p">,</span><span class="s1">'Cap 60%'</span><span class="p">,</span><span class="s1">'Cap 70%'</span><span class="p">]</span>
+<span class="n">_cap_tbl</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cap_tbl</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="n">_cap_tbl</span><span class="p">[</span><span class="s1">'Preço compra'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cap_tbl</span><span class="p">[</span><span class="s1">'Preço compra'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'Cap 50%'</span><span class="p">,</span> <span class="s1">'Cap 60%'</span><span class="p">,</span> <span class="s1">'Cap 70%'</span><span class="p">]:</span>
+    <span class="n">_cap_tbl</span><span class="p">[</span><span class="n">_c</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cap_tbl</span><span class="p">[</span><span class="n">_c</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pct_br</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_cap_tbl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8127,7 +8086,8 @@ só escalona os valores, não reordena).</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="5.-Sensibilidade-de-ocupa%C3%A7%C3%A3o">5. Sensibilidade de ocupação<a class="anchor-link" href="#5.-Sensibilidade-de-ocupa%C3%A7%C3%A3o">¶</a></h2><p>A ordem por <code>k</code> é invariante à ocupação — por isso o ranking não muda entre cenários.
 Apresentamos os valores de 40% a 80% para mostrar a <strong>faixa de retorno</strong> por célula,
 e não como se a ocupação estivesse sendo estimada aqui.</p>
@@ -8136,7 +8096,23 @@ e não como se a ocupação estivesse sendo estimada aqui.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3898586c">
-
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">_sens_tbl</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'k'</span><span class="p">,</span><span class="s1">'cap_40'</span><span class="p">,</span><span class="s1">'cap_50'</span><span class="p">,</span><span class="s1">'cap_60'</span><span class="p">,</span><span class="s1">'cap_70'</span><span class="p">,</span><span class="s1">'cap_80'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_sens_tbl</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'k'</span><span class="p">,</span><span class="s1">'Ocup 40%'</span><span class="p">,</span><span class="s1">'Ocup 50%'</span><span class="p">,</span><span class="s1">'Ocup 60%'</span><span class="p">,</span><span class="s1">'Ocup 70%'</span><span class="p">,</span><span class="s1">'Ocup 80%'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'k'</span><span class="p">,</span><span class="s1">'Ocup 40%'</span><span class="p">,</span><span class="s1">'Ocup 50%'</span><span class="p">,</span><span class="s1">'Ocup 60%'</span><span class="p">,</span><span class="s1">'Ocup 70%'</span><span class="p">,</span><span class="s1">'Ocup 80%'</span><span class="p">]:</span>
+    <span class="n">_sens_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">_sens_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pct_br</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_sens_tbl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8251,7 +8227,8 @@ e não como se a ocupação estivesse sendo estimada aqui.</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="5b.-Ocupa%C3%A7%C3%A3o-diferencial-por-perfil-de-bairro-(vis%C3%A3o-realista)">5b. Ocupação diferencial por perfil de bairro (visão realista)<a class="anchor-link" href="#5b.-Ocupa%C3%A7%C3%A3o-diferencial-por-perfil-de-bairro-(vis%C3%A3o-realista)">¶</a></h2><p>A seção 5 mostrou o ranking assumindo <strong>mesma ocupação</strong> para todos os bairros. Mas isso é
 uma premissa fraca — Meia Praia é beira-mar consolidado, com marca e demanda estabelecida,
 enquanto Morretes fica ~500m da praia, com bairro mais periférico e <strong>1.010 anúncios de venda
@@ -8267,7 +8244,51 @@ no VivaReal</strong> indicando oversupply. Nenhum analista sério assumiria a me
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cdbbf194">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cap Rate sob ocupacao diferencial por perfil de bairro</span>
+<span class="c1"># Mesmas celulas da secao 5, mas cada bairro com sua propria faixa de ocupacao.</span>
+<span class="c1"># Bairros sem perfil atribuido usam a faixa neutra 50-60% (marcados na tabela).</span>
+<span class="n">OCC_DIFF</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'meia praia'</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">),</span>
+            <span class="s1">'centro'</span><span class="p">:</span>     <span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">),</span>
+            <span class="s1">'morretes'</span><span class="p">:</span>   <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">)}</span>
+<span class="n">OCC_NEUTRA</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">)</span>
 
+<span class="n">_d</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'occ_lo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">OCC_DIFF</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">OCC_NEUTRA</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'occ_hi'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">OCC_DIFF</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">OCC_NEUTRA</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'perfil'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="s1">'perfil atribuido'</span> <span class="k">if</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">OCC_DIFF</span> <span class="k">else</span> <span class="s1">'faixa neutra'</span><span class="p">)</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'cap_diff_lo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">*</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'occ_lo'</span><span class="p">]</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'cap_diff_hi'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">*</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'occ_hi'</span><span class="p">]</span>
+<span class="n">_d</span> <span class="o">=</span> <span class="n">_d</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'cap_diff_hi'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_d</span><span class="p">[</span><span class="s1">'rank_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[</span><span class="s1">'cap_diff_hi'</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'min'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">_diff_tbl</span> <span class="o">=</span> <span class="n">_d</span><span class="p">[[</span><span class="s1">'rank_diff'</span><span class="p">,</span> <span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">,</span> <span class="s1">'occ_lo'</span><span class="p">,</span> <span class="s1">'occ_hi'</span><span class="p">,</span>
+                <span class="s1">'cap_diff_lo'</span><span class="p">,</span> <span class="s1">'cap_diff_hi'</span><span class="p">,</span> <span class="s1">'perfil'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_diff_tbl</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#'</span><span class="p">,</span> <span class="s1">'Bairro'</span><span class="p">,</span> <span class="s1">'Tipo'</span><span class="p">,</span> <span class="s1">'Ocup. baixa'</span><span class="p">,</span> <span class="s1">'Ocup. alta'</span><span class="p">,</span>
+                     <span class="s1">'Cap diferencial (baixa)'</span><span class="p">,</span> <span class="s1">'Cap diferencial (alta)'</span><span class="p">,</span> <span class="s1">'Premissa'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'Ocup. baixa'</span><span class="p">,</span> <span class="s1">'Ocup. alta'</span><span class="p">]:</span>
+    <span class="n">_diff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">_diff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">pct_br</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'Cap diferencial (baixa)'</span><span class="p">,</span> <span class="s1">'Cap diferencial (alta)'</span><span class="p">]:</span>
+    <span class="n">_diff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">_diff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pct_br</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_diff_tbl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class="no-index"'</span><span class="p">))</span>
+
+<span class="c1"># Comparacao direta com o ranking simetrico da secao 5 (ordem por k)</span>
+<span class="n">_sim</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_top_sim</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_sim</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'bairro'</span><span class="p">],</span> <span class="n">_sim</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])</span>
+<span class="n">_top_diff</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'bairro'</span><span class="p">],</span> <span class="n">_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Lider sob ocupacao simetrica  :'</span><span class="p">,</span> <span class="n">_top_sim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Lider sob ocupacao diferencial:'</span><span class="p">,</span> <span class="n">_top_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8390,7 +8411,8 @@ Lider sob ocupacao diferencial: meia praia 1qto
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Nesta visão diferencial, <strong>Meia Praia 1q assume a liderança (12,4–13,4%)</strong>, com <strong>Morretes 2q
 caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <strong>recomendação final do relatório</strong>
 (<code>reports/recomendacao_executiva.md</code>) e o cartão do investimento da seção 9.</p>
@@ -8402,7 +8424,8 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="6.-Efici%C3%AAncia-por-m%C2%B2-(m%C3%A9trica-C-%E2%80%94-checagem)">6. Eficiência por m² (métrica C — checagem)<a class="anchor-link" href="#6.-Efici%C3%AAncia-por-m%C2%B2-(m%C3%A9trica-C-%E2%80%94-checagem)">¶</a></h2><p><code>receita anual por m² = ocupação × R$/noite × 365 ÷ área mediana (VivaReal)</code></p>
 <p>Ataca a palavra <strong>"eficiente"</strong> da tese: um studio/1qto pode ter Cap Rate alto
 <strong>e</strong> eficiência maior por m². R$/m²/ano, mesma estrutura de cenários.</p>
@@ -8410,7 +8433,29 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c4490c56">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tab</span><span class="p">[</span><span class="s1">'k_m2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'price_med_noite'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">/</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'area_med_m2'</span><span class="p">]</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'efic_60'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'k_m2'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'rank_m2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="s1">'k_m2'</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'min'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
+<span class="n">_eff_tbl</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'rank_m2'</span><span class="p">)[[</span><span class="s1">'rank_m2'</span><span class="p">,</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'area_med_m2'</span><span class="p">,</span><span class="s1">'price_med_noite'</span><span class="p">,</span><span class="s1">'k_m2'</span><span class="p">,</span><span class="s1">'efic_60'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_eff_tbl</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#'</span><span class="p">,</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'Área m²'</span><span class="p">,</span><span class="s1">'R$/noite'</span><span class="p">,</span><span class="s1">'R$/m² ano'</span><span class="p">,</span><span class="s1">'R$/m² ano (60%)'</span><span class="p">]</span>
+<span class="n">_eff_tbl</span><span class="p">[</span><span class="s1">'Área m²'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_eff_tbl</span><span class="p">[</span><span class="s1">'Área m²'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">num_br</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1"> m²'</span><span class="p">)</span>
+<span class="n">_eff_tbl</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_eff_tbl</span><span class="p">[</span><span class="s1">'R$/noite'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'R$/m² ano'</span><span class="p">,</span><span class="s1">'R$/m² ano (60%)'</span><span class="p">]:</span>
+    <span class="n">_eff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">_eff_tbl</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">brl</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_eff_tbl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8516,7 +8561,8 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7.-Ranking-com-coluna-de-confian%C3%A7a">7. Ranking com coluna de confiança<a class="anchor-link" href="#7.-Ranking-com-coluna-de-confian%C3%A7a">¶</a></h2><ul>
 <li><strong>Alta</strong>: n≥50 nas duas bases e dispersão baixa (checado p/ Morretes 2qto).</li>
 <li><strong>Média</strong>: volume razoável em uma base mas fina na outra (ex.: Centro 1qto, n_vivareal≈22).</li>
@@ -8527,7 +8573,30 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=03f46d12">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">confianca</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">na</span><span class="p">,</span> <span class="n">nv</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">'n_airbnb'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'n_vivareal'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">na</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">nv</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span> <span class="k">return</span> <span class="s1">'alta'</span>
+    <span class="k">if</span> <span class="n">na</span> <span class="o">&gt;=</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">nv</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>   <span class="k">return</span> <span class="s1">'media'</span>
+    <span class="k">if</span> <span class="n">na</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="ow">and</span> <span class="n">nv</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>   <span class="k">return</span> <span class="s1">'baixa'</span>
+    <span class="k">return</span> <span class="s1">'baixa-fina'</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'confianca'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">confianca</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
+<span class="n">_conf_tbl</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'rank'</span><span class="p">)[[</span><span class="s1">'rank'</span><span class="p">,</span><span class="s1">'bairro'</span><span class="p">,</span><span class="s1">'tipo'</span><span class="p">,</span><span class="s1">'cap_60'</span><span class="p">,</span><span class="s1">'confianca'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_conf_tbl</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#'</span><span class="p">,</span><span class="s1">'Bairro'</span><span class="p">,</span><span class="s1">'Tipo'</span><span class="p">,</span><span class="s1">'Cap 60%'</span><span class="p">,</span><span class="s1">'Confiança'</span><span class="p">]</span>
+<span class="n">_conf_tbl</span><span class="p">[</span><span class="s1">'Cap 60%'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_conf_tbl</span><span class="p">[</span><span class="s1">'Cap 60%'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pct_br</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">_conf_tbl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class=</span><span class="se">\"</span><span class="s1">no-index</span><span class="se">\"</span><span class="s1">'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8615,7 +8684,8 @@ caindo para segundo (10,3–12,6%)</strong>. É essa a visão que embasa a <stro
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="8.-Deep-dive:-o-que-explica-os-extremos">8. Deep-dive: o que explica os extremos<a class="anchor-link" href="#8.-Deep-dive:-o-que-explica-os-extremos">¶</a></h2><p>Depois do ranking, examinamos características de listing (stars, superhost, reviews,
 taxa de resposta, nº de fotos) dentro dos perfis vencedores vs. perdedores para
 responder "o que faz um imóvel render mais de forma consistente".</p>
@@ -8623,7 +8693,138 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8346d116">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Deep-dive: o que separa os imóveis que rendem mais dos que menos (compactos beira-mar)</span>
+<span class="c1"># Constrói df no nível LISTING com hosts (Details + Mesh + Price + Hosts)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span><span class="o">,</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
+<span class="n">_H</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE</span><span class="si">}</span><span class="s1">Hosts_ids_Itapema.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">_prec</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'airbnb_listing_id'</span><span class="p">)[</span><span class="s1">'price'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'price_med_noite'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">M</span><span class="p">[[</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span><span class="s1">'bairro'</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">_prec</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'airbnb_listing_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">_H</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'owner_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'listing_type'</span><span class="p">]</span><span class="o">==</span><span class="s1">'apartamento'</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'tipo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'number_of_bedrooms'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bin_tipo</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">'airbnb_listing_id'</span><span class="p">)</span>
+
+<span class="n">FOCAL</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">'centro'</span><span class="p">,</span><span class="s1">'1qto'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'centro'</span><span class="p">,</span><span class="s1">'2q'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'meia praia'</span><span class="p">,</span><span class="s1">'1qto'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'meia praia'</span><span class="p">,</span><span class="s1">'2q'</span><span class="p">)]</span>
+<span class="n">BIN</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'is_superhost'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">'is_professional'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">'can_instant_book'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+       <span class="s1">'is_guest_favorite'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">'is_verified'</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+<span class="n">THRESH</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'star_rating'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 4.8'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mf">4.8</span><span class="p">),</span>
+    <span class="s1">'number_of_reviews'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 20'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">20</span><span class="p">),</span>
+    <span class="s1">'picture_count'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 30'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">30</span><span class="p">),</span>
+    <span class="s1">'min_nights'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 3'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="s1">'response_rate_shown'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 90%'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">),</span>
+    <span class="s1">'years_host'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'&gt;= 3'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="n">H_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">bairo</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="n">FOCAL</span><span class="p">:</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span><span class="o">==</span><span class="n">bairo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'tipo'</span><span class="p">]</span><span class="o">==</span><span class="n">t</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">feats</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">BIN</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="n">grp</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="n">sub</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">==</span><span class="n">pos</span><span class="p">][</span><span class="s1">'price_med_noite'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="n">grp_no</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="n">sub</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">!=</span><span class="n">pos</span><span class="p">][</span><span class="s1">'price_med_noite'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp_no</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="n">feats</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">col</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp_no</span><span class="p">),</span> <span class="n">grp</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">grp_no</span><span class="o">.</span><span class="n">median</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,(</span><span class="n">labl</span><span class="p">,</span><span class="n">fn</span><span class="p">)</span> <span class="ow">in</span> <span class="n">THRESH</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span> <span class="k">continue</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">grp</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s1">'price_med_noite'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">();</span> <span class="n">grp_no</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">][</span><span class="s1">'price_med_noite'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp_no</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="n">feats</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">labl</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp_no</span><span class="p">),</span> <span class="n">grp</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">grp_no</span><span class="o">.</span><span class="n">median</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">nm</span><span class="p">,</span><span class="n">n_tem</span><span class="p">,</span><span class="n">n_nao</span><span class="p">,</span><span class="n">mt</span><span class="p">,</span><span class="n">mn</span> <span class="ow">in</span> <span class="n">feats</span><span class="p">:</span>
+        <span class="n">dif</span> <span class="o">=</span> <span class="n">mt</span><span class="o">-</span><span class="n">mn</span><span class="p">;</span> <span class="n">pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">mt</span><span class="o">/</span><span class="n">mn</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="k">if</span> <span class="n">mn</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">H_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'celula'</span><span class="p">:</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">bairo</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span><span class="s1">'carac'</span><span class="p">:</span><span class="n">nm</span><span class="p">,</span><span class="s1">'tem_n'</span><span class="p">:</span><span class="n">n_tem</span><span class="p">,</span><span class="s1">'nao_n'</span><span class="p">:</span><span class="n">n_nao</span><span class="p">,</span>
+                       <span class="s1">'tem_med'</span><span class="p">:</span><span class="n">mt</span><span class="p">,</span><span class="s1">'nao_med'</span><span class="p">:</span><span class="n">mn</span><span class="p">,</span><span class="s1">'dif'</span><span class="p">:</span><span class="n">dif</span><span class="p">,</span><span class="s1">'pct'</span><span class="p">:</span><span class="n">pct</span><span class="p">})</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">H_rows</span><span class="p">)</span>
+
+<span class="c1"># Matriz de efeito: linha = característica, coluna = célula, valor = % diferença no R$/noite</span>
+<span class="n">h_pivot</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'carac'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'celula'</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'pct'</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">)</span>
+<span class="c1"># ordena pelo efeito absoluto médio (maior impacto no topo)</span>
+<span class="n">h_pivot</span> <span class="o">=</span> <span class="n">h_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">h_pivot</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="c1"># Rotulos legiveis: 'meia praia 2q' -&gt; 'Meia Praia 2q' (o token de tipologia</span>
+<span class="c1"># fica intacto; .title() transformaria '1qto' em '1Qto').</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_rotulo_celula</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">partes</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
+    <span class="n">bairro</span><span class="p">,</span> <span class="n">tipo</span> <span class="o">=</span> <span class="n">partes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">partes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">bairro</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">tipo</span>
+
+<span class="n">h_pivot</span> <span class="o">=</span> <span class="n">h_pivot</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">_rotulo_celula</span><span class="p">)</span>
+<span class="c1"># zera os nomes dos eixos: 'carac'/'celula' geravam DUAS faixas de cabecalho</span>
+<span class="c1"># quase vazias em cima da tabela, so com metadado do MultiIndex.</span>
+<span class="n">h_pivot</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">h_pivot</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fmt</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">v</span><span class="p">):</span> <span class="k">return</span> <span class="s1">''</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span> <span class="k">return</span> <span class="s1">'0'</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">+.0f</span><span class="si">}</span><span class="s1">%'</span>
+
+<span class="c1"># Paleta suave: mint (sinal positivo) / salmao (negativo) / cinza quase</span>
+<span class="c1"># transparente para |efeito| &lt;= 5%, que e ruido e nao deve competir por atencao.</span>
+<span class="c1"># Texto escuro sobre pastel mantem o contraste sem a vibracao do vermelho e</span>
+<span class="c1"># verde saturados.</span>
+<span class="n">COR_POS</span> <span class="o">=</span> <span class="s1">'background-color:#d6efe0; color:#0f5c3c'</span>   <span class="c1"># mint</span>
+<span class="n">COR_NEG</span> <span class="o">=</span> <span class="s1">'background-color:#fadfd7; color:#8d3924'</span>   <span class="c1"># salmao</span>
+<span class="n">COR_RUIDO</span> <span class="o">=</span> <span class="s1">'background-color:#f2f1ed; color:#6f6a5e'</span>  <span class="c1"># neutro (sinal fraco)</span>
+<span class="n">COR_VAZIO</span> <span class="o">=</span> <span class="s1">'background-color:#f8f7f3; color:#c7c2b8'</span>  <span class="c1"># sem dado</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_bg</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">v</span><span class="p">):</span> <span class="k">return</span> <span class="n">COR_VAZIO</span>
+    <span class="c1"># compara o valor ARREDONDADO, o mesmo que _fmt exibe: senao -5,4% aparece</span>
+    <span class="c1"># como '-5%' (dentro da faixa de ruido) mas pintado de salmao.</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span> <span class="k">return</span> <span class="n">COR_RUIDO</span> <span class="o">+</span> <span class="s1">'; font-weight:500'</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">COR_POS</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">COR_NEG</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'; font-weight:600'</span>
+
+<span class="c1"># Estilos estruturais no proprio Styler para valerem tambem no notebook /</span>
+<span class="c1"># nbviewer, onde o CSS de apresentacao (scripts/apresentacao.py) nao existe.</span>
+<span class="n">_ESTILO</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+     <span class="s1">'props'</span><span class="p">:</span> <span class="p">[(</span><span class="s1">'border-collapse'</span><span class="p">,</span> <span class="s1">'separate'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'border-spacing'</span><span class="p">,</span> <span class="s1">'0 3px'</span><span class="p">)]},</span>
+    <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'thead th'</span><span class="p">,</span>
+     <span class="s1">'props'</span><span class="p">:</span> <span class="p">[(</span><span class="s1">'background-color'</span><span class="p">,</span> <span class="s1">'#0f6b5c'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'color'</span><span class="p">,</span> <span class="s1">'#ffffff'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'font-weight'</span><span class="p">,</span> <span class="s1">'600'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'font-size'</span><span class="p">,</span> <span class="s1">'13.5px'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'text-transform'</span><span class="p">,</span> <span class="s1">'none'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'letter-spacing'</span><span class="p">,</span> <span class="s1">'0.01em'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'text-align'</span><span class="p">,</span> <span class="s1">'center'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'padding'</span><span class="p">,</span> <span class="s1">'13px 16px'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'white-space'</span><span class="p">,</span> <span class="s1">'nowrap'</span><span class="p">)]},</span>
+    <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'thead th.blank'</span><span class="p">,</span>
+     <span class="s1">'props'</span><span class="p">:</span> <span class="p">[(</span><span class="s1">'background-color'</span><span class="p">,</span> <span class="s1">'transparent'</span><span class="p">)]},</span>
+    <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'tbody th'</span><span class="p">,</span>
+     <span class="s1">'props'</span><span class="p">:</span> <span class="p">[(</span><span class="s1">'background-color'</span><span class="p">,</span> <span class="s1">'#eef4f1'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'color'</span><span class="p">,</span> <span class="s1">'#26221c'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'font-weight'</span><span class="p">,</span> <span class="s1">'500'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'font-size'</span><span class="p">,</span> <span class="s1">'13.5px'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'text-transform'</span><span class="p">,</span> <span class="s1">'none'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'letter-spacing'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'text-align'</span><span class="p">,</span> <span class="s1">'left'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'padding'</span><span class="p">,</span> <span class="s1">'15px 16px'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'white-space'</span><span class="p">,</span> <span class="s1">'nowrap'</span><span class="p">)]},</span>
+    <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'tbody td'</span><span class="p">,</span>
+     <span class="s1">'props'</span><span class="p">:</span> <span class="p">[(</span><span class="s1">'font-size'</span><span class="p">,</span> <span class="s1">'15px'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'font-weight'</span><span class="p">,</span> <span class="s1">'600'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'font-variant-numeric'</span><span class="p">,</span> <span class="s1">'tabular-nums'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'text-align'</span><span class="p">,</span> <span class="s1">'center'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'padding'</span><span class="p">,</span> <span class="s1">'15px 18px'</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">'border-bottom'</span><span class="p">,</span> <span class="s1">'none'</span><span class="p">)]},</span>
+<span class="p">]</span>
+
+<span class="n">st</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_pivot</span><span class="o">.</span><span class="n">style</span>
+        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_fmt</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">_bg</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">_ESTILO</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class="deep-dive"'</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8763,7 +8964,8 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Conclusão do deep-dive:</strong> a única característica com sinal positivo consistente entre as células é <strong>gestão profissional (+22 a +54% no preço/noite)</strong>. Booking instantâneo aparece forte, mas o cross-tab mostrou que é proxy da gestão profissional. Superhost, rating e reviews deram sinal invertido — precisam de análise mais profunda, deixados como “com mais uma semana”.</p>
 </div>
 </div>
@@ -8773,13 +8975,68 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="9.-Cart%C3%A3o-do-investimento">9. Cartão do investimento<a class="anchor-link" href="#9.-Cart%C3%A3o-do-investimento">¶</a></h2><p>Síntese: preço de compra, receita bruta estimada, Cap Rate, payback simples.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c889f41c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cartão do investimento (4 células-alvo) - uma linha por célula, Cap Rate como faixa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
 
+<span class="n">occ_diff</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'centro'</span><span class="p">:(</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.60</span><span class="p">),</span><span class="s1">'meia praia'</span><span class="p">:(</span><span class="mf">0.60</span><span class="p">,</span><span class="mf">0.65</span><span class="p">),</span><span class="s1">'morretes'</span><span class="p">:(</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.55</span><span class="p">)}</span>
+
+<span class="c1"># dados fixos válidos da tabela cruzada (price_med_noite, sale_price_med) + ordem de recomendação</span>
+<span class="n">linhas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># bairro, tipo, sale_price, price_noite, recomendacao, ordem</span>
+    <span class="p">(</span><span class="s1">'Meia Praia'</span><span class="p">,</span><span class="s1">'1q'</span><span class="p">,</span> <span class="mi">877500</span><span class="p">,</span> <span class="mi">495</span><span class="p">,</span>  <span class="s1">'1ª — aposta principal'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'Morretes'</span><span class="p">,</span><span class="s1">'2q'</span><span class="p">,</span>   <span class="mi">793950</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span>  <span class="s1">'2ª — upside'</span><span class="p">,</span>         <span class="mi">2</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'Centro'</span><span class="p">,</span><span class="s1">'2q'</span><span class="p">,</span>     <span class="mi">1150000</span><span class="p">,</span><span class="mi">611</span><span class="p">,</span>  <span class="s1">'3ª — segura'</span><span class="p">,</span>          <span class="mi">3</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'Centro'</span><span class="p">,</span><span class="s1">'1q'</span><span class="p">,</span>     <span class="mi">895000</span><span class="p">,</span> <span class="mi">471</span><span class="p">,</span>  <span class="s1">'Fora — tese refutada'</span><span class="p">,</span>    <span class="mi">4</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">bairro</span><span class="p">,</span> <span class="n">tipo</span><span class="p">,</span> <span class="n">preco</span><span class="p">,</span> <span class="n">noite</span><span class="p">,</span> <span class="n">rec_label</span><span class="p">,</span> <span class="n">ordem</span> <span class="ow">in</span> <span class="n">linhas</span><span class="p">:</span>
+    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">occ_diff</span><span class="p">[</span><span class="n">bairro</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+    <span class="n">rec_lo</span><span class="p">,</span> <span class="n">rec_hi</span> <span class="o">=</span> <span class="n">lo</span><span class="o">*</span><span class="n">noite</span><span class="o">*</span><span class="mi">365</span><span class="p">,</span> <span class="n">hi</span><span class="o">*</span><span class="n">noite</span><span class="o">*</span><span class="mi">365</span>
+    <span class="n">cap_lo</span><span class="p">,</span> <span class="n">cap_hi</span> <span class="o">=</span> <span class="n">rec_lo</span><span class="o">/</span><span class="n">preco</span><span class="p">,</span> <span class="n">rec_hi</span><span class="o">/</span><span class="n">preco</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'ordem'</span><span class="p">:</span> <span class="n">ordem</span><span class="p">,</span>
+                 <span class="s1">'Recomendação'</span><span class="p">:</span> <span class="n">rec_label</span><span class="p">,</span>
+                 <span class="s1">'Bairro / Tipo'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">bairro</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">tipo</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+                 <span class="s1">'Ocupação'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">pct_br</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1">–</span><span class="si">{</span><span class="n">pct_br</span><span class="p">(</span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+                 <span class="s1">'Preço compra'</span><span class="p">:</span> <span class="n">brl</span><span class="p">(</span><span class="n">preco</span><span class="p">),</span>
+                 <span class="c1"># brl_faixa usa UM '$': dois virariam delimitador de LaTeX e o</span>
+                 <span class="c1"># MathJax tipografaria a celula como matematica (serif italico)</span>
+                 <span class="s1">'Receita anual bruta'</span><span class="p">:</span> <span class="n">brl_faixa</span><span class="p">(</span><span class="n">rec_lo</span><span class="p">,</span> <span class="n">rec_hi</span><span class="p">),</span>
+                 <span class="s1">'Cap Rate'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">pct_br</span><span class="p">(</span><span class="n">cap_lo</span><span class="p">)</span><span class="si">}</span><span class="s1"> a </span><span class="si">{</span><span class="n">pct_br</span><span class="p">(</span><span class="n">cap_hi</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+                 <span class="s1">'Payback'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">num_br</span><span class="p">(</span><span class="n">preco</span><span class="o">/</span><span class="n">rec_hi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> a </span><span class="si">{</span><span class="n">num_br</span><span class="p">(</span><span class="n">preco</span><span class="o">/</span><span class="n">rec_lo</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> anos'</span><span class="p">})</span>
+
+<span class="n">cartao4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'ordem'</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">'ordem'</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rec_bg</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'1ª'</span><span class="p">):</span> <span class="k">return</span> <span class="s1">'background-color:#138a4f; color:#ffffff; font-weight:700'</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'2ª'</span><span class="p">):</span> <span class="k">return</span> <span class="s1">'background-color:#a3c04a; color:#1a1a1a; font-weight:700'</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'3ª'</span><span class="p">):</span> <span class="k">return</span> <span class="s1">'background-color:#e0b400; color:#1a1a1a; font-weight:700'</span>
+    <span class="k">return</span> <span class="s1">'background-color:#b5b0a4; color:#ffffff'</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'**Recomendação final:** **Meia Praia 1 quarto** como aposta principal, com Cap Rate estimado entre **12,4</span><span class="si">% e</span><span class="s1"> 13,4%** no cenário diferencial (ocupação 60–65%).'</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cartao4</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">'class="no-index"'</span><span class="p">)</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">_rec_bg</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'Recomendação'</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">'text-align'</span><span class="p">:</span><span class="s1">'left'</span><span class="p">},</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'Bairro / Tipo'</span><span class="p">,</span><span class="s1">'Recomendação'</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Nota: Cap Rate = receita bruta / preço; receita sem custos operacionais; janela jan–abr superestima.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8888,7 +9145,8 @@ responder "o que faz um imóvel render mais de forma consistente".</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="10.-Mapa-interativo-%E2%80%94-Cap-Rate-por-c%C3%A9lula-(premissa-diferencial)">10. Mapa interativo — Cap Rate por célula (premissa diferencial)<a class="anchor-link" href="#10.-Mapa-interativo-%E2%80%94-Cap-Rate-por-c%C3%A9lula-(premissa-diferencial)">¶</a></h2><p>Um marcador por combinação bairro x tipo, no centroide dos imóveis Airbnb.
 A cor é o <strong>Cap Rate</strong> no cenário <strong>diferencial (faixa alta de ocupação por perfil)</strong>;
 o tamanho é proporcional ao nº de imóveis. Cinza = célula fora do ranking (volume cortado).</p>
@@ -8900,7 +9158,26 @@ ver bairro, tipologia, Cap Rate e nº de imóveis.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dedec8e2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Executa o script do mapa (scripts/map_cell.py) no contexto das variáveis atuais</span>
+<span class="c1"># O script constrói e deixa 'm' (folium.Map) no globals; exibimos explicitamente.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../scripts/map_cell.py'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">_f</span><span class="p">:</span>
+    <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">_f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'map_cell'</span><span class="p">,</span> <span class="s1">'exec'</span><span class="p">))</span>
 
+<span class="c1"># Display explícito do mapa (última expressão da célula)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -9545,7 +9822,8 @@ Usou contexto do notebook.
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="10b.-Mapa-est%C3%A1tico-(funciona-offline-e-no-GitHub/nbviewer)">10b. Mapa estático (funciona offline e no GitHub/nbviewer)<a class="anchor-link" href="#10b.-Mapa-est%C3%A1tico-(funciona-offline-e-no-GitHub/nbviewer)">¶</a></h2><p>Complemento ao mapa interativo: mesmo scatter por latitude/longitude, agora como
 imagem estática (matplotlib) — garantia de que a rápida leitura do ranking aparece
 mesmo sem Jupyter aberto.</p>
@@ -9553,7 +9831,104 @@ mesmo sem Jupyter aberto.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=17758d6f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Mapa estatico de Cap Rate (scatter otimizado: 1 ponto por celula)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
 
+<span class="n">a</span> <span class="o">=</span> <span class="n">_air_map</span><span class="p">[[</span><span class="s1">'latitude'</span><span class="p">,</span> <span class="s1">'longitude'</span><span class="p">,</span> <span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">_tab_map</span><span class="p">[[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">,</span> <span class="s1">'cap_cell'</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
+<span class="n">cel</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="p">(</span><span class="s1">'latitude'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">),</span> <span class="n">lon</span><span class="o">=</span><span class="p">(</span><span class="s1">'longitude'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">))</span>
+<span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">_tab_map</span><span class="p">[[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">,</span> <span class="s1">'cap_cell'</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">,</span> <span class="s1">'tipo'</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span>
+<span class="n">ok</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'cap_cell'</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">ok</span><span class="p">[</span><span class="s1">'cap_cell'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">ok</span><span class="p">[</span><span class="s1">'cap_cell'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">_abbr</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'meia praia'</span><span class="p">:</span> <span class="s1">'MP'</span><span class="p">,</span> <span class="s1">'centro'</span><span class="p">:</span> <span class="s1">'Ce'</span><span class="p">,</span> <span class="s1">'morretes'</span><span class="p">:</span> <span class="s1">'Mor'</span><span class="p">,</span> <span class="s1">'tabuleiro dos oliveiras'</span><span class="p">:</span> <span class="s1">'Tab'</span><span class="p">,</span>
+         <span class="s1">'casa branca'</span><span class="p">:</span> <span class="s1">'CB'</span><span class="p">,</span> <span class="s1">'alto sao bento'</span><span class="p">:</span> <span class="s1">'ASB'</span><span class="p">,</span> <span class="s1">'ilhota'</span><span class="p">:</span> <span class="s1">'Ilh'</span><span class="p">,</span> <span class="s1">'varzea'</span><span class="p">:</span> <span class="s1">'Var'</span><span class="p">,</span>
+         <span class="s1">'canto da praia'</span><span class="p">:</span> <span class="s1">'CP'</span><span class="p">,</span> <span class="s1">'sertao do trombudo'</span><span class="p">:</span> <span class="s1">'STT'</span><span class="p">,</span> <span class="s1">'sertaozinho'</span><span class="p">:</span> <span class="s1">'Sert'</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ok</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">],</span> <span class="n">ok</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ok</span><span class="p">[</span><span class="s1">'cap_cell'</span><span class="p">]],</span>
+           <span class="n">s</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fora</span> <span class="o">=</span> <span class="n">cel</span><span class="p">[</span><span class="n">cel</span><span class="p">[</span><span class="s1">'cap_cell'</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fora</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">],</span> <span class="n">fora</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'fora do ranking'</span><span class="p">)</span>
+
+<span class="n">sm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Cap Rate (diferencial, faixa alta)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Itapema </span><span class="se">\u2014</span><span class="s1"> Cap Rate por perfil (posicao media dos imoveis)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Longitude (leste = litoral)'</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Latitude'</span><span class="p">)</span>
+<span class="c1"># folga nas bordas para os rotulos nao vazarem do eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mf">0.18</span><span class="p">)</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'lower left'</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+
+<span class="c1"># --- declutter de rotulos ------------------------------------------------------</span>
+<span class="c1"># Os pontos de bairro x tipo ficam quase sobrepostos (celulas do mesmo bairro</span>
+<span class="c1"># compartilham o centroide). Em vez de um offset fixo, escolhemos para cada</span>
+<span class="c1"># rotulo o primeiro offset candidato que nao colide com rotulos ja colocados,</span>
+<span class="c1"># com os marcadores, nem com a legenda. Colisao medida em pixels (display coords).</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">ocupados</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># caixas (x0, y0, x1, y1) em pixels ja tomadas</span>
+<span class="n">PAD</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_colide</span><span class="p">(</span><span class="n">box</span><span class="p">):</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">box</span>
+    <span class="k">for</span> <span class="n">bx0</span><span class="p">,</span> <span class="n">by0</span><span class="p">,</span> <span class="n">bx1</span><span class="p">,</span> <span class="n">by1</span> <span class="ow">in</span> <span class="n">ocupados</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">&lt;</span> <span class="n">bx1</span> <span class="ow">and</span> <span class="n">bx0</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">&lt;</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">y0</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">&lt;</span> <span class="n">by1</span> <span class="ow">and</span> <span class="n">by0</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">&lt;</span> <span class="n">y1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="c1"># marcadores e legenda entram como regioes ocupadas desde o inicio</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cel</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transData</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]))</span>
+    <span class="n">ocupados</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">px</span> <span class="o">-</span> <span class="mi">8</span><span class="p">,</span> <span class="n">py</span> <span class="o">-</span> <span class="mi">8</span><span class="p">,</span> <span class="n">px</span> <span class="o">+</span> <span class="mi">8</span><span class="p">,</span> <span class="n">py</span> <span class="o">+</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">lb</span> <span class="o">=</span> <span class="n">leg</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span>
+<span class="n">ocupados</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lb</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">lb</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="n">lb</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">lb</span><span class="o">.</span><span class="n">y1</span><span class="p">))</span>
+
+<span class="c1"># candidatos: direita/esquerda/acima/abaixo, em dois raios</span>
+<span class="n">CAND</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">26</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">26</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+
+<span class="n">rot</span> <span class="o">=</span> <span class="n">ok</span><span class="p">[</span><span class="n">ok</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">_abbr</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'cap_cell'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rot</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_abbr</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s1">'bairro'</span><span class="p">]],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'tipo'</span><span class="p">])</span>
+    <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transData</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]))</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mf">6.4</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">13.0</span>           <span class="c1"># estimativa da caixa de texto</span>
+    <span class="n">escolhido</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">CAND</span><span class="p">:</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">px</span> <span class="o">+</span> <span class="n">dx</span> <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">px</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">-</span> <span class="n">w</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">py</span> <span class="o">+</span> <span class="n">dy</span> <span class="k">if</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">py</span> <span class="o">+</span> <span class="n">dy</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_colide</span><span class="p">(</span><span class="n">box</span><span class="p">):</span>
+            <span class="n">escolhido</span><span class="p">,</span> <span class="n">caixa</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">),</span> <span class="n">box</span>
+            <span class="k">break</span>
+    <span class="k">if</span> <span class="n">escolhido</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                      <span class="c1"># sem vaga: usa o ultimo candidato</span>
+        <span class="n">escolhido</span><span class="p">,</span> <span class="n">caixa</span> <span class="o">=</span> <span class="n">CAND</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">px</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">py</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">ocupados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">caixa</span><span class="p">)</span>
+    <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">escolhido</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">),</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">'left'</span> <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">'right'</span><span class="p">,</span>
+                <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">'round,pad=0.18'</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.72</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'0.35'</span><span class="p">,</span>
+                                <span class="n">shrinkA</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shrinkB</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>

@@ -178,13 +178,3 @@ trabalho; o que sobrou das causas técnicas ficou em uma linha, quando fazia par
 da narrativa do turno. Este turno também está registrado.
 
 ---
-
-## Pendências deixadas em aberto
-
-1. **Popup do mapa conta cotações, não imóveis** — em `scripts/map_cell.py` a
-   agregação usa `count()` onde caberia `nunique()`, por isso o popup de Meia
-   Praia 1qto diz "3494 imóveis". Levantado pela IA em dois turnos, não corrigido
-   por estar fora do escopo pedido.
-2. **Link do vídeo** ainda em branco no `README.md`.
-3. **`analise/apresentacao_bruta.html`** é resíduo de uma versão anterior do
-   pipeline e está fora do controle de versão; vale um `.gitignore`.

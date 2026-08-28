@@ -24,7 +24,12 @@ FONTS_HREF = ('https://fonts.googleapis.com/css2'
 
 NB = 'analise/01_analise_principal.ipynb'
 OUT = 'analise/apresentacao_sem_codigo.html'
-TMP = 'analise/_apresentacao_bruta.html'
+# A versao "bruta" (nbconvert cru, COM as celulas de codigo) e um entregavel, nao
+# um temporario: e a partir dela que a versao sem codigo e montada. Antes ela era
+# gravada como '_apresentacao_bruta.html' e apagada no fim, o que deixava o
+# 'apresentacao_bruta.html' do repo orfao e congelado numa versao antiga do
+# notebook. Agora as duas saidas sao regravadas no mesmo passo, sempre em sincronia.
+BRUTA = 'analise/apresentacao_bruta.html'
 
 CSS = '''
 :root {
@@ -267,7 +272,7 @@ table.deep-dive tbody tr:nth-child(even) td { background: inherit; }
 def main():
     repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     nb_path = os.path.join(repo, NB)
-    tmp_path = os.path.join(repo, TMP)
+    bruta_path = os.path.join(repo, BRUTA)
     out_path = os.path.join(repo, OUT)
     nb_dir = os.path.dirname(nb_path)
 
@@ -280,17 +285,17 @@ def main():
         print(r.stderr[-2500:])
         sys.exit(1)
 
-    print('2) nbconvert para HTML...')
+    print('2) nbconvert para HTML (versao bruta, com codigo)...')
     r = subprocess.run(
         [sys.executable, '-m', 'jupyter', 'nbconvert', '--to', 'html',
-         nb_path, '--output', os.path.basename(TMP)],
+         nb_path, '--output', os.path.basename(BRUTA)],
         cwd=nb_dir, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2000:])
         sys.exit(1)
 
     print('3) removendo código...')
-    with open(tmp_path, encoding='utf-8') as f:
+    with open(bruta_path, encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
     for c in soup.select('.jp-CodeCell'):
         for iw in c.select('.jp-Cell-inputWrapper'):
@@ -314,8 +319,7 @@ def main():
 
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(str(soup))
-    if os.path.exists(tmp_path):
-        os.remove(tmp_path)
+    print(f'OK -> {BRUTA} ({os.path.getsize(bruta_path)//1024} KB)')
     print(f'OK -> {OUT} ({os.path.getsize(out_path)//1024} KB)')
 
 

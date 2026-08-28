@@ -1,4 +1,12 @@
 # Cap Rate short-stay por bairro x tipologia (métrica A)
+#
+# ESCOPO DE OCUPAÇÃO — este script usa ocupação SIMÉTRICA (a mesma faixa para
+# todos os bairros: 50/60/70%). É a referência da seção 4 do notebook, ANTES da
+# aplicação da premissa diferencial. Sob simetria a ordem por Cap Rate é apenas
+# um fator de escala e Morretes 2q lidera; a ocupação diferencial por perfil de
+# bairro (seção 5b do notebook, scripts/cartao_investimento.py e o relatório
+# executivo) INVERTE o ranking e coloca Meia Praia 1q na frente. Nenhuma lógica
+# aqui muda por isso — o script é a visão simétrica de propósito.
 # O que esta saída permite concluir:
 #  - Ranking de retorno bruto anual (%) por célula bairro x tipo (apartamentos),
 #    respondendo as perguntas a/b/d do desafio.
