@@ -59,14 +59,18 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
 
 ## Como abrir (sem rodar nada)
 
-*Sobre os arquivos `.html`: ao clicar direto no GitHub, eles aparecem como código. Para visualizar o mapa interativo e o HTML de apresentação corretamente, faça o download do arquivo (botão "Raw" → salvar) e abra no seu navegador.*
+*Sobre os arquivos `.html`: o GitHub os mostra como código. Use o link "Ver online" (renderiza no navegador via htmlpreview) ou baixe o arquivo ("Raw" → salvar) e abra no navegador.*
 
 - **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
   — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
-- **Apresentação (HTML sem código, pronto pra tela):** [abrir `analise/apresentacao_sem_codigo.html`](analise/apresentacao_sem_codigo.html)
-  — versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
-- **Mapa interativo (Cap Rate por bairro × tipo):** [abrir `analise/mapa_interativo.html`](analise/mapa_interativo.html)
-  — mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
+- **Apresentação (HTML sem código, pronto pra tela):**
+  - [**Ver online** (renderizado)](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/apresentacao_sem_codigo.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao_sem_codigo.html)
+  - versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
+- **Mapa interativo (Cap Rate por bairro × tipo):**
+  - [**Ver online** (renderizado)](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/mapa_interativo.html)
+  - mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
 - **Notebook interativo (nbviewer):** [abrir no nbviewer](https://nbviewer.org/github/Luancordeirocontato/jt2026-luan-cordeiro/blob/main/analise/01_analise_principal.ipynb)
   — o notebook executado renderiza o folium ao vivo e as imagens, sem precisar clonar o repo.
 
