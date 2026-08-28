@@ -1,0 +1,8 @@
+# Compatível com Python 3.8+ (o `py` local é 3.8.6)
+# Recomendado: Python 3.10+ para melhorar cobertura de versões.
+pandas==2.0.3
+numpy==1.26.0
+matplotlib==3.7.5
+seaborn==0.13.2
+jupyter==1.0.0
+nbconvert==7.14.2
