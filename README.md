@@ -14,7 +14,7 @@ gestão profissional — priorizando **Meia Praia 1q** (retorno sólido + efici�
 - **Recomendação executiva** (sem código, para decisor): [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
 - **Análise reproduzível** (notebook executado, com números): `analise/01_analise_principal.ipynb`
 - **Metodologia e ressalvas**: `docs/metodologia.md`
-- **O que eu faria com mais uma semana**: seção 7 do relatório (resumo nas considerações finais do notebook, seção 11)
+- **Considerações finais** (o que eu faria com mais uma semana + como usei a IA): [no fim deste README](#considerações-finais) · lista completa na seção 7 do relatório
 - **Scripts auxiliares** (cap rate, deep-dive, cartão): `scripts/`
 
 Responde as perguntas do desafio:
@@ -26,7 +26,105 @@ Responde as perguntas do desafio:
 - Tese interna testada (a favor e contra): **não se sustenta** — "studio" quase não existe
   (116×2 no Centro) e o Centro não lidera retorno
 
-## Como usei a IA no processo
+## Dados
+
+Snapshot estático do mercado de Itapema em `data/`, a mesma base para todos os candidatos:
+
+| Arquivo | Conteúdo | Chave de ligação |
+|---|---|---|
+| `Details_Itapema.csv` | Anúncios Airbnb (título, reviews, rating, quartos, tipo) | listing |
+| `Hosts_ids_Itapema.csv` | Anfitriões (reviews, anos, superhost) | `owner_id` |
+| `Mesh_Ids_Data_Itapema.csv` | Localização (lat/long + bairro) | listing |
+| `Price_AV_Itapema.csv` | Preço por noite (por data de estadia/captura) | listing |
+| `VivaReal_Itapema.csv` | Anúncios de venda (preço, condomínio, área) | mercado de compra |
+
+## Como rodar
+
+```bash
+# 1. Ambiente (recomendado: Python 3.10+)
+py -m venv .venv
+# .venv\Scripts\activate  (Windows)
+# source .venv/bin/activate  (Linux/macOS)
+pip install -r requirements.txt
+
+# 2. Executar a análise (do diretório raiz do repo)
+py -m jupyter nbconvert --to notebook --execute --inplace analise/01_analise_principal.ipynb
+
+# ou abrir interativamente
+jupyter notebook analise/
+```
+
+O notebook executa de ponta a ponta (preparação → Cap Rate → sensibilidade →
+ocupação diferencial → eficiência → confiança → deep-dive → cartão → mapas →
+considerações finais). Todo o raciocínio e decisões
+metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-log/`.
+
+## Como abrir (sem rodar nada)
+
+*Sobre os arquivos `.html`: o GitHub os mostra como código. Use o link "Ver online" (renderiza no navegador via raw.githack) ou baixe o arquivo ("Raw" → salvar) e abra no navegador.*
+
+- **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
+  — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
+- **Apresentação (HTML sem código, pronto pra tela):**
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/apresentacao.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao.html)
+  - versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
+- **Notebook completo (HTML com o código à vista):**
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/notebook_completo.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/notebook_completo.html)
+  - mesma análise da apresentação, mas com todas as células de código — para quem quiser
+    conferir como cada número foi calculado sem rodar nada.
+- **Mapa interativo (Cap Rate por bairro × tipo):**
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/mapa_interativo.html)
+  - mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
+
+Para regenerar os HTMLs: `py scripts/apresentacao.py` — executa o notebook e grava `analise/apresentacao.html` e `analise/notebook_completo.html` no mesmo passo.
+
+## Estrutura
+
+```
+data/            CSVs brutos (imutáveis)
+analise/         notebook principal de análise (executado)
+scripts/         scripts auxiliares reproduzíveis
+docs/            metodologia e notas técnicas
+reports/         recomendação executiva (output final)
+ai-log/          transcript da sessão (preenchido ao final do dia)
+README.md        este arquivo
+```
+
+## Notas rápidas de leitura
+
+- **Cap Rate é short-stay bruto** (sem custos operacionais) e **baseado em janela jan–abr
+  (verão)**, que superestima a média anual. Trate os números como teto de cenário.
+- A maior incerteza é a **ocupação real anual**; testamos 45–70% por perfil de bairro
+  (premissa diferencial — veja o relatório, seção 5).
+
+## Considerações finais
+
+Esta seção espelha a **seção 11 da apresentação** (`analise/apresentacao.html`): a mesma
+síntese, em texto aqui e em visual lá.
+
+### O que eu faria com mais uma semana
+
+Os três pontos que **mudariam a resposta**, não apenas a precisão decimal.
+
+**1. Sair da premissa de ocupação.** Todo Cap Rate aqui depende da faixa assumida de
+45–70% — a maior incerteza do trabalho e a única capaz de inverter o ranking de novo.
+Os dados dão uma pista: o `Price_AV` traz até 3 capturas por par *(imóvel, data de
+estadia)*, e uma data que some entre capturas provavelmente foi reservada.
+
+**2. Cap Rate líquido, não bruto.** Condomínio (preenchido em 70,1% dos anúncios) e IPTU
+(67,4%) estão na base e foram tratados como campo indisponível. Com eles, o retorno sai
+de bruto para líquido em dois terços da amostra — e o payback real cresce.
+
+**3. Regressão para o sinal invertido.** Superhost, rating e nº de reviews aparecem com
+efeito negativo no deep-dive, o que tem mais cara de confundimento com gestão profissional
+do que de descoberta. Uma regressão com controles diria qual dos dois é.
+
+*Lista completa, com mais três itens de reforço de confiança, na seção 7 do relatório.*
+
+### Como usei a IA no processo
 
 Ao longo do dia, tratei a IA como parceira de raciocínio, não como executora. Trabalhei
 majoritariamente pelo OpenCode com o DeepSeek, e usei o Claude Code numa segunda frente,
@@ -86,79 +184,3 @@ entre eu e a IA". Ela é rápida, é boa em varrer possibilidades e é excelente
 código. Mas ela também é confiante demais, tende a defender a primeira hipótese, e passa
 por cima de nuances quando ninguém segura. Meu papel foi segurar. E é esse trabalho — de
 segurar, questionar, cruzar, refutar — que os arquivos em `ai-log/` mostram em detalhe.
-
-## Dados
-
-Snapshot estático do mercado de Itapema em `data/`, a mesma base para todos os candidatos:
-
-| Arquivo | Conteúdo | Chave de ligação |
-|---|---|---|
-| `Details_Itapema.csv` | Anúncios Airbnb (título, reviews, rating, quartos, tipo) | listing |
-| `Hosts_ids_Itapema.csv` | Anfitriões (reviews, anos, superhost) | `owner_id` |
-| `Mesh_Ids_Data_Itapema.csv` | Localização (lat/long + bairro) | listing |
-| `Price_AV_Itapema.csv` | Preço por noite (por data de estadia/captura) | listing |
-| `VivaReal_Itapema.csv` | Anúncios de venda (preço, condomínio, área) | mercado de compra |
-
-## Como rodar
-
-```bash
-# 1. Ambiente (recomendado: Python 3.10+)
-py -m venv .venv
-# .venv\Scripts\activate  (Windows)
-# source .venv/bin/activate  (Linux/macOS)
-pip install -r requirements.txt
-
-# 2. Executar a análise (do diretório raiz do repo)
-py -m jupyter nbconvert --to notebook --execute --inplace analise/01_analise_principal.ipynb
-
-# ou abrir interativamente
-jupyter notebook analise/
-```
-
-O notebook executa de ponta a ponta (preparação → Cap Rate → sensibilidade →
-ocupação diferencial → eficiência → confiança → deep-dive → cartão → mapas →
-considerações finais). Todo o raciocínio e decisões
-metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-log/`.
-
-## Como abrir (sem rodar nada)
-
-*Sobre os arquivos `.html`: o GitHub os mostra como código. Use o link "Ver online" (renderiza no navegador via htmlpreview) ou baixe o arquivo ("Raw" → salvar) e abra no navegador.*
-
-- **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
-  — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
-- **Apresentação (HTML sem código, pronto pra tela):**
-  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/apresentacao.html)
-  - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao.html)
-  - versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
-- **Notebook completo (HTML com o código à vista):**
-  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/notebook_completo.html)
-  - [Ou **baixar arquivo** e abrir no navegador](analise/notebook_completo.html)
-  - mesma análise da apresentação, mas com todas as células de código — para quem quiser
-    conferir como cada número foi calculado sem rodar nada.
-- **Mapa interativo (Cap Rate por bairro × tipo):**
-  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
-  - [Ou **baixar arquivo** e abrir no navegador](analise/mapa_interativo.html)
-  - mapa com os centroides dos bairros de Itapema, coloridos por Cap Rate (vermelho → amarelo → verde), com popup de bairro/tipo/Cap/nº imóveis.
-- **Notebook interativo (nbviewer):** [abrir no nbviewer](https://nbviewer.org/github/Luancordeirocontato/jt2026-luan-cordeiro/blob/main/analise/01_analise_principal.ipynb)
-  — o notebook executado renderiza o folium ao vivo e as imagens, sem precisar clonar o repo.
-
-Para regenerar os HTMLs: `py scripts/apresentacao.py` — executa o notebook e grava `analise/apresentacao.html` e `analise/notebook_completo.html` no mesmo passo.
-
-## Estrutura
-
-```
-data/            CSVs brutos (imutáveis)
-analise/         notebook principal de análise (executado)
-scripts/         scripts auxiliares reproduzíveis
-docs/            metodologia e notas técnicas
-reports/         recomendação executiva (output final)
-ai-log/          transcript da sessão (preenchido ao final do dia)
-README.md        este arquivo
-```
-
-## Notas rápidas de leitura
-
-- **Cap Rate é short-stay bruto** (sem custos operacionais) e **baseado em janela jan–abr
-  (verão)**, que superestima a média anual. Trate os números como teto de cenário.
-- A maior incerteza é a **ocupação real anual**; testamos 45–70% por perfil de bairro
-  (premissa diferencial — veja o relatório, seção 5).
