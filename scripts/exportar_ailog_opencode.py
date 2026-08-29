@@ -6,13 +6,12 @@
 # seja — é justamente o que o critério exclui. Aqui nada é redigido: o conteúdo
 # sai do banco como foi gravado, na ordem em que aconteceu.
 #
-# Gera dois arquivos:
-#   ai-log/opencode-sessao-completa.json  dump integral, sem nenhum corte
-#   ai-log/opencode-sessao-completa.md    a mesma conversa, legível
+# Gera um arquivo:
+#   ai-log/opencode-sessao-completa.md    a conversa inteira, legível e SEM cortes
 #
-# No .md as saídas de ferramenta muito longas (leitura de CSV, dumps) são cortadas
-# com marca explícita, e o .json ao lado guarda tudo — o corte é de leitura, nunca
-# de conteúdo.
+# Antes havia tambem um dump .json ao lado, e o .md cortava as saidas de ferramenta
+# longas apontando para ele. Como o .json era o mesmo conteudo em outro formato, foi
+# removido -- e o .md passou a sair integral, para nao depender de arquivo nenhum.
 #
 # Uso:  py scripts/exportar_ailog_opencode.py
 import json
@@ -23,9 +22,8 @@ import sys
 import tempfile
 
 DB = os.path.expanduser('~/.local/share/opencode/opencode.db')
-SAIDA_JSON = 'ai-log/opencode-sessao-completa.json'
 SAIDA_MD = 'ai-log/opencode-sessao-completa.md'
-LIMITE_TOOL = 2000       # chars por saída de ferramenta no .md
+LIMITE_TOOL = None       # None = sem corte: o .md e a unica copia da conversa
 
 
 def abrir_copia(db):
@@ -66,15 +64,13 @@ def texto_da_parte(d):
     if tipo == 'tool':
         estado = d.get('state') or {}
         nome = d.get('tool') or estado.get('title') or 'ferramenta'
-        entrada = estada = ''
         try:
-            entrada = json.dumps(estado.get('input', {}), ensure_ascii=False)[:LIMITE_TOOL]
+            entrada = json.dumps(estado.get('input', {}), ensure_ascii=False)
         except Exception:
-            entrada = str(estado.get('input', ''))[:LIMITE_TOOL]
+            entrada = str(estado.get('input', ''))
         saida = str(estado.get('output', '') or '')
-        cortada = len(saida) > LIMITE_TOOL
-        if cortada:
-            saida = saida[:LIMITE_TOOL] + f'\n[... saída cortada aqui; {len(str(estado.get("output","")))} chars no .json]'
+        if LIMITE_TOOL:
+            entrada, saida = entrada[:LIMITE_TOOL], saida[:LIMITE_TOOL]
         bloco = [f'**ferramenta `{nome}`**']
         if entrada:
             bloco.append(f'```json\n{entrada}\n```')
@@ -105,16 +101,7 @@ def main():
             (sid,)):
         partes.setdefault(mid, []).append(json.loads(pdata))
 
-    # ---------------- dump integral
-    bruto = {'session_id': sid, 'title': titulo, 'directory': diretorio,
-             'mensagens': [{'id': mid, 'time_created': tc,
-                            'data': json.loads(md),
-                            'parts': partes.get(mid, [])}
-                           for mid, md, tc in msgs]}
     os.makedirs(os.path.join(repo, 'ai-log'), exist_ok=True)
-    with open(os.path.join(repo, SAIDA_JSON), 'w', encoding='utf-8') as f:
-        # compacto: o .md e a versao de leitura; aqui o que importa e ser integral
-        json.dump(bruto, f, ensure_ascii=False, separators=(',', ':'))
 
     # ---------------- versao legivel
     out = [f'# Sessão opencode — transcript exportado do banco local',
@@ -125,8 +112,8 @@ def main():
            '',
            'Exportado de `~/.local/share/opencode/opencode.db` por '
            '`scripts/exportar_ailog_opencode.py`. Nada foi reescrito: o conteúdo sai do '
-           'banco na ordem gravada. Saídas de ferramenta muito longas aparecem cortadas '
-           'aqui por legibilidade — `opencode-sessao-completa.json`, ao lado, tem tudo.',
+           'banco na ordem gravada, sem cortes, com a prosa da IA, as chamadas de '
+           'ferramenta (entrada e saída) e os arquivos alterados a cada passo.',
            '', '---', '']
     n_user = 0
     for i, (mid, md, tc) in enumerate(msgs, 1):
@@ -148,7 +135,6 @@ def main():
         f.write('\n'.join(out))
 
     kb = lambda p: os.path.getsize(os.path.join(repo, p)) // 1024
-    print(f'OK -> {SAIDA_JSON} ({kb(SAIDA_JSON)} KB)')
     print(f'OK -> {SAIDA_MD} ({kb(SAIDA_MD)} KB)')
 
 
