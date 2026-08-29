@@ -27,13 +27,13 @@ FONTS_HREF = ('https://fonts.googleapis.com/css2'
               '&display=swap')
 
 NB = 'analise/01_analise_principal.ipynb'
-OUT = 'analise/apresentacao_sem_codigo.html'
-# A versao "bruta" (nbconvert cru, COM as celulas de codigo) e um entregavel, nao
-# um temporario: e a partir dela que a versao sem codigo e montada. Antes ela era
-# gravada como '_apresentacao_bruta.html' e apagada no fim, o que deixava o
-# 'apresentacao_bruta.html' do repo orfao e congelado numa versao antiga do
-# notebook. Agora as duas saidas sao regravadas no mesmo passo, sempre em sincronia.
-BRUTA = 'analise/apresentacao_bruta.html'
+OUT = 'analise/apresentacao.html'
+# O notebook completo (nbconvert cru, COM as celulas de codigo) e um entregavel,
+# nao um temporario: e a partir dele que a versao de apresentacao e montada. Antes
+# era gravado num arquivo temporario e apagado no fim, o que deixava a copia do
+# repo orfa e congelada numa versao antiga do notebook. Agora as duas saidas sao
+# regravadas no mesmo passo, sempre em sincronia.
+BRUTA = 'analise/notebook_completo.html'
 
 CSS = '''
 /* ============================================================ tokens
@@ -523,7 +523,7 @@ def main():
         print(r.stderr[-2500:])
         sys.exit(1)
 
-    print('2) nbconvert para HTML (versao bruta, com codigo)...')
+    print('2) nbconvert para HTML (notebook completo, com codigo)...')
     r = subprocess.run(
         [sys.executable, '-m', 'jupyter', 'nbconvert', '--to', 'html',
          nb_path, '--output', os.path.basename(BRUTA)],

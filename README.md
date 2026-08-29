@@ -127,9 +127,14 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
 - **Recomendação executiva (leitura de 5 min, sem código):** [reports/recomendacao_executiva.md](reports/recomendacao_executiva.md)
   — resposta direta às 5 perguntas do desafio, com o cartão de investimento e a posição sobre a tese.
 - **Apresentação (HTML sem código, pronto pra tela):**
-  - [**Ver online** (renderizado)](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/apresentacao_sem_codigo.html)
-  - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao_sem_codigo.html)
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/apresentacao.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/apresentacao.html)
   - versão do notebook com só markdown, tabelas, gráficos e os mapas (sem células de código).
+- **Notebook completo (HTML com o código à vista):**
+  - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/notebook_completo.html)
+  - [Ou **baixar arquivo** e abrir no navegador](analise/notebook_completo.html)
+  - mesma análise da apresentação, mas com todas as células de código — para quem quiser
+    conferir como cada número foi calculado sem rodar nada.
 - **Mapa interativo (Cap Rate por bairro × tipo):**
   - [**Ver online** (renderizado)](https://raw.githack.com/Luancordeirocontato/jt2026-luan-cordeiro/main/analise/mapa_interativo.html)
   - [Ou **baixar arquivo** e abrir no navegador](analise/mapa_interativo.html)
@@ -137,7 +142,7 @@ metodológicas estão em `docs/metodologia.md` e o transcript da sessão em `ai-
 - **Notebook interativo (nbviewer):** [abrir no nbviewer](https://nbviewer.org/github/Luancordeirocontato/jt2026-luan-cordeiro/blob/main/analise/01_analise_principal.ipynb)
   — o notebook executado renderiza o folium ao vivo e as imagens, sem precisar clonar o repo.
 
-Para regenerar o HTML de apresentação: `py scripts/apresentacao.py` (gera `analise/apresentacao_sem_codigo.html`).
+Para regenerar os HTMLs: `py scripts/apresentacao.py` — executa o notebook e grava `analise/apresentacao.html` e `analise/notebook_completo.html` no mesmo passo.
 
 ## Estrutura
 
