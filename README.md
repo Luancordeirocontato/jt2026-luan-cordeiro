@@ -18,7 +18,7 @@ gestão profissional — priorizando **Meia Praia 1q** (retorno sólido + efici�
 - **Scripts auxiliares** (cap rate, deep-dive, cartão): `scripts/`
 
 Responde as perguntas do desafio:
-- Melhor perfil de imóvel: **apartamento de 1–2 quartos** (Cap Rate 10–16% vs ~8% dos 3q+)
+- Melhor perfil de imóvel: **apartamento de 1–2 quartos** (Cap Rate 10–13% vs ~8% dos 3q+)
 - Melhor localização em receita: **faixa costeira** (Meia Praia lidera; Morretes costeiro inclui)
 - Características que explicam as melhores receitas: **gestão profissional (`is_professional`)**
   é o único sinal robusto (até +54% no R$/noite)

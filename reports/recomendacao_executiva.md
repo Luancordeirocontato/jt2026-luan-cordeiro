@@ -14,14 +14,14 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 
 | Prioridade | Célula | Preço compra mediano | R$/noite | Receita bruta* | Cap Rate* | Payback* | Confiança |
 |---|---|---|---|---|---|---|---|
-| **1ª · aposta principal** | **Meia Praia 1q** | ~R$878k | R$495 | R$99k–R$127k | **11,3%–14,4%** | 6,9–8,8 anos | baixa |
-| **2ª · upside** | **Morretes 2q** | ~R$794k | R$500 | R$100k–R$128k | 10,3%–16,1% | 6,2–7,9 anos | média |
-| **3ª · mais segura** | **Centro 2q** | ~R$1,15M | R$611 | R$123k–R$156k | 10,7%–13,6% | 7,4–9,4 anos | média |
-| Fora | Centro 1q | ~R$895k | R$471 | R$95k–R$120k | 10,6%–13,4% | 7,4–9,5 anos | baixa-fina |
+| **1ª · aposta principal** | **Meia Praia 1q** | ~R$878k | R$495 | R$108k–R$117k | **12,4%–13,4%** | 7,5–8,1 anos | baixa |
+| **2ª · upside** | **Morretes 2q** | ~R$794k | R$500 | R$82k–R$100k | 10,3%–12,6% | 7,9–9,7 anos | média |
+| **3ª · mais segura** | **Centro 2q** | ~R$1,15M | R$611 | R$123k–R$134k | 10,7%–11,6% | 8,6–9,4 anos | média |
+| Fora | Centro 1q | ~R$895k | R$471 | R$95k–R$103k | 10,6%–11,5% | 8,7–9,5 anos | baixa-fina |
 
-\* Receita e Cap Rate são **brutos** e apresentados nas faixas de ocupação por perfil de bairro: **45–70% para Morretes** (inclui o cenário pessimista de ocupação real mais baixa), **55–70% para os demais**. Cap Rate = receita anual ÷ preço de compra. Janela de preço é verão (jan–abr), o que **superestima** — ver Seção 5.
+\* Receita e Cap Rate são **brutos** e calculados na **faixa de ocupação diferencial por perfil de bairro** — **60–65% Meia Praia**, **55–60% Centro**, **45–55% Morretes** —, que é a premissa defendida na Seção 4 e detalhada na Seção 5. Cap Rate = receita anual ÷ preço de compra. Janela de preço é verão (jan–abr), o que **superestima** — ver Seção 5. O cenário **simétrico** (mesma ocupação para todos, com teto de 70%) aparece só como sensibilidade na Seção 5: ele faz Morretes chegar a 16,1% e inverte o ranking, e por isso não alimenta esta tabela.
 
-\** **Nota sobre Centro 1q vs Centro 2q:** os Cap Rates são próximos (10,6–13,4% vs 10,7–13,6%) — a distinção **não** é de retorno, e sim de **confiança de dados** (Centro 1q tem apenas 18 anúncios de venda contra 89 do Centro 2q) e do fato de Centro 1q ser exatamente a tese interna que os dados refutam.
+\** **Nota sobre Centro 1q vs Centro 2q:** os Cap Rates são próximos (10,6–11,5% vs 10,7–11,6%) — a distinção **não** é de retorno, e sim de **confiança de dados** (Centro 1q tem apenas 18 anúncios de venda contra 89 do Centro 2q) e do fato de Centro 1q ser exatamente a tese interna que os dados refutam.
 
 > **Nota (caveat):** o Cap Rate de **Meia Praia 1q repousa em n=28 imóveis** no lado Airbnb (bem no limite do corte metodológico). Recomenda-se **validar com dados proprietários de ocupação real da Seazone** antes do commit de capital.
 
@@ -31,8 +31,8 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 - **Morretes 2q (2ª · upside):** melhor Cap **potencial** (até 16,1% a 70% de ocupação) e preço de compra ~10% menor. **Mas**: a 300–600m da praia (não primeira linha), bairro mais periférico, com ocupação real provável menor. No cenário diferencial cai para 10,3%–12,6% (abaixo da Meia Praia). Entra como **opção de valor**, não como líder.
 
   *Seleção dentro do bairro:* dentro de Morretes 2q, imóveis na faixa mais oriental (litoral, mesma longitude de Meia Praia) rendem ~R$550/noite mediano vs ~R$400 no subgrupo mais interior — diferença de ~37%. Isso é insight de seleção prática: dentro do bairro, priorizar a compra na faixa costeira. Não refinamos o Cap Rate porque o VivaReal não tem coordenadas por anúncio, então a estimativa de compra fica para o Morretes inteiro.
-- **Centro 2q (3ª · segura):** o Cap Rate (10,7–13,6%) é quase igual ao de Centro 1q — a diferença **não é retorno**. Entra na recomendação por **confiança de dados** bem melhor (89 anúncios de venda vs 18) e pelo sinal forte de **gestão profissional** (+54% de R$/noite quando `is_professional` — o mais forte de todas as células). Boa opção se a prioridade for estabilidade e operação madura.
-- **Centro 1q (FORA):** o Cap Rate (10,6–13,4%) é quase idêntico ao Centro 2q, mas duas coisas tiram ele da recomendação. Primeiro: a confiança de dados é a mais baixa das quatro células (apenas 18 anúncios de venda no VivaReal, contra 89 do Centro 2q). Segundo, e mais importante: essa célula **é** a tese interna "studio/1qto no Centro" que estamos testando — e os dados mostram que ela não lidera em nenhuma métrica. Manter ela na recomendação seria confirmar a tese que os próprios dados refutam.
+- **Centro 2q (3ª · segura):** o Cap Rate (10,7–11,6%) é quase igual ao de Centro 1q — a diferença **não é retorno**. Entra na recomendação por **confiança de dados** bem melhor (89 anúncios de venda vs 18) e pelo sinal forte de **gestão profissional** (+54% de R$/noite quando `is_professional` — o mais forte de todas as células). Boa opção se a prioridade for estabilidade e operação madura.
+- **Centro 1q (FORA):** o Cap Rate (10,6–11,5%) é quase idêntico ao Centro 2q, mas duas coisas tiram ele da recomendação. Primeiro: a confiança de dados é a mais baixa das quatro células (apenas 18 anúncios de venda no VivaReal, contra 89 do Centro 2q). Segundo, e mais importante: essa célula **é** a tese interna "studio/1qto no Centro" que estamos testando — e os dados mostram que ela não lidera em nenhuma métrica. Manter ela na recomendação seria confirmar a tese que os próprios dados refutam.
 
 ---
 
@@ -45,7 +45,7 @@ Itapema comporta **uma aposta principal viável** para o modelo short-stay da Se
 1. **O recorte "studio" quase não existe em Itapema.** No Centro há **116 apartamentos de 1 quarto vs apenas 2 studios**. A tese trata "studio/1qto" como sinônimos, mas o mercado itapemense é de **1 quarto**, não de studio.
 2. **O Centro não é o melhor retorno.** Meia Praia 1q e Morretes 2q superam o Centro (em Cap, eficiência ou risco). O Centro 1q tem ainda a menor confiança de dados.
 
-**O que os dados SUSTENTAM:** a direção da tese ("compacto rende mais que grande") está correta — apartamentos de 1–2 quartos têm retorno superior a 3q/4q+ (10–14% vs ~8%), e **1 quarto** é o mais eficiente por m². Mas a localização vencedora é a **faixa costeira consolidada (Meia Praia)**, não o Centro.
+**O que os dados SUSTENTAM:** a direção da tese ("compacto rende mais que grande") está correta — apartamentos de 1–2 quartos têm retorno superior a 3q/4q+ (10–13% vs ~8%), e **1 quarto** é o mais eficiente por m². Mas a localização vencedora é a **faixa costeira consolidada (Meia Praia)**, não o Centro.
 
 ---
 
