@@ -1,6 +1,6 @@
-# Jovens Talentos AI Builder 2026 — Seazone | Itapema-SC
+**Link do vídeo (3 min):** https://drive.google.com/file/d/1iynfJKqIXdkB-RG7WkY4GwMAfDG6Db3R/view?usp=sharing
 
-**Link do vídeo (3 min):** _preencher após gravar — https://drive.google.com/..._
+# Jovens Talentos AI Builder 2026 — Seazone | Itapema-SC
 
 ## Recomendação em uma frase
 
